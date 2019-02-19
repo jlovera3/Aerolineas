@@ -50,6 +50,6 @@ public class Employee {
   @override
   public String toString(){
     return "Empleado numero: "+this.employeeNumber+"\n"+" Nombre: "+this.name+" "+
-    this.surname+" fecha nacimiento: "+this.bornDate+
+    this.surname+"\n"+" Fecha nacimiento: "+this.bornDate+"\n"+" Pais: "+this.nationality;
   }
 }
