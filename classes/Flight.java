@@ -6,7 +6,7 @@ public class Flight{
   public String siglas;
   String hour;
   Pilot[] pilots=new Pilot[2];
-  Airport origin;
+  Airport origin; 
   Airport destiny;
   Plane plane;
   Plane planeUsed;
