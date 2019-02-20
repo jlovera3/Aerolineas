@@ -4,8 +4,8 @@ public static void main(String[args]){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
 	int opcion;
-	
-	
+
+
   //inicialización de nuestra flota, empleados y vuelos de la compañia
   Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 
@@ -13,6 +13,7 @@ public static void main(String[args]){
   Pilot[] pilots=new Pilot[2];
   Tripulation[] crew=new Tripulation[6];
   Airport[] aero=new Airport[6];
+  Flight[] flights=new Flight[3];
 
   planes[0]=new Airbus("IBA0001","08/03/2008");
   planes[1]=new Airbus("IBA0002","27/02/2011");
@@ -29,30 +30,27 @@ public static void main(String[args]){
   crew[4]=new Tripulation(30707070,"Dolores","Rodriguez","09/04/1947","Spain");
   crew[5]=new Tripulation(30808080,"Julia","Delgado","24/07/1966","Spain");
 
-  aero[0]=new Airport();
-  aero[1]=new Airport();
-  aero[2]=new Airport();
-  aero[3]=new Airport();
-  aero[4]=new Airport();
-  aero[5]=new Airport();
+  aero[0]=new Airport("Cordoba", "COR");
+  aero[1]=new Airport("Madrid", "MAD");
+  aero[2]=new Airport("Barcelona", "BCN");
+  aero[3]=new Airport("Valencia", "VAL");
+  aero[4]=new Airport("Bilbao", "BIL");
+  aero[5]=new Airport("New York", "NYC");
 
-  //Contratacion de empleados
-  Iberia.hireEmployee((Employee)pilot1);
-  Iberia.hireEmployee((Employee)pilot2);
-  Iberia.hireEmployee((Employee)steward1);
-  Iberia.hireEmployee((Employee)steward2);
-  Iberia.hireEmployee((Employee)steward3);
-  Iberia.hireEmployee((Employee)stewardess1);
-  Iberia.hireEmployee((Employee)stewardess2);
-  Iberia.hireEmployee((Employee)stewardess3);
+  flights[0]=new Flight(aero[0], aero[1], planes[0], pilots, crew[0], crew[1], 80, 50, "0800");
+  flights[1]=new Flight(aero[1], aero[2], planes[0], pilots, crew[2], crew[3], 50, 40, "0930");
+  flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
+  flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
+  flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
-  Flight flights[0]=new Flight (aero1, aero2, plane1, pilots, crew[0], crew[1], 80, 50, 0800);
-  Flight flights[1]=new Flight (aero1, aero2, plane1, pilots[], crew[0], crew[1], 80, 50, 0800);
+  for(int i=0; i<amountOfEmployees; i++){
+    Iberia.hireEmployee(crew[i]);
+  }
 
-//otra
+
   //Aqui va el menu:
-  
-  
+
+
 	do{
 	System.out.print("1 Buscar vuelo ");
 	System.out.print("2 Consultar	Billete ");
@@ -66,34 +64,34 @@ public static void main(String[args]){
 	System.out.print("0 Salir ");
 	opcion=teclado.nextInt();
 	switch (teclado) {
-						case 1: 
+						case 1:
 				buscarVuelo();
 				break;
-						case 2: 
+						case 2:
 				consultaBillete();
 				break;
-						case 3: 
+						case 3:
 				eliminaBillete();
 				break;
-						case 4: 
+						case 4:
 				listaVuelos;
 				break;
-						case 5: 
+						case 5:
 				listaEmpleados();
 				break;
-						case 6: 
+						case 6:
 				listaClientes();
 				break;
-						case 7: 
+						case 7:
 				listaFlota();
 				break;
-						case 8: 
+						case 8:
 				calculaSalariosTotal();
 				break;
-						case 9: 
+						case 9:
 				calculaRentabilidad();
 				break;
-						case 0: 
+						case 0:
 				salir();
 				break;
 				default:

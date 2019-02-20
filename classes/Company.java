@@ -31,10 +31,10 @@ abstract public class Company implements IAirCompany{
     this.CEOsurname=ceoS;
     this.creationDate=date;
   }
+
   /*
-  *Metodo que recibe un objeto de tipo empleado y busca en el array de empleados
-  *de esta empresa un hueco para introducir al empleado.
-  * @param
+  *@param emp
+  * parametro 
   */
   public void hireEmployee(Employee emp){
     boolean hired=false;
