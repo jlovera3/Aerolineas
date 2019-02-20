@@ -17,7 +17,7 @@ public static void main(String[args]){
   Tripulation stewardess1=new Tripulation(30606060,"Mary","Poppins","05/02/1957","England");
   Tripulation stewardess2=new Tripulation(30707070,"Dolores","Rodriguez","09/04/1947","Spain");
   Tripulation stewardess3=new Tripulation(30808080,"Julia","Delgado","24/07/1966","Spain");
- int a;
+ 
   Airport aero1=new Airport();
   Airport aero2=new Airport();
   Airport aero3=new Airport();
