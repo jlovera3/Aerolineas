@@ -1,8 +1,8 @@
 package proyecto.classes;
 
-public class Airbus extends Plane{
+public class Boing extends Plane{
 
-  	private final int ASIENTOS=300;
+  private final int ASIENTOS=300;
 	private final int PRECIO = 280000000;
 	private final int AUTONOMIAKM = 8000;
 	private final int CONSUMOLITROKM = 12;
@@ -11,11 +11,11 @@ public class Airbus extends Plane{
 	private final int NUMEROFILASVIP = 10; //De la 1 a la 5
 	private final int CAPACIDADVEHICULOS = 4;
 
-  public Airbus(){
+  public Boing(){
     super();
   }
 
-  public Airbus(String m, String f){
+  public Boing(String m, String f){
     super(m, f);
 
   }
