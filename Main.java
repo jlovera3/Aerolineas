@@ -30,7 +30,7 @@ public static void main(String[args]){
   aero[3]=new Airport();
   aero[4]=new Airport();
   aero[5]=new Airport();
-  
+
   //Contratacion de empleados
   Iberia.hireEmployee((Employee)pilot1);
   Iberia.hireEmployee((Employee)pilot2);
@@ -42,7 +42,7 @@ public static void main(String[args]){
   Iberia.hireEmployee((Employee)stewardess3);
 
   Flight flights[0]=new Flight (aero1, aero2, plane1, pilots, crew[0], crew[1], 80, 50, 0800);
-  Flight flight1=new Flight (aero1, aero2, plane1, pilots[], crew[0], crew[1], 80, 50, 0800);
+  Flight flights[1]=new Flight (aero1, aero2, plane1, pilots[], crew[0], crew[1], 80, 50, 0800);
 
 //otra
   //Aqui va el menu:
