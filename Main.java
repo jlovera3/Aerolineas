@@ -31,7 +31,7 @@ public static void main(String[args]){
   Iberia.hireEmployee((Employee)stewardess2);
   Iberia.hireEmployee((Employee)stewardess3);
 
-  Flight firstFlight=new Flight ("Cordoba", "Madrid",  );
+  Flight firstFlight=new Flight ("Cordoba", "Madrid", h );
   Flight secondFlight=new Flight()
   //Aqui va el menu:
 
