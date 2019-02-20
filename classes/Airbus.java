@@ -1,9 +1,9 @@
 package proyecto.classes;
 
 public class Airbus extends Plane{
-	
+
   	private final int ASIENTOS_DEF=80;
-	private final int PRECIO = 80.000.000;
+	private final int PRECIO = 80000000;
 	private final int AUTONOMIAKM = 4000;
 	private final int CONSUMOLITROKM = 11;
 	private final int NUMERODEFILAS = 20;
@@ -14,9 +14,9 @@ public class Airbus extends Plane{
   public Airbus(){
     super();
   }
-  
+
   public Airbus(String m, String f){
     super(m, f);
-	
+
   }
 }
