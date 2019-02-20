@@ -1,12 +1,12 @@
 package proyecto.classes;
 
-public class Employee {
+abstract public class Employee {
 
-  public static final DNI_DEF=00000000;
-  public static final NAME_DEF="Desconocido";
-  public static final SURNAME_DEF="Sin Apellidos";
-  public static final BORNDATE_DEF="01/01/2000";
-  public static final NATIONALITY_DEF="NONE";
+  public static final int DNI_DEF=00000000;
+  public static final String NAME_DEF="Desconocido";
+  public static final String SURNAME_DEF="Sin Apellidos";
+  public static final String BORNDATE_DEF="01/01/2000";
+  public static final String NATIONALITY_DEF="NONE";
 
   public static int amountOfEmployees=0;
   public int DNI;
@@ -37,20 +37,6 @@ public class Employee {
     amountOfEmployees++;
     this.employeeNumber=amountOfEmployees;
   }
-
-  public boolean hireEmployee(Employee emp){
-
-  }
-  boolean fireEmployee();
-  public void listEmployee(){
-
-  }
-  Employee searchEmployee();
-  int totalSalary();
-  @override
-  public String toString(){
-    return "Empleado numero: "+this.employeeNumber+", Ocupacion: "+this.work+"\n"+
-    " Nombre: "+this.name+" "+this.surname+"\n"+" Fecha nacimiento: "+
-    this.bornDate+"\n"+" Pais: "+this.nationality+"\n";
-  }
+  abstract public int totalSalary();
+  abstract public String toString();
 }

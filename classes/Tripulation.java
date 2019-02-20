@@ -16,4 +16,13 @@ public class Tripulation extends Employee{
     hoursWorked+=h;
     salary+=1000;
   }
+  public int totalSalary(){
+    return this.salary;
+  }
+  @Override
+  public String toString(){
+    return "Empleado numero: "+this.employeeNumber+", Ocupacion: "+this.work+"\n"+
+    " Nombre: "+this.name+" "+this.surname+"\n"+" Fecha nacimiento: "+
+    this.bornDate+"\n"+" Pais: "+this.nationality+"\n";
+  }
 }
