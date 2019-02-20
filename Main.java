@@ -13,7 +13,7 @@ public static void main(String[args]){
   Pilot[] pilots=new Pilot[2];
   Tripulation[] crew=new Tripulation[6];
   Airport[] aero=new Airport[6];
-  Flight[] flights=new Flight[3];
+  Flight[] flights=new Flight[5];
 
   planes[0]=new Airbus("IBA0001","08/03/2008");
   planes[1]=new Airbus("IBA0002","27/02/2011");
@@ -47,6 +47,7 @@ public static void main(String[args]){
     Iberia.hireEmployee(crew[i]);
   }
 
+  for(int i=0; )
 
   //Aqui va el menu:
 
