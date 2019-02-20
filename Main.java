@@ -16,12 +16,16 @@ public static void main(String[args]){
   Tripulation steward1=new Tripulation(30303030,"Jack","Nicholson","05/12/1967","England");
   Tripulation steward2=new Tripulation(30404040,"Francisco","Carrasquilla","15/10/1993","Spain");
   Tripulation steward3=new Tripulation(30505050,"Frodo","Bolson","25/12/1867","Hobbiton");
-
   Tripulation stewardess1=new Tripulation(30606060,"Mary","Poppins","05/02/1957","England");
   Tripulation stewardess2=new Tripulation(30707070,"Dolores","Rodriguez","09/04/1947","Spain");
   Tripulation stewardess3=new Tripulation(30808080,"Julia","Delgado","24/07/1966","Spain");
 
-
+  Airport aero1=new Airport();
+  Airport aero2=new Airport();
+  Airport aero3=new Airport();
+  Airport aero4=new Airport();
+  Airport aero5=new Airport();
+  Airport aero6=new Airport();
   //Contratacion de empleados
   Iberia.hireEmployee((Employee)pilot1);
   Iberia.hireEmployee((Employee)pilot2);
@@ -32,7 +36,8 @@ public static void main(String[args]){
   Iberia.hireEmployee((Employee)stewardess2);
   Iberia.hireEmployee((Employee)stewardess3);
 
-  Flight firstFlight=new Flight ("Cordoba", "Madrid", h );
+  Flight firstFlight=new Flight (aero1, aero2, plane1, pilot1, pilot2, steward1,
+   steward2, 80, 50, 0800);
   Flight secondFlight=new Flight()
   //Aqui va el menu:
 

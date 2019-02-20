@@ -10,10 +10,11 @@ public class Flight{
   Plane planeUsed;
   Pilot pilot1;
   Pilot pilot2;
+
   // Array de azafatas
   Tripulation [] stewardess=new Tripulation [6];
   int numberPlaces;
-
+  
 
 
 
