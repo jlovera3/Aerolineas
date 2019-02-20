@@ -15,38 +15,37 @@ System.out.print("0 Salir ");
 opcion=teclado.nextInt();
 switch (teclado) {
 						case 1: 
-				suma();
+				buscarVuelo();
 				break;
 						case 2: 
-				suma();
+				consultaBillete();
 				break;
 						case 3: 
-				suma();
+				eliminaBillete();
 				break;
 						case 4: 
-				System.out.println("Ha elegido dividir");
-				suma();
+				listaVuelos;
 				break;
 						case 5: 
-				suma();
+				listaEmpleados();
 				break;
 						case 6: 
-				suma();
+				listaClientes();
 				break;
 						case 7: 
-				suma();
+				listaFlota();
 				break;
 						case 8: 
-				suma();
+				calculaSalariosTotal();
 				break;
 						case 9: 
-				suma();
+				calculaRentabilidad();
 				break;
 						case 0: 
-				suma();
+				salir();
 				break;
 				default:
-				System.out.println("Incorrecto");
+				System.out.println("Esa no es una opcion");
 
 			}
 		}while(opcion!=0);
