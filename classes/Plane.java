@@ -8,7 +8,7 @@ public class Plane (){
 
 	private String matricula;
 	private String siglas;
-	private fecha_creacion;
+	private String fecha_creacion;
 	
 	public Plane (){
 		this.matricula = MATRICULA_DEF;

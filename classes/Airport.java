@@ -7,8 +7,6 @@ public class Airport{
 	
   	protected String nombreAero="";
 	protected String siglas="";
-	protected int 
-	private final Flight[] vuelos;
 	
 
   public Airport(){
