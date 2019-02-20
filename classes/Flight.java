@@ -7,6 +7,7 @@ public class Flight{
   int hour;
   Airport origin;
   Airport destiny;
+  Plane plane;
   Plane planeUsed;
   Pilot pilot1;
   Pilot pilot2;
@@ -18,7 +19,8 @@ public class Flight{
 
 
 
-  boolean addFlight(int h){
+
+  boolean addFlight(Airport origin, Airport destiny,Plane plane, Pilot pilot1,Pilot pilot2){
 
   }
   void listFlight();
