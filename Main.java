@@ -1,6 +1,7 @@
 import classes.*;
 
 public static void main(String[args]){
+  int a;
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
   Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
