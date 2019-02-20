@@ -17,8 +17,11 @@ abstract public class Company implements IAirCompany{
   public Plane[] planes=new Plane[amountOfPlanes];
   //Constructores de la clase company:
   public Company(){
-    this.name="DEFECT";
-    this.siglasComp="DEF";
+    this.name=COMP_NAME_DEF;
+    this.siglasComp=SIGLAS_DEF;
+    this.CEOname=CEON_DEF;
+    this.CEOsurname=CEOS_DEF;
+    this.creationDate=CREAT_DATE_DEF;
   }
   public Company(String name, String siglas, String ceoN,
    String ceoS, String date){
@@ -48,7 +51,11 @@ abstract public class Company implements IAirCompany{
   }
 
   boolean fireEmployee();
-  void listEmployee();
+  public void listEmployee(){
+    for(int i=0; i<amountOfEmployees; i++){
+      
+    }
+  }
   Employee searchEmployee();
   int totalSalary();
 

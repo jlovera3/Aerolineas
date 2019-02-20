@@ -1,8 +1,6 @@
 import classes.*;
 
 public static void main(String[args]){
-  int a;
-
   //inicialización de nuestra flota, empleados y vuelos de la compañia
   Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 
@@ -36,9 +34,11 @@ public static void main(String[args]){
   Iberia.hireEmployee((Employee)stewardess2);
   Iberia.hireEmployee((Employee)stewardess3);
 
-  Flight firstFlight=new Flight (aero1, aero2, plane1, pilot1, pilot2, steward1,
+  Flight flight1=new Flight (aero1, aero2, plane1, pilot1, pilot2, steward1,
    steward2, 80, 50, 0800);
-  Flight secondFlight=new Flight()
+  Flight flight2=new Flight()
+
+
   //Aqui va el menu:
 
 

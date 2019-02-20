@@ -49,7 +49,8 @@ public class Employee {
   int totalSalary();
   @override
   public String toString(){
-    return "Empleado numero: "+this.employeeNumber+"\n"+" Nombre: "+this.name+" "+
-    this.surname+"\n"+" Fecha nacimiento: "+this.bornDate+"\n"+" Pais: "+this.nationality;
+    return "Empleado numero: "+this.employeeNumber+", Ocupacion: "+this.work+"\n"+
+    " Nombre: "+this.name+" "+this.surname+"\n"+" Fecha nacimiento: "+
+    this.bornDate+"\n"+" Pais: "+this.nationality;
   }
 }
