@@ -14,7 +14,7 @@ public class Flight{
   // Array de azafatas
   Tripulation [] stewardess=new Tripulation [6];
   int numberPlaces;
-  
+
 
 
 
@@ -28,4 +28,8 @@ public class Flight{
   public generaSiglas(){
 
   }
+
+  StringBuilder micadena=new StringBuilder();
+  micadena.append("");
+  micadena.append(siglasComp);
 }

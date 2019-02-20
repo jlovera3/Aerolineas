@@ -51,14 +51,17 @@ abstract public class Company implements IAirCompany{
   }
 
   boolean fireEmployee();
+
   public void listEmployee(){
     for(int i=0; i<amountOfEmployees; i++){
-      
+      employees[i].toString();
     }
   }
-  Employee searchEmployee();
-  int totalSalary();
 
+  Employee searchEmployee();
+  public int totalSalary(Employee emp){
+
+  }
   boolean addPlane();
   void listPlane();
   boolean removePlane();
