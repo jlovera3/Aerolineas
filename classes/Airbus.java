@@ -2,7 +2,7 @@ package proyecto.classes;
 
 public class Airbus extends Plane{
 
-  private final int ASIENTOS_DEF=80;
+  private final int ASIENTOS=80;
 	private final int PRECIO = 80000000;
 	private final int AUTONOMIAKM = 4000;
 	private final int CONSUMOLITROKM = 11;
