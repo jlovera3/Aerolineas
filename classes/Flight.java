@@ -1,5 +1,5 @@
-package classes;
-import intefaces.IAirCompany;
+package proyecto.classes;
+import proyecto.pilot;
 
 public class Flight{
 
@@ -26,11 +26,11 @@ public class Flight{
       this.destiny=aero2;
       this.plane=plane;
 
-      for(i=0;i>1;i++){
+      for(i=0;i<2;i++){
         this.pilots[i]=pilots[i];
-        this.pilots[i].addHours(duration/60)
+        this.pilots[i].addHours(duration/60);
       }
-      for(i=0;i=1;i++){
+      for(i=0;i<2;i++){
         this.crew[i]=stewardess[i];
         this.crew[i].addHours(duration/60);
       }
@@ -52,7 +52,7 @@ public class Flight{
 
     for(i=0;i>1;i++){
       this.pilots[i]=pilots[i];
-      this.pilots[i].addHours(duration/60)
+      this.pilots[i].addHours(duration/60);
     }
     this.crew[0]=steward1;
     this.crew[1]=steward2;
@@ -64,6 +64,7 @@ public class Flight{
     this.generaSiglas();
 
   }
+
   void listFlight();
   Flight searchFlight();
   boolean removeFlight();
