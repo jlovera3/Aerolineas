@@ -1,6 +1,7 @@
 import classes.*;
 
-public static void main(String[args]){
+public class Main{
+public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
 	int opcion;
@@ -10,8 +11,8 @@ public static void main(String[args]){
   Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 
   Plane[] planes=new Plane[3];
-  Pilot[] pilots=new Pilot[2];
-  Tripulation[] crew=new Tripulation[6];
+  Pilot[] pilots=new Pilot[6];
+  Tripulation[] crew=new Tripulation[10];
   Airport[] aero=new Airport[6];
   Flight[] flights=new Flight[5];
 
@@ -43,12 +44,16 @@ public static void main(String[args]){
   flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
-  for(int i=0; i<amountOfEmployees; i++){
-    Iberia.hireEmployee(crew[i]);
-  }
-
-  for(int i=0; )
-
+	{
+		int i=0;
+		boolean done=false;
+	  for(int i=0; i<amountOfEmployees&&!done; i++){
+			if(crew[i]!=null){
+				Iberia.hireEmployee(crew[i]);
+				done=true;
+			}
+	}
+}
   //Aqui va el menu:
 
 
@@ -103,4 +108,5 @@ public static void main(String[args]){
 
 
 
+}
 }
