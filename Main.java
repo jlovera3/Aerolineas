@@ -43,7 +43,7 @@ public static void Main(String[] args){
   flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
   flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
-
+}
 
 	protected void hireTrip(){
 		int i=0;
@@ -103,7 +103,7 @@ public static void Main(String[] args){
 
   //Aqui va el menu:
 
-
+protected void mostrarMenu(){
 	do{
 	System.out.print("1 Buscar vuelo ");
 	System.out.print("2 Consultar	Billete ");
@@ -152,8 +152,4 @@ public static void Main(String[] args){
 
 			}
 		}while(opcion!=0);
-
-
-
-}
 }
