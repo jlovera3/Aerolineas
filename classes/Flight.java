@@ -58,14 +58,13 @@ public class Flight{
     this.origin=aero1;
     this.destiny=aero2;
     this.plane=plane;
-    if(plane instanceof Boing){
-      this.VIPseats[this.Boing.NUMEROFILASVIP][this.Boing.NUMEROCOLUMNAS];
-      this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
-    }else{
-      this.VIPseats[this.Airbus.NUMEROFILASVIP][this.Airbus.NUMEROCOLUMNAS];
-      this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
-    }else{
-    }
+        if(plane instanceof Boing){
+          this.VIPseats[this.Boing.NUMEROFILASVIP][this.Boing.NUMEROCOLUMNAS];
+          this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
+        }else{
+          this.VIPseats[this.Airbus.NUMEROFILASVIP][this.Airbus.NUMEROCOLUMNAS];
+          this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
+          }
 
     for(i=0;i>1;i++){
       this.pilots[i]=pilots[i];
@@ -84,7 +83,7 @@ public class Flight{
   }
 
   public void iniciaSeats(){
-    if(plane.PlaneType="boing"){
+    if(plane.PlaneType="Boing"){
       for(i=0;i<this.Boing.NUMEROFILASVIP;i++){
         for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
               VIPseats[i][j]="o";
@@ -97,8 +96,21 @@ public class Flight{
       }
 
     }
+    if(plane.PlaneType="Airbus"){
+      for(i=0;i<this.Airbus.NUMEROFILASVIP;i++){
+        for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
+              VIPseats[i][j]="o";
+            }
+        }
+      for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
+          for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
+                seats[i][j]="o";
+              }
+      }
 
+    }
 
+}
 
 
 
