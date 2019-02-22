@@ -11,6 +11,8 @@ public class Airbus extends Plane{
 	private final int NUMEROFILASVIP = 5; //De la 1 a la 5
 	private final int CAPACIDADVEHICULOS = 0;
 
+  public String PlaneType="Airbus";
+
   public Airbus(){
     super();
   }

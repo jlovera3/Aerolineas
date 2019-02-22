@@ -11,6 +11,9 @@ public class Boing extends Plane{
 	private final int NUMEROFILASVIP = 10; //De la 1 a la 5
 	private final int CAPACIDADVEHICULOS = 4;
 
+  public String PlaneType="Boing";
+
+
   public Boing(){
     super();
   }
