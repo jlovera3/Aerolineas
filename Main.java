@@ -44,16 +44,63 @@ public static void Main(String[] args){
   flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
-	{
+
+	protected void hireTrip(){
 		int i=0;
 		boolean done=false;
-	  for(int i=0; i<amountOfEmployees&&!done; i++){
+	  for(int i=0; i<amountOfTripulation&&!done; i++){
 			if(crew[i]!=null){
 				Iberia.hireEmployee(crew[i]);
 				done=true;
 			}
+		}
 	}
-}
+
+	protected void hirePil(){
+		int i=0;
+		boolean done=false;
+	  for(int i=0; i<amountOfPilots&&!done; i++){
+			if(pilots[i]!=null){
+				Iberia.hireEmployee(pilots[i]);
+				done=true;
+			}
+		}
+	}
+
+	protected void addPlane(){
+		int i=0;
+		boolean done=false;
+	  for(int i=0; i<amountOfPlanes&&!done; i++){
+			if(planes[i]!=null){
+				Iberia.addPlane(planes[i]);
+				done=true;
+			}
+		}
+	}
+
+	protected void addPlane(){
+		int i=0;
+		boolean done=false;
+	  for(int i=0; i<amountOfPlanes&&!done; i++){
+			if(planes[i]!=null){
+				Iberia.addPlane(planes[i]);
+				done=true;
+			}
+		}
+	}
+
+	protected void addFlight(){
+		int i=0;
+		boolean done=false;
+	  for(int i=0; i<amountOfFlights&&!done; i++){
+			if(flights[i]!=null){
+				Iberia.addPlane(flights[i]);
+				done=true;
+			}
+		}
+	}
+
+
   //Aqui va el menu:
 
 
