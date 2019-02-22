@@ -13,8 +13,10 @@ abstract public class Company implements IAirCompany{
   public String CEOname;
   public String CEOsurname;
   public String creationDate;
-  public Employee[] employees=new Employee[amountOfEmployees];
+  public Pilot[] pilots=new Pilot[amountOfPilots];
+  public Tripulation[] crew=new Tripulation[amountOfTripulation];
   public Plane[] planes=new Plane[amountOfPlanes];
+  public Flight[] flights=new Flight[amountOfFlights];
   //Constructores de la clase company:
   public Company(){
     this.name=COMP_NAME_DEF;
@@ -34,7 +36,7 @@ abstract public class Company implements IAirCompany{
 
   /*
   *@param emp
-  * parametro 
+  * parametro
   */
   public void hireEmployee(Employee emp){
     boolean hired=false;
@@ -62,7 +64,10 @@ abstract public class Company implements IAirCompany{
   public int totalSalary(Employee emp){
 
   }
-  boolean addPlane();
+  public boolean addPlane(Plane p){
+
+
+  }
   void listPlane();
   boolean removePlane();
   Plane searchPlane();

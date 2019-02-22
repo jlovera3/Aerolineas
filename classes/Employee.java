@@ -8,7 +8,7 @@ abstract public class Employee {
   public static final String BORNDATE_DEF="01/01/2000";
   public static final String NATIONALITY_DEF="NONE";
 
-  public static int amountOfEmployees=0;
+  
   public int DNI;
   public int employeeNumber;
   public String name;

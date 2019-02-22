@@ -4,13 +4,16 @@ public class Tripulation extends Employee{
   public int salary=40000;
   public float hoursWorked;
   public String work="steward";
+  public static int amountOfTripulation=0;
 
   public Tripulation(){
     super();
+    this.amountOfTripulation++;
   }
   public Tripulation(int dni, String name, String apellido,
   String date, String nation, int sala){
     super(dni, name, apellido, date, nation);
+    this.amountOfTripulation++;
   }
   public void addHours(float h){
     hoursWorked+=h;
