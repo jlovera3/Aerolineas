@@ -34,10 +34,7 @@ abstract public class Company implements IAirCompany{
     this.creationDate=date;
   }
 
-  /*
-  *@param emp
-  * parametro
-  */
+  //METODOS DE EMPLEADOS
   public void hireEmployee(Empleado emp){
     boolean hired=false;
     if(emp instanceof Tripulation){
@@ -77,8 +74,9 @@ abstract public class Company implements IAirCompany{
   public int totalSalary(Employee emp){
 
   }
+
   //METODOS DE AVION
-  public boolean addPlane(Plane p){
+  public void addPlane(Plane p){
     boolean added=false;
     for(int i=0; i<amountOfPlanes&&!added; i++){
       if(planes[i]==null){
@@ -96,17 +94,29 @@ abstract public class Company implements IAirCompany{
   boolean removePlane();
   Plane searchPlane();
 
-  boolean addFlight(){
-    
+  public void addFlight(Flight f){
+    boolean added=false;
+    for(int i=0; i<amountOfFlights&&!added; i++){
+      if(flights[i]==null){
+        flights[i]=f;
+        added=true;
+        System.out.println("The flight has been added");
+      }
+    }
+    if(hired==false){
+      System.out.println("The flight could not be added");
+    }
   }
   void listFlight();
   Flight searchFlight();
   boolean removeFlight();
 
+//METODOS DE TICKET
   boolean buyTicket();
   boolean removeTicket();
   Flight searchTicket();
 
+//METODOS DE CLIENTE
   boolean addClient();
   void listClient();
   Client searchClient();
