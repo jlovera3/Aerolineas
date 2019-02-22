@@ -34,10 +34,7 @@ abstract public class Company implements IAirCompany{
     this.creationDate=date;
   }
 
-  /*
-  *@param emp
-  * parametro
-  */
+  //METODOS DE EMPLEADOS
   public void hireEmployee(Empleado emp){
     boolean hired=false;
     if(emp instanceof Tripulation){
@@ -77,6 +74,7 @@ abstract public class Company implements IAirCompany{
   public int totalSalary(Employee emp){
 
   }
+
   //METODOS DE AVION
   public void addPlane(Plane p){
     boolean added=false;
@@ -113,10 +111,12 @@ abstract public class Company implements IAirCompany{
   Flight searchFlight();
   boolean removeFlight();
 
+//METODOS DE TICKET
   boolean buyTicket();
   boolean removeTicket();
   Flight searchTicket();
 
+//METODOS DE CLIENTE
   boolean addClient();
   void listClient();
   Client searchClient();
