@@ -13,8 +13,10 @@ abstract public class Company implements IAirCompany{
   public String CEOname;
   public String CEOsurname;
   public String creationDate;
-  public Employee[] employees=new Employee[amountOfEmployees];
+  public Pilot[] pilots=new Pilot[amountOfPilots];
+  public Tripulation[] crew=new Tripulation[amountOfTripulation];
   public Plane[] planes=new Plane[amountOfPlanes];
+  public Flight[] flights=new Flight[amountOfFlights];
   //Constructores de la clase company:
   public Company(){
     this.name=COMP_NAME_DEF;
@@ -34,19 +36,32 @@ abstract public class Company implements IAirCompany{
 
   /*
   *@param emp
-  * parametro 
+  * parametro
   */
-  public void hireEmployee(Employee emp){
+  public void hireEmployee(Empleado emp){
     boolean hired=false;
-    for(int i=0; i<amountOfEmployees&&!hired; i++){
-      if(employees[i]==null){
-        employees[i]=emp;
-        hired=true;
-        System.out.println("The employee named "+emp.name+" "+emp.surname+" has been hired");
+    if(emp instanceof Tripulation){
+      for(int i=0; i<amountOfTripulation&&!hired; i++){
+        if(crew[i]==null){
+          crew[i]=emp;
+          hired=true;
+          System.out.println("The employee named "+emp.name+" "+emp.surname+" has been hired");
+        }
       }
-    }
-    if(hired==false){
-      System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
+      if(hired==false){
+        System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
+      }
+    }else if(emp instanceof Pilot){
+      for(int i=0; i<amountOfPilots&&!hired; i++){
+        if(pilots[i]==null){
+          pilots[i]=emp;
+          hired=true;
+          System.out.println("The employee named "+emp.name+" "+emp.surname+" has been hired");
+        }
+      }
+      if(hired==false){
+        System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
+      }
     }
   }
 
@@ -62,12 +77,28 @@ abstract public class Company implements IAirCompany{
   public int totalSalary(Employee emp){
 
   }
-  boolean addPlane();
+  //METODOS DE AVION
+  public boolean addPlane(Plane p){
+    boolean added=false;
+    for(int i=0; i<amountOfPlanes&&!added; i++){
+      if(planes[i]==null){
+        planes[i]=p;
+        added=true;
+        System.out.println("The plane has been added");
+      }
+    }
+    if(hired==false){
+      System.out.println("The plane could not be added");
+    }
+  }
+
   void listPlane();
   boolean removePlane();
   Plane searchPlane();
 
-  boolean addFlight();
+  boolean addFlight(){
+    
+  }
   void listFlight();
   Flight searchFlight();
   boolean removeFlight();
