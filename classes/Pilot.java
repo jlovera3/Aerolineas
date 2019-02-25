@@ -18,6 +18,7 @@ public class Pilot extends Employee {
     hoursWorked+=h;
     salary+=5000;
   }
+  @Override
   public int totalSalary(){
     return this.salary;
   }

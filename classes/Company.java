@@ -62,17 +62,48 @@ abstract public class Company implements IAirCompany{
     }
   }
 
-  boolean fireEmployee();
+  public boolean fireEmployee(String name){
+    boolean fired=false;
+
+  }
 
   public void listEmployee(){
-    for(int i=0; i<amountOfEmployees; i++){
-      employees[i].toString();
+    for(int i=0; i<amountOfPilots; i++){
+      System.out.println(pilots[i].toString());
+    }
+    for(int i=0; i<amountOfTripulation; i++){
+      System.out.println(crew[i].toString());
     }
   }
 
-  Employee searchEmployee();
-  public int totalSalary(Employee emp){
+  public Employee searchEmployee(String named){
+    boolean found=false;
+    Employee sol=null;
+    for(int i=0; i<amountOfTripulation&&!found; i++){
+      if(crew[i].name==named){
+        sol=crew[i];
+        found=true;
+      }else if(pilots[i].name==named){
+        sol=pilots[i];
+        found=true;
+      }
+    }
+    return sol;
+  }
 
+  public int totalSalary(String name){
+    boolean found=false;
+    int money;
+    for(int i=0; i<amountOfTripulation&&!found; i++){
+      if(crew[i].name==name){
+        money=crew[i].totalSalary();
+        found=true;
+      }else if(pilots[i].name==name){
+        money=pilots[i].totalSalary();
+        found=true;
+      }
+    }
+    return money;
   }
 
   //METODOS DE AVION
@@ -107,9 +138,20 @@ abstract public class Company implements IAirCompany{
       System.out.println("The flight could not be added");
     }
   }
-  void listFlight();
-  Flight searchFlight();
-  boolean removeFlight();
+  public void listFlight(){
+    //metodo que llama a toString de Flight y muestra por partalla
+    //los atributos de cada vuelo de nuestro array.
+  }
+  public Flight searchFlight(Airport a, Airport b){
+    /*Metodo que recibe dos aeropuertos de origen y destino y
+    *devuelve los vuelos disponibles entre esos dos aeropuertos
+    *Tambien tiene que mostrar los vuelos aunque sea con escalas
+    */
+
+  }
+  public boolean removeFlight(){
+
+  }
 
 //METODOS DE TICKET
   boolean buyTicket();

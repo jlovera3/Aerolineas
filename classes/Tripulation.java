@@ -19,6 +19,7 @@ public class Tripulation extends Employee{
     hoursWorked+=h;
     salary+=1000;
   }
+  @Override
   public int totalSalary(){
     return this.salary;
   }
