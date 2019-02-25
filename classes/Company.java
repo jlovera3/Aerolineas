@@ -64,7 +64,7 @@ abstract public class Company implements IAirCompany{
 
   public boolean fireEmployee(String name){
     boolean fired=false;
-
+    
   }
 
   public void listEmployee(){
@@ -141,14 +141,39 @@ abstract public class Company implements IAirCompany{
   public void listFlight(){
     //metodo que llama a toString de Flight y muestra por partalla
     //los atributos de cada vuelo de nuestro array.
+    for(int i=0; i<amountOfFlights; i++){
+      System.out.println(flights[i].toString());
+    }
   }
-  public Flight searchFlight(Airport a, Airport b){
-    /*Metodo que recibe dos aeropuertos de origen y destino y
-    *devuelve los vuelos disponibles entre esos dos aeropuertos
-    *Tambien tiene que mostrar los vuelos aunque sea con escalas
-    */
 
+  /*Metodo que recibe dos aeropuertos de origen y destino y
+  muestra por pantalla los vuelos disponibles entre esos dos aeropuertos
+  *Tambien tiene que mostrar los vuelos aunque sea con escalas
+  */
+  public void searchFlight(String a, String b){
+    boolean any=false;
+    System.out.println("Vuelos directos: ");
+    for(int i=0; i<amountOfFlights;i++){//para vuelos directos
+      if(flights[i].origen.nombreAero==a && flights[i].destiny.nombreAero==b){
+        System.out.println(flights[i].toString());
+        any=true;
+      }
+    }
+    System.out.println("Vuelos con escala: ");
+    for(int i=0;i<amountOfFlights;i++){
+      for(int j=0;j<amountOfFlights;j++){
+        if(i!=j){
+          if(flights[i].origen.nombreAero==a && flights[j].destiny.nombreAero==b){
+            System.out.println("- "+flights[i].toString());
+            System.out.println("- Vuelo con escala en "+flights[i].destiny.nombreAero);
+            System.out.println("- "+flights[j].toString());
+
+          }
+        }
+      }
+    }
   }
+
   public boolean removeFlight(){
 
   }
