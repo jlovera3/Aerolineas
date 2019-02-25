@@ -6,8 +6,10 @@ public static void Main(String[] args){
 	Scanner teclado=new Scanner(System.in);
 	int opcion;
 	int opcion2;
+	int[] vuelosDisponibles;
 	String origen;
 	String destino;
+	String dniCliente;
 
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
@@ -147,20 +149,32 @@ protected void mostrarMenu(){
 
 
 
-		void buscarVuelo (){
+		public void buscarVuelo (){
 			System.out.println("Introduzca un aeropuerto de origen");
 			origen = teclado.nextInt();
 			System.out.println("Introduzca un aeropuerto de destino");
 			destino = teclado.nextInt();
 
-			Iberia.searchFlight(origen, destino);
+			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 
 			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
+			opcion2 = teclado.nextInt();
+			switch (teclado) {
+				case 1:
+					System.out.println("Digame su DNI para realizar la compra");
+					dniCliente = teclado.nextInt();
+					for ()
 
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+				case 0:
 
-
-
-
-
+			}
 		}
 }
