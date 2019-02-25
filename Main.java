@@ -5,6 +5,9 @@ public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
 	int opcion;
+	int opcion2;
+	String origen;
+	String destino;
 
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
@@ -45,7 +48,7 @@ public static void Main(String[] args){
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 }
 
-	protected void hireTrip(){
+	protected void hireTripulation(){
 		int i=0;
 		boolean done=false;
 	  for(int i=0; i<amountOfTripulation&&!done; i++){
@@ -56,23 +59,12 @@ public static void Main(String[] args){
 		}
 	}
 
-	protected void hirePil(){
+	protected void hirePilot(){
 		int i=0;
 		boolean done=false;
 	  for(int i=0; i<amountOfPilots&&!done; i++){
 			if(pilots[i]!=null){
 				Iberia.hireEmployee(pilots[i]);
-				done=true;
-			}
-		}
-	}
-
-	protected void addPlane(){
-		int i=0;
-		boolean done=false;
-	  for(int i=0; i<amountOfPlanes&&!done; i++){
-			if(planes[i]!=null){
-				Iberia.addPlane(planes[i]);
 				done=true;
 			}
 		}
@@ -152,4 +144,23 @@ protected void mostrarMenu(){
 
 			}
 		}while(opcion!=0);
+
+
+
+		void buscarVuelo (){
+			System.out.println("Introduzca un aeropuerto de origen");
+			origen = teclado.nextInt();
+			System.out.println("Introduzca un aeropuerto de destino");
+			destino = teclado.nextInt();
+
+			Iberia.searchFlight(origen, destino);
+
+			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
+
+
+
+
+
+
+		}
 }
