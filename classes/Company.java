@@ -64,7 +64,7 @@ abstract public class Company implements IAirCompany{
 
   public boolean fireEmployee(String name){
     boolean fired=false;
-    
+
   }
 
   public void listEmployee(){
@@ -150,28 +150,36 @@ abstract public class Company implements IAirCompany{
   muestra por pantalla los vuelos disponibles entre esos dos aeropuertos
   *Tambien tiene que mostrar los vuelos aunque sea con escalas
   */
-  public void searchFlight(String a, String b){
+  public Flight searchFlight(String a, String b){
     boolean any=false;
+    Flight vuelosSolucion[]=new Flight[amountOfFlights];
+    int j=0;
     System.out.println("Vuelos directos: ");
     for(int i=0; i<amountOfFlights;i++){//para vuelos directos
       if(flights[i].origen.nombreAero==a && flights[i].destiny.nombreAero==b){
         System.out.println(flights[i].toString());
         any=true;
+        vuelosSolucion[j]=flights[i];
+        j++;
       }
     }
-    System.out.println("Vuelos con escala: ");
-    for(int i=0;i<amountOfFlights;i++){
+    /*System.out.println("Vuelos con escala: ");
+    for(int i=0;i<amountOfFlights;i++){//para vuelos con escala
       for(int j=0;j<amountOfFlights;j++){
         if(i!=j){
           if(flights[i].origen.nombreAero==a && flights[j].destiny.nombreAero==b){
             System.out.println("- "+flights[i].toString());
             System.out.println("- Vuelo con escala en "+flights[i].destiny.nombreAero);
             System.out.println("- "+flights[j].toString());
-
+            any=true;
           }
         }
       }
+    }*/
+    if(any==false){
+      System.out.println("No se han encontrado vuelos");
     }
+    return vuelosSolucion;
   }
 
   public boolean removeFlight(){
