@@ -21,6 +21,7 @@ public static void Main(String[] args){
   Airport[] aero=new Airport[6];
   Flight[] flights=new Flight[5];
 
+
   planes[0]=new Airbus("IBA0001","08/03/2008");
   planes[1]=new Airbus("IBA0002","27/02/2011");
   planes[2]=new Boing("IBB0001","05/12/2013");
@@ -163,7 +164,11 @@ protected void mostrarMenu(){
 				case 1:
 					System.out.println("Digame su DNI para realizar la compra");
 					dniCliente = teclado.nextInt();
-					for ()
+					if(Iberia.searchClient(dniCliente)){
+						Iberia.addClient(dniCliente);
+				}else{
+					System.out.println("Usted ya es un cliente!");
+				}
 
 				case 2:
 				case 3:
@@ -174,6 +179,8 @@ protected void mostrarMenu(){
 				case 8:
 				case 9:
 				case 0:
+				break;
+				default;
 
 			}
 		}
