@@ -17,7 +17,7 @@ public class Flight{
   int duration;
   String siglasComp;
   public char[][] seats;
-  public char[][] VIPseats;
+
 
     //Constructor de 6 crew
 
@@ -28,10 +28,8 @@ public class Flight{
       this.destiny=aero2;
       this.plane=plane;
         if(plane instanceof Boing){
-          this.VIPseats[this.Boing.NUMEROFILASVIP][this.Boing.NUMEROCOLUMNAS];
           this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
         }else{
-          this.VIPseats[this.Airbus.NUMEROFILASVIP][this.Airbus.NUMEROCOLUMNAS];
           this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
         }
       for(i=0;i<2;i++){
@@ -58,11 +56,10 @@ public class Flight{
     this.origin=aero1;
     this.destiny=aero2;
     this.plane=plane;
+    //Una vez recibido el tipo de avión, se le asigna un tamaño al array seat
         if(plane instanceof Boing){
-          this.VIPseats[this.Boing.NUMEROFILASVIP][this.Boing.NUMEROCOLUMNAS];
           this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
         }else{
-          this.VIPseats[this.Airbus.NUMEROFILASVIP][this.Airbus.NUMEROCOLUMNAS];
           this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
           }
 
@@ -81,37 +78,74 @@ public class Flight{
     this.iniciaSeats();
 
   }
-
-  public void iniciaSeats(){
-    if(plane.PlaneType="Boing"){
-      for(i=0;i<this.Boing.NUMEROFILASVIP;i++){
-        for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
-              VIPseats[i][j]="o";
-            }
+  /** Inicia todas las plazas, situando una "o" en todos los asientos
+	*/
+    public void iniciaSeats(){
+      if(plane.PlaneType="Boing"){
+        for(i=0;i<this.Boing.NUMERODEFILAS;i++){
+            for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
+                  seats[i][j]="o";
+                }
         }
-      for(i=0;i<this.Boing.NUMERODEFILAS;i++){
-          for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
-                seats[i][j]="o";
-              }
-      }
-
     }
+
     if(plane.PlaneType="Airbus"){
-      for(i=0;i<this.Airbus.NUMEROFILASVIP;i++){
-        for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
-              VIPseats[i][j]="o";
-            }
-        }
       for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
           for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
                 seats[i][j]="o";
               }
       }
-
     }
 
 }
+/**
+*	Este método se encarga de situar una "x" en los asientos que han sido
+* ocupados.
+*	@param numeroFila: Entero que identifica el numero total de filas
+* @param numeroColumna: Entero que identifica el numero total de columnas
+* @return Devuelve el numero de asientos ocupados
+*/
+public boolean ocuppySeat(int numeroFila, int numeroColumna){
+  boolean added=true;
+  seats[numeroFila][numeroColumna]="x";
+  /* Hay que incrementar el precio de la entrada si es VIP
+     pero desconozco si lo vamos a hacer desde aquí o desde
+     otra clase
+  */
+  return added;
+    }
 
+    /**
+    *	Este método se encarga de situar una "x" en los asientos que han sido
+    * ocupados.
+    *	@param numeroFila: Entero que identifica el numero total de filas
+    * @param numeroColumna: Entero que identifica el numero total de columnas
+    * @return Devuelve el numero de asientos libres
+    */
+    public void getFreeSeats(){
+          int cont=0;
+          if(Plane.PlaneType="Boing"){
+            for(i=0;i<this.Boing.NUMERODEFILAS;i++){
+              for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
+                if(seat[i][j]=="o"){
+                  cont++;
+                }
+              }
+            }
+          }
+
+          if(Plane.PlaneType="Boing"){
+            for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
+              for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
+                if(seat[i][j]=="o"){
+                  cont++;
+                }
+              }
+            }
+          }
+
+      return cont;
+    }
 
 
   void listFlight();
