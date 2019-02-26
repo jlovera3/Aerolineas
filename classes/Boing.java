@@ -6,7 +6,7 @@ public class Boing extends Plane{
 	private final int PRECIO = 280000000;
 	private final int AUTONOMIAKM = 8000;
 	private final int CONSUMOLITROKM = 12;
-	private final int NUMERODEFILAS = 40;
+	private final int NUMERODEFILAS = 50;
 	private final int NUMEROCOLUMNAS = 6;
 	private final int NUMEROFILASVIP = 10; //De la 1 a la 5
 	private final int CAPACIDADVEHICULOS = 4;
