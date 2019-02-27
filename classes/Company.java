@@ -206,19 +206,39 @@ abstract public class Company implements IAirCompany{
     return vuelosSolucion;
   }
 
-  public boolean removeFlight(){
-
+  public boolean removeFlight(int num){
+    boolean removed=false;
+    if(num<amountOfFlights&&num>-1){
+      flights[num]=null;
+      removed=true;
+    }
+    return removed;
   }
 
 //METODOS DE TICKET
   boolean buyTicket(){
 
   }
-  boolean removeTicket();
-  Flight searchTicket();
+  boolean removeTicket(){
+
+  }
+  Flight searchTicket(){
+
+  }
 
 //METODOS DE CLIENTE
-  boolean addClient();
+  public boolean addClient(Client c){
+    boolean added=false;
+    if(c instanceof Client){
+      for(int i=0; i<amountOfClients; i++){
+        if(clients[i]==null){
+          clients[i]=c;
+          added=true;
+        }
+      }
+    }
+    return added;
+  }
 
   public void listClient(){
     for(int i=0; i<amountOfClients; i++){
@@ -226,7 +246,15 @@ abstract public class Company implements IAirCompany{
     }
   }
 
-  Client searchClient();
+  public Client searchClient(String dni){
+      Client miCliente;
+      for(int i=0; i<amountOfClients; i++){
+        if(clients[i].DNI==dni){
+          miCliente=clients[i];
+        }
+      }
+      return miCliente;
+  }
   boolean removeClient();
 
   getFreeSeatsFromFlight();
