@@ -6,8 +6,8 @@ public static void Main(String[] args){
 	Scanner teclado=new Scanner(System.in);
 	private int opcion;
 	private int opcion2;
-	private String[] vuelosDisponibles = new String[99];
-	private String[] asientosDisponibles = new String[99];
+	private List<String> vuelosDisponibles = new ArrayList<String>();
+	private List<String> asientosDisponibles = new ArrayList<String>();
 	private String origen;
 	private String destino;
 	private String dniCliente;
@@ -157,10 +157,10 @@ protected void mostrarMenu(){
 			destino = teclado.nextInt();
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
-			for(int i=0; i<vuelosDisponibles.length&&!done; i++){
+			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
 
-				if(vuelosDisponibles[i]!=null){
-					System.out.println(i+1"." +vuelosDisponibles[i]);
+				if(vuelosDisponibles.get(i)!=null){
+					System.out.println(i+1"." +vuelosDisponibles.get(i));
 				}else{
 					done = true;
 				}
@@ -168,13 +168,13 @@ protected void mostrarMenu(){
 
 			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 			opcion2 = teclado.nextInt();
-			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[teclado]);
+			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[teclado]-1);
 
 {
 				boolean done = false;
-			for(int i=0; i<asientosDisponibles.length&&!done; i++){
-				if(asientosDisponibles[i]!=null && !done){
-					System.out.println(i")" +asientosDisponibles[i]);
+			for(int i=0; i<asientosDisponibles.size()&&!done; i++){
+				if(asientosDisponibles.get(i)!=null && !done){
+					System.out.println(i")" +asientosDisponibles.get(i));
 				}else{
 					done = true;
 				}
