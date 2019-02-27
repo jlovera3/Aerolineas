@@ -16,7 +16,7 @@ public class Cliente{
 
 	public static int amountOfClients=0;
 
-	public Cliente(){
+	public Client(){
 		this.dni = DNI_DEF;
 		this.nombre = NOMBRE_DEF;
 		this.apellidos = APELLIDOS_DEF;
@@ -25,7 +25,7 @@ public class Cliente{
 		amountOfClients++;
 	}
 
-	public Cliente(String dni, String n, String a, String f, String nac){
+	public Client(String dni, String n, String a, String f, String nac){
 		this.dni = dni;
 		this.nombre = n;
 		this.apellidos = a;

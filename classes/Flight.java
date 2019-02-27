@@ -122,7 +122,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     * y de imprimir por pantalla al asiento libre.
     *	@param numeroFila: Entero que identifica el numero total de filas
     * @param numeroColumna: Entero que identifica el numero total de columnas
-    * @return Devuelve el numero de asientos libres
+    * @return Devuelve un String con el identificador del asiento libre
     */
     public ArrayList getFreeSeats(){
           int cont=0;
@@ -130,7 +130,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Boing.NUMERODEFILAS;i++){
               for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
-                  freeSeats.get(cont) = i+col[j];
+                  freeSeats(cont) = i+col[j];
                   cont++;
                 }
               }
@@ -141,7 +141,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
               for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
-                  freeSeats.get(cont) = i+col[j];
+                  freeSeats(cont) = i+col[j];
                   cont++;
 
                 }
@@ -180,11 +180,6 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
       return cont;
     }
 
-
-  void listFlight();
-  Flight searchFlight();
-  boolean removeFlight();
-
   public String generaSiglas(){
     StringBuilder micadena=new StringBuilder(siglasComp);
         micadena.append(hour);
@@ -192,5 +187,12 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
 
   }
 
+  //precioBase se tiene que modificar porque aun no hemos creado ticket
+  @Override
+  public String toString{
+  return "Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
+  +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
+  this.precioBase+"\n"+"Duracion: "+this.duration
+  }
 
 }
