@@ -33,4 +33,5 @@ abstract public class Plane {
 		this.fecha_creacion = f;
 		this.amountOfPlanes++;
 	}
+	abstract public toString();
 }

@@ -21,4 +21,9 @@ public class Airbus extends Plane{
     super(m, f);
 
   }
+  @Override
+  public String toString(){
+    return "Avion tipo: "+this.PlaneType+"\n"+"Matricula: "+this.matricula+"\n"
+          +"Fecha construccion: "+this.fecha_creacion+"\n"+"Capacidad: "+this.ASIENTOS;
+  }
 }
