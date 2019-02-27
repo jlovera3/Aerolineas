@@ -18,7 +18,7 @@ public class Flight{
   String siglasComp;
   public char[][] seats;
   public char[] col={'A','B','C','D','F','G'};
-  private String[] freeSeats = new String[99];
+  private String[] freeSeats = new String[300];
 
 
     //Constructor de 6 crew
@@ -152,8 +152,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
       return freeSeats;
     }
 
-    /**
-    public void printSeats(){
+        public void printSeats(){
           int cont=0;
           if(Plane.PlaneType="Boing"){
             System.out.println("  A B C D E F"+"\n");
