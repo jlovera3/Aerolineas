@@ -183,4 +183,11 @@ protected void mostrarMenu(){
 
 
 		}
+
+		public void consultaBillete() {
+			String pregunta;
+			System.out.println("Introduce tu identificador");
+			pregunta = teclado.nextInt();
+
+		}
 }
