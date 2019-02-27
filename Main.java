@@ -11,6 +11,7 @@ public static void Main(String[] args){
 	private String origen;
 	private String destino;
 	private String dniCliente;
+	public char[] col={'A','B','C','D','F','G'};
 
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
@@ -87,7 +88,7 @@ public static void Main(String[] args){
 		boolean done=false;
 	  for(int i=0; i<amountOfFlights&&!done; i++){
 			if(flights[i]!=null){
-				Iberia.addPlane(flights[i]);
+				Iberia.addFlight(flights[i]);
 				done=true;
 			}
 		}
@@ -150,7 +151,6 @@ protected void mostrarMenu(){
 
 
 		public void buscarVuelo (){
-			protected boolean done;
 			System.out.println("Introduzca un aeropuerto de origen");
 			origen = teclado.nextInt();
 			System.out.println("Introduzca un aeropuerto de destino");
@@ -169,14 +169,17 @@ protected void mostrarMenu(){
 			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 			opcion2 = teclado.nextInt();
 			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[teclado]);
-			for(int i=0; i<asientosDisponibles.length&&!done; i++){
 
-				if(asientosDisponibles[i]!=null){
-					System.out.println(i"." +asientosDisponibles[i]);
+{
+				boolean done = false;
+			for(int i=0; i<asientosDisponibles.length&&!done; i++){
+				if(asientosDisponibles[i]!=null && !done){
+					System.out.println(i")" +asientosDisponibles[i]);
 				}else{
 					done = true;
 				}
 			}
+		}
 
 
 		}

@@ -18,6 +18,7 @@ public class Flight{
   String siglasComp;
   public char[][] seats;
   public char[] col={'A','B','C','D','F','G'};
+  private String[] freeSeats = new String[99];
 
 
     //Constructor de 6 crew
@@ -123,14 +124,14 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     * @param numeroColumna: Entero que identifica el numero total de columnas
     * @return Devuelve el numero de asientos libres
     */
-    public int getFreeSeats(){
+    public String getFreeSeats(){
           int cont=0;
           if(Plane.PlaneType="Boing"){
             for(i=0;i<this.Boing.NUMERODEFILAS;i++){
               for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
+                  freeSeats[cont] = i+col[j];
                   cont++;
-                  System.out.println(i+col[j]);
                 }
               }
             }
@@ -140,14 +141,15 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
               for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
+                  freeSeats[cont] = i+col[j];
                   cont++;
-              System.out.println(i+col[j]);
+
                 }
               }
             }
           }
 
-      return cont;
+      return freeSeats;
     }
 
     /**
