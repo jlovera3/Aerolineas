@@ -154,6 +154,7 @@ abstract public class Company implements IAirCompany{
       if(flights[i]==null){
         flights[i]=f;
         added=true;
+        flights[i].iniciaSeats();
         System.out.println("The flight has been added");
       }
     }
@@ -211,7 +212,7 @@ abstract public class Company implements IAirCompany{
 
 //METODOS DE TICKET
   boolean buyTicket(){
-    
+
   }
   boolean removeTicket();
   Flight searchTicket();
