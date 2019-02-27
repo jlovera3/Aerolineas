@@ -4,12 +4,13 @@ public class Main{
 public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
-	int opcion;
-	int opcion2;
-	int[] vuelosDisponibles;
-	String origen;
-	String destino;
-	String dniCliente;
+	private int opcion;
+	private int opcion2;
+	private String[] vuelosDisponibles = new String[99];
+	private String[] asientosDisponibles = new String[99];
+	private String origen;
+	private String destino;
+	private String dniCliente;
 
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
@@ -52,7 +53,6 @@ public static void Main(String[] args){
 }
 
 	protected void hireTripulation(){
-		int i=0;
 		boolean done=false;
 	  for(int i=0; i<amountOfTripulation&&!done; i++){
 			if(crew[i]!=null){
@@ -63,7 +63,6 @@ public static void Main(String[] args){
 	}
 
 	protected void hirePilot(){
-		int i=0;
 		boolean done=false;
 	  for(int i=0; i<amountOfPilots&&!done; i++){
 			if(pilots[i]!=null){
@@ -74,7 +73,6 @@ public static void Main(String[] args){
 	}
 
 	protected void addPlane(){
-		int i=0;
 		boolean done=false;
 	  for(int i=0; i<amountOfPlanes&&!done; i++){
 			if(planes[i]!=null){
@@ -85,7 +83,7 @@ public static void Main(String[] args){
 	}
 
 	protected void addFlight(){
-		int i=0;
+
 		boolean done=false;
 	  for(int i=0; i<amountOfFlights&&!done; i++){
 			if(flights[i]!=null){
@@ -147,41 +145,39 @@ protected void mostrarMenu(){
 
 			}
 		}while(opcion!=0);
+	}
 
 
 
 		public void buscarVuelo (){
+			protected boolean done;
 			System.out.println("Introduzca un aeropuerto de origen");
 			origen = teclado.nextInt();
 			System.out.println("Introduzca un aeropuerto de destino");
 			destino = teclado.nextInt();
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
+			for(int i=0; i<vuelosDisponibles.length&&!done; i++){
+
+				if(vuelosDisponibles[i]!=null){
+					System.out.println(i+1"." +vuelosDisponibles[i]);
+				}else{
+					done = true;
+				}
+			}
 
 			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 			opcion2 = teclado.nextInt();
-			switch (teclado) {
-				case 1:
-					System.out.println("Digame su DNI para realizar la compra");
-					dniCliente = teclado.nextInt();
-					if(Iberia.searchClient(dniCliente)){
-						Iberia.addClient(dniCliente);
+			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[teclado]);
+			for(int i=0; i<asientosDisponibles.length&&!done; i++){
+
+				if(asientosDisponibles[i]!=null){
+					System.out.println(i"." +asientosDisponibles[i]);
 				}else{
-					System.out.println("Usted ya es un cliente!");
+					done = true;
 				}
-
-				case 2:
-				case 3:
-				case 4:
-				case 5:
-				case 6:
-				case 7:
-				case 8:
-				case 9:
-				case 0:
-				break;
-				default;
-
 			}
+
+
 		}
 }
