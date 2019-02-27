@@ -17,6 +17,7 @@ abstract public class Company implements IAirCompany{
   public Tripulation[] crew=new Tripulation[amountOfTripulation];
   public Plane[] planes=new Plane[amountOfPlanes];
   public Flight[] flights=new Flight[amountOfFlights];
+  public Cliente[] clients=new Cliente[amountOfClients];
   //Constructores de la clase company:
   public Company(){
     this.name=COMP_NAME_DEF;
@@ -64,7 +65,22 @@ abstract public class Company implements IAirCompany{
 
   public boolean fireEmployee(String name){
     boolean fired=false;
-
+    if(emp instanceof Tripulation){
+      for(int i=0; i<amountOfTripulation&&!fired; i++){
+        if(crew[i].name==name){
+          crew[i]=null;
+          fired=true;
+        }
+      }
+    }else if(emp instanceof Pilot){
+      for(int i=0; i<amountOfPilots&&!fired; i++){
+        if(pilots[i].name==name){
+          pilots[i]=null;
+          fired=true;
+        }
+      }
+    }
+    return fired;
   }
 
   public void listEmployee(){
@@ -121,9 +137,16 @@ abstract public class Company implements IAirCompany{
     }
   }
 
-  void listPlane();
+  public void listPlane(){
+    for(int i=0; i<amountOfPlanes; i++){
+      System.out.println(planes[i].toString());
+    }
+  }
+
   boolean removePlane();
-  Plane searchPlane();
+  public Plane searchPlane(){
+
+  }
 
   public void addFlight(Flight f){
     boolean added=false;
@@ -187,13 +210,21 @@ abstract public class Company implements IAirCompany{
   }
 
 //METODOS DE TICKET
-  boolean buyTicket();
+  boolean buyTicket(){
+    
+  }
   boolean removeTicket();
   Flight searchTicket();
 
 //METODOS DE CLIENTE
   boolean addClient();
-  void listClient();
+
+  public void listClient(){
+    for(int i=0; i<amountOfClients; i++){
+      System.out.println(clients[i].toString());
+    }
+  }
+
   Client searchClient();
   boolean removeClient();
 
