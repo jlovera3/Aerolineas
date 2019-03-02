@@ -1,11 +1,25 @@
 import classes.*;
 
+/*
+TO DO:
+
+- Terminar menu
+- Terminar cliente nuevo linea 220~
+- Terminar "ir atras" lineas 200~
+
+
+
+*/
+
+
 public class Main{
 public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
 	private int opcion;
 	private int opcion2;
+	private int opcion3;
+	private int opcion4;
 	private List<String> vuelosDisponibles = new ArrayList<String>();
 	private List<String> asientosDisponibles = new ArrayList<String>();
 	private String origen;
@@ -51,6 +65,13 @@ public static void Main(String[] args){
   flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
   flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
+
+	hireTripulation();
+	hireEmployee();
+	addPlane();
+	addFlight();
+	mostrarMenu();
+
 }
 
 	protected void hireTripulation(){
@@ -168,9 +189,10 @@ protected void mostrarMenu(){
 
 			System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 			opcion2 = teclado.nextInt();
-			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[teclado]-1);
+			asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[opcion2]-1); //Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
+																																									//los guardo en una lista
 
-{
+{ //Imprimimos los asientos disponibles
 				boolean done = false;
 			for(int i=0; i<asientosDisponibles.size()&&!done; i++){
 				if(asientosDisponibles.get(i)!=null && !done){
@@ -180,6 +202,43 @@ protected void mostrarMenu(){
 				}
 			}
 		}
+		System.out.println("Seleccione el asiento o vuelva atrás intruduciendo 0");
+		opcion3 = teclado.nextInt();
+
+		if (opcion3==0) {
+			//Volver atras
+		}
+		System.out.println("Introduzca su DNI");
+		dniCliente = teclado.nextLine();
+
+		if (Iberia.searchClient(dniCliente)){
+			Iberia.buyTicket(dniCliente, opcion3-1)
+		}else{
+			System.out.println("Usted no esta registrado como cliente");
+			System.out.println("Quiere registrarse ahora? Introduzca 1 si lo desea, 2 si no");
+			opcion4 = teclado.nextInt();
+			if (opcion4==1 || opcion4==2){
+				if (opcion4==1){
+					System.out.println("Introduzca su nombre");
+					nombreCliente = teclado.nextLine();
+					System.out.println("Introduzca sus apellidos");
+					apellidosCliente = teclado.nextLine();
+					System.out.println("Introduzca su fecha de nacimiento");
+					fechaCliente = teclado.nextLine();
+					System.out.println("Introduzca su nacionalidad");
+					nacionalidadCliente = teclado.nextLine();
+					Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
+					Iberia.addClient(clienteNuevo);
+				}else{
+					//ATRAS
+
+				}
+			}else{
+				System.out.println("No es una opcion valida");
+			}
+		}
+
+
 
 
 		}
