@@ -4,22 +4,21 @@ package proyecto.classes;
 public class Flight{
 
   public String siglas;
-  String hour;
-  Pilot[] pilots=new Pilot[2];
-  Tripulation[] crew=new Tripulation[6];
+  public String hour;
+  public Pilot[] pilots=new Pilot[2];
+  public Tripulation[] crew=new Tripulation[6];
 
-  Airport origin;
-  Airport destiny;
-  Plane plane;
-  Pilot pilot1;
-  Pilot pilot2;
-  int basePrice;
-  int duration;
-  String siglasComp;
+  public Airport origin;
+  public Airport destiny;
+  public Plane plane;
+  public int basePrice;
+  public int duration;
+  public String siglasComp;
   public char[][] seats;
   public char[] col={'A','B','C','D','F','G'};
   private List<String> freeSeats = new ArrayList<String>();
 
+  public static int amountOfFlights=0;
 
     //Constructor de 6 crew
 
@@ -46,6 +45,7 @@ public class Flight{
       this.duration=duration;
       this.generaSiglas();
       this.iniciaSeats();
+      amountOfFlights++;
 
     }
 
@@ -78,7 +78,7 @@ public class Flight{
     this.duration=duration;
     this.generaSiglas();
     this.iniciaSeats();
-
+    amountOfFlights++;
   }
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/
