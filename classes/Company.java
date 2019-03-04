@@ -36,7 +36,7 @@ abstract public class Company implements IAirCompany{
   }
 
   //METODOS DE EMPLEADOS
-  public void hireEmployee(Empleado emp){
+  public void hireEmployee(Employee emp){
     boolean hired=false;
     if(emp instanceof Tripulation){
       for(int i=0; i<amountOfTripulation&&!hired; i++){
@@ -143,11 +143,19 @@ abstract public class Company implements IAirCompany{
     }
   }
 
-  boolean removePlane();
-  public Plane searchPlane(){
-
+  public boolean removePlane(String matric){
+    boolean removed=false;
+    for(int i=0; i<amountOfPlanes&&!removed; i++){
+      if(planes[i].matricula==matricula){
+        planes[i]=null;
+        removed=true;
+      }
+    }
+    return removed;
   }
-
+/*
+*Hemos eliminado aquí el metodo searchPlane ya que no le vemos utilidad por ahora
+*/
   public void addFlight(Flight f){
     boolean added=false;
     for(int i=0; i<amountOfFlights&&!added; i++){
@@ -173,18 +181,15 @@ abstract public class Company implements IAirCompany{
   /*Metodo que recibe dos aeropuertos de origen y destino y
   muestra por pantalla los vuelos disponibles entre esos dos aeropuertos
   *Tambien tiene que mostrar los vuelos aunque sea con escalas
+  *
   */
-  public Flight searchFlight(String a, String b){
+  public ArrayList searchFlight(String a, String b){
     boolean any=false;
-    Flight vuelosSolucion[]=new Flight[amountOfFlights];
-    int j=0;
-    System.out.println("Vuelos directos: ");
+    List<String> vuelosDisponibles = new ArrayList<String>();
     for(int i=0; i<amountOfFlights;i++){//para vuelos directos
       if(flights[i].origen.nombreAero==a && flights[i].destiny.nombreAero==b){
-        System.out.println(flights[i].toString());
+        vuelosDisponibles.add(flights[i].toString());
         any=true;
-        vuelosSolucion[j]=flights[i];
-        j++;
       }
     }
     /*System.out.println("Vuelos con escala: ");
@@ -203,7 +208,7 @@ abstract public class Company implements IAirCompany{
     if(any==false){
       System.out.println("No se han encontrado vuelos");
     }
-    return vuelosSolucion;
+    return vuelosDisponibles;
   }
 
   public boolean removeFlight(int num){
@@ -255,7 +260,18 @@ abstract public class Company implements IAirCompany{
       }
       return miCliente;
   }
-  boolean removeClient();
+  public boolean removeClient(Client c){
+    boolean removed=false;
+    if(c instanceof Client){
+      for(int i=0; i<amountOfClients; i++){
+        if(clients[i]==c){
+          clients[i]=null;
+          removed=true;
+        }
+      }
+    }
+    return removed;
+  }
 
   getFreeSeatsFromFlight();
   getRentabilityOfFlight();
