@@ -1,12 +1,14 @@
-package proyecto.classes;
+package classes;
+import interfaces.IAirCompany;
+import classes.*;
 
 abstract public class Company implements IAirCompany{
   //Valores por defecto de las variables
-  public static final COMP_NAME_DEF="Nameless company";
-  public static final SIGLAS_DEF="AAA";
-  public static final CEON_DEF="None";
-  public static final CEOS_DEF="";
-  public static final CREAT_DATE_DEF="01/01/2000";
+  public static final String COMP_NAME_DEF="Nameless company";
+  public static final String SIGLAS_DEF="AAA";
+  public static final String CEON_DEF="None";
+  public static final String CEOS_DEF="";
+  public static final String CREAT_DATE_DEF="01/01/2000";
   //Variables de la clase
   public String name;
   public String siglasComp;
@@ -65,19 +67,16 @@ abstract public class Company implements IAirCompany{
 
   public boolean fireEmployee(String name){
     boolean fired=false;
-    if(emp instanceof Tripulation){
-      for(int i=0; i<amountOfTripulation&&!fired; i++){
-        if(crew[i].name==name){
-          crew[i]=null;
-          fired=true;
-        }
+    for(int i=0; i<amountOfTripulation&&!fired; i++){
+      if(crew[i].name==name){
+        crew[i]=null;
+        fired=true;
       }
-    }else if(emp instanceof Pilot){
-      for(int i=0; i<amountOfPilots&&!fired; i++){
-        if(pilots[i].name==name){
-          pilots[i]=null;
-          fired=true;
-        }
+    }
+    for(int i=0; i<amountOfPilots&&!fired; i++){
+      if(pilots[i].name==name){
+        pilots[i]=null;
+        fired=true;
       }
     }
     return fired;
@@ -132,7 +131,7 @@ abstract public class Company implements IAirCompany{
         System.out.println("The plane has been added");
       }
     }
-    if(hired==false){
+    if(added==false){
       System.out.println("The plane could not be added");
     }
   }
@@ -146,7 +145,7 @@ abstract public class Company implements IAirCompany{
   public boolean removePlane(String matric){
     boolean removed=false;
     for(int i=0; i<amountOfPlanes&&!removed; i++){
-      if(planes[i].matricula==matricula){
+      if(planes[i].matricula==matric){
         planes[i]=null;
         removed=true;
       }
@@ -166,7 +165,7 @@ abstract public class Company implements IAirCompany{
         System.out.println("The flight has been added");
       }
     }
-    if(hired==false){
+    if(added==false){
       System.out.println("The flight could not be added");
     }
   }
@@ -221,7 +220,7 @@ abstract public class Company implements IAirCompany{
   }
 
 //METODOS DE TICKET
-  boolean buyTicket(){
+  /*boolean buyTicket(){
 
   }
   boolean removeTicket(){
@@ -229,7 +228,7 @@ abstract public class Company implements IAirCompany{
   }
   Flight searchTicket(){
 
-  }
+  }*/
 
 //METODOS DE CLIENTE
   public boolean addClient(Client c){
@@ -273,6 +272,6 @@ abstract public class Company implements IAirCompany{
     return removed;
   }
 
-  getFreeSeatsFromFlight();
-  getRentabilityOfFlight();
+  void getFreeSeatsFromFlight();
+  void getRentabilityOfFlight();
 }

@@ -142,7 +142,7 @@ protected void mostrarMenu(){
 				eliminaBillete();
 				break;
 						case 4:
-				listaVuelos;
+				listaVuelos();
 				break;
 						case 5:
 				listaEmpleados();
@@ -181,7 +181,7 @@ protected void mostrarMenu(){
 			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
 
 				if(vuelosDisponibles.get(i)!=null){
-					System.out.println(i+1"." +vuelosDisponibles.get(i));
+					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
 				}else{
 					done = true;
 				}
@@ -196,7 +196,7 @@ protected void mostrarMenu(){
 				boolean done = false;
 			for(int i=0; i<asientosDisponibles.size()&&!done; i++){
 				if(asientosDisponibles.get(i)!=null && !done){
-					System.out.println(i")" +asientosDisponibles.get(i));
+					System.out.println(i+" "+asientosDisponibles.get(i));
 				}else{
 					done = true;
 				}
@@ -212,7 +212,7 @@ protected void mostrarMenu(){
 		dniCliente = teclado.nextLine();
 
 		if (Iberia.searchClient(dniCliente)){
-			Iberia.buyTicket(dniCliente, opcion3-1)
+			Iberia.buyTicket(dniCliente, opcion3-1);
 		}else{
 			System.out.println("Usted no esta registrado como cliente");
 			System.out.println("Quiere registrarse ahora? Introduzca 1 si lo desea, 2 si no");

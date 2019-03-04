@@ -1,4 +1,4 @@
-package proyecto.classes;
+package classes;
 
 abstract public class Employee {
 
@@ -8,7 +8,7 @@ abstract public class Employee {
   public static final String BORNDATE_DEF="01/01/2000";
   public static final String NATIONALITY_DEF="NONE";
 
-  
+
   public int DNI;
   public int employeeNumber;
   public String name;
@@ -16,6 +16,8 @@ abstract public class Employee {
   public String bornDate;
   public String nationality;
   public String[] languages={"Spanish","English"};
+
+  public static int amountOfEmployees=0;
 
   public Employee(int dni, String name, String apellido,
   String date, String nation){

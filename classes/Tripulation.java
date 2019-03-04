@@ -1,9 +1,11 @@
-package proyecto.classes;
+package classes;
 
 public class Tripulation extends Employee{
+
   public int salary=40000;
   public float hoursWorked;
   public String work="steward";
+
   public static int amountOfTripulation=0;
 
   public Tripulation(){

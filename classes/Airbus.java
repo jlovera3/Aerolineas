@@ -1,4 +1,5 @@
-package proyecto.classes;
+package classes;
+import Plane;
 
 public class Airbus extends Plane{
 
@@ -23,7 +24,7 @@ public class Airbus extends Plane{
   }
   @Override
   public String toString(){
-    return "Avion tipo: "+this.PlaneType+"\n"+"Matricula: "+this.matricula+"\n"
-          +"Fecha construccion: "+this.fecha_creacion+"\n"+"Capacidad: "+this.ASIENTOS;
+    return "Avion tipo: "+this.PlaneType+"\n"+"Matricula: "+super.matricula+"\n"
+          +"Fecha construccion: "+super.fecha_creacion+"\n"+"Capacidad: "+this.ASIENTOS;
   }
 }

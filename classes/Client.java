@@ -1,6 +1,6 @@
-package proyecto.classes;
+package classes;
 
-public class Cliente{
+public class Client{
 
 	private final String DNI_DEF="";
 	private final String NOMBRE_DEF="";
@@ -17,7 +17,7 @@ public class Cliente{
 	public static int amountOfClients=0;
 
 	public Client(){
-		this.dni = DNI_DEF;
+		this.DNI = DNI_DEF;
 		this.nombre = NOMBRE_DEF;
 		this.apellidos = APELLIDOS_DEF;
 		this.fechaNac = FECHA_NAC;
@@ -26,7 +26,7 @@ public class Cliente{
 	}
 
 	public Client(String dni, String n, String a, String f, String nac){
-		this.dni = dni;
+		this.DNI = dni;
 		this.nombre = n;
 		this.apellidos = a;
 		this.fechaNac = f;

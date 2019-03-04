@@ -1,4 +1,4 @@
-package proyecto.classes;
+package classes;
 
 
 public class Flight{

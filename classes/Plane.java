@@ -1,4 +1,4 @@
-package proyecto.classes;
+package classes;
 
 abstract public class Plane {
 
@@ -33,5 +33,5 @@ abstract public class Plane {
 		this.fecha_creacion = f;
 		this.amountOfPlanes++;
 	}
-	abstract public toString();
+	abstract public String toString();
 }
