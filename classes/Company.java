@@ -2,6 +2,7 @@ package classes;
 import interfaces.IAirCompany;
 import classes.*;
 
+
 abstract public class Company implements IAirCompany{
   //Valores por defecto de las variables
   public static final String COMP_NAME_DEF="Nameless company";
@@ -19,7 +20,7 @@ abstract public class Company implements IAirCompany{
   public Tripulation[] crew=new Tripulation[amountOfTripulation];
   public Plane[] planes=new Plane[amountOfPlanes];
   public Flight[] flights=new Flight[amountOfFlights];
-  public Cliente[] clients=new Cliente[amountOfClients];
+  public Client[] clients=new Cliente[amountOfClients];
   //Constructores de la clase company:
   public Company(){
     this.name=COMP_NAME_DEF;

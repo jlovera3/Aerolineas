@@ -164,8 +164,6 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
               System.out.println("\n");
               }
             }
-          }
-
           if(Plane.PlaneType="Airbus"){
             System.out.println("  A B C D E F");
             for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
@@ -175,8 +173,6 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
                 }
               }
             }
-          }
-
       return cont;
     }
 
@@ -184,15 +180,15 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     StringBuilder micadena=new StringBuilder(siglasComp);
         micadena.append(hour);
         micadena.append(destiny);
-
+    return micadena;
   }
 
   //precioBase se tiene que modificar porque aun no hemos creado ticket
   @Override
-  public String toString{
+  public String toString(){
   return "Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
   +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
-  this.precioBase+"\n"+"Duracion: "+this.duration
+  this.precioBase+"\n"+"Duracion: "+this.duration;
   }
 
 }
