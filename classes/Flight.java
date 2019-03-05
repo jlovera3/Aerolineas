@@ -29,9 +29,9 @@ public class Flight{
       this.destiny=aero2;
       this.plane=plane;
         if(plane instanceof Boing){
-          this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
+          this.seats=new char [this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
         }else{
-          this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
+          this.seats=new char [this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
         }
       for(i=0;i<2;i++){
         this.pilots[i]=pilots[i];
@@ -83,7 +83,7 @@ public class Flight{
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/
     public void iniciaSeats(){
-      if(plane.PlaneType="Boing"){
+      if(plane.PlaneType=="Boing"){
         for(i=0;i<this.Boing.NUMERODEFILAS;i++){
             for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
                   seats[i][j]="o";
@@ -91,7 +91,7 @@ public class Flight{
         }
     }
 
-    if(plane.PlaneType="Airbus"){
+    if(plane.PlaneType=="Airbus"){
       for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
           for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
                 seats[i][j]="o";
