@@ -6,9 +6,9 @@ abstract public class Plane {
 	private final String SIGLAS_DEF="";
 	private final String FECHA_CREACION_DEF="0/0/0";
 
-	private String matricula;
-	private String siglas;
-	private String fecha_creacion;
+	protected String matricula;
+ 	protected String siglas;
+	protected String fecha_creacion;
 	public static int amountOfPlanes=0;
 
 	public Plane (){

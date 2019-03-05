@@ -1,5 +1,4 @@
 package classes;
-import Plane;
 
 public class Airbus extends Plane{
 
@@ -7,8 +6,8 @@ public class Airbus extends Plane{
 	private final int PRECIO = 80000000;
 	private final int AUTONOMIAKM = 4000;
 	private final int CONSUMOLITROKM = 11;
-	private final int NUMERODEFILAS = 20;
-	private final int NUMEROCOLUMNAS = 4;
+	public static final int NUMERODEFILAS = 20;
+	public static final int NUMERODECOLUMNAS = 4;
 	private final int NUMEROFILASVIP = 5; //De la 1 a la 5
 	private final int CAPACIDADVEHICULOS = 0;
 
@@ -24,7 +23,7 @@ public class Airbus extends Plane{
   }
   @Override
   public String toString(){
-    return "Avion tipo: "+this.PlaneType+"\n"+"Matricula: "+super.matricula+"\n"
-          +"Fecha construccion: "+super.fecha_creacion+"\n"+"Capacidad: "+this.ASIENTOS;
+    return "Avion tipo: "+this.PlaneType+"\n"+"Matricula: "+this.matricula+"\n"
+          +"Fecha construccion: "+this.fecha_creacion+"\n"+"Capacidad: "+this.ASIENTOS;
   }
 }
