@@ -131,8 +131,13 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Boing.NUMERODEFILAS;i++){
               for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
-                  freeSeats(cont) = i+col[j];
+                  if(i<this.Boing.NUMEROFILASVIP){
+                  freeSeats(cont) = i+col[j]+" | VIP | "+this.basePrice*1.2;
                   cont++;
+                }else{
+                    freeSeats(cont) = i+col[j]+" | No VIP | "+this.basePrice;
+                    cont++;
+                  }
                 }
               }
             }
@@ -142,8 +147,13 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
               for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
-                  freeSeats(cont) = i+col[j]+;
+                  if(i<this.Airbus.NUMEROFILASVIP){
+                  freeSeats(cont) = i+col[j]+" | VIP | "+this.basePrice*1.2;
                   cont++;
+                }else{
+                    freeSeats(cont) = i+col[j]+" | No VIP | "+this.basePrice;
+                    cont++;
+                  }
 
                 }
               }
