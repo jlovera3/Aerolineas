@@ -33,6 +33,7 @@ public class Flight{
         }else{
           this.seats=new char [this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
         }
+
       for(i=0;i<2;i++){
         this.pilots[i]=pilots[i];
         this.pilots[i].addHours(duration/60);
@@ -60,9 +61,9 @@ public class Flight{
     this.plane=plane;
     //Una vez recibido el tipo de avión, se le asigna un tamaño al array seat
         if(plane instanceof Boing){
-          this.seats[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
+          this.seats=new char[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
         }else{
-          this.seats[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
+          this.seats=new char[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
           }
 
     for(i=0;i>1;i++){
@@ -141,7 +142,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
               for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
                 if(seat[i][j]=="o"){
-                  freeSeats(cont) = i+col[j];
+                  freeSeats(cont) = i+col[j]+;
                   cont++;
 
                 }
