@@ -237,6 +237,7 @@ do{
 				}
 			}
 		}while(opcion4!=0 || siguiente);
+<<<<<<< HEAD
 
 System.out.println("Volver al menu principal o salir? 1/Menu 0/Salir");
 opcion5 = teclado.nextLine();
@@ -248,6 +249,10 @@ if (opcion5==1 || opcion5==0){
 	}
 
 }
+=======
+
+System.out.println("Volver al menu principal?");
+>>>>>>> 05b1d854d70d21a4c26112cb4adc4d159d36a52a
 
 
 		}
