@@ -37,10 +37,15 @@ public class Client{
 
 
 	public addTicket (String flight, String seat){
+		int contador=0;
 
 		for(){
-			tickets(i)-1 = Ticket(flight, seat);
+			if(tickets(i) == null){
+			tickets(i) = Ticket(flight, seat);
+		}else{
+			contador++
 		}
+	}
 
 
 	}
