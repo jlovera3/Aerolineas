@@ -190,22 +190,30 @@ protected void mostrarMenu(){
 				System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 				opcion2 = teclado.nextInt();
 				asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[opcion2]-1); //Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
+				imprimeAsientos();
 			}while(origen!=0 || destino!=0 && !siguiente);
-																																									//los guardo en una lista
-do{
-{ //Imprimimos los asientos disponibles
-				boolean done = false;
-			for(int i=0; i<asientosDisponibles.size()&&!done; i++){
-				if(asientosDisponibles.get(i)!=null && !done){
-					System.out.println((i+1)+" "+asientosDisponibles.get(i));
-				}else{
-					done = true;
-				}
-			}
 		}
-		System.out.println("Seleccione el asiento o vuelva atrás intruduciendo 0");
-		opcion3 = teclado.nextInt();
-	}while(opcion3!=0 && !siguiente);
+
+	public void imprimeAsientos(){												//los guardo en una lista
+
+		do{
+		{ //Imprimimos los asientos disponibles
+						boolean done = false;
+					for(int i=0; i<asientosDisponibles.size()-1()&&!done; i++){
+						if(asientosDisponibles.get(i)!=null && !done){
+							System.out.println((i+1)+" "+asientosDisponibles.get(i));
+						}else{
+							done = true;
+						}
+					}
+				}
+				System.out.println("Seleccione el asiento o vuelva atrás intruduciendo 0");
+				opcion3 = teclado.nextInt();
+				dniThings();
+			}while(opcion3!=0 && !siguiente);
+		}
+
+public void dniThings(){
 
 		do{
 			boolean siguiente = false;
@@ -218,7 +226,6 @@ do{
 				System.out.println("Usted no esta registrado como cliente");
 				System.out.println("Quiere registrarse ahora? Introduzca 1 si lo desea, 0 si no");
 				opcion4 = teclado.nextInt();
-				if (opcion4==1){
 					if (opcion4==1){
 						System.out.println("Introduzca su nombre");
 						nombreCliente = teclado.nextLine();
@@ -231,26 +238,33 @@ do{
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
 						Iberia.addClient(clienteNuevo);
 						siguiente = true;
-						}
+					}else if(opcion4==0){
+						salirPograma();
 					}else{
 						System.out.println("No es una opcion valida");
 				}
 			}
-		}while(opcion4!=0 || siguiente);
 
-System.out.println("Volver al menu principal o salir? 1/Menu 0/Salir");
-opcion5 = teclado.nextLine();
-if (opcion5==1 || opcion5==0){
-	if (opcion5==1){
-		mostrarMenu();
-	}else{
-		System.out.println("Gracias por usarnos!");
+		}while(opcion4!=0 || siguiente);
+		if (opcion4==0){
+			salirPrograma();
+		}
 	}
 
-}
-
-
+public void salirPrograma(){
+		System.out.println("Volver al menu principal o salir? 1/Menu 0/Salir");
+		opcion5 = teclado.nextLine();
+		if (opcion5==1 || opcion5==0){
+			if (opcion5==1){
+				mostrarMenu();
+			}else{
+				System.out.println("Gracias por usarnos!");
+			}
 		}
+	}
+
+
+
 
 		public void consultaBillete() {
 			String pregunta;

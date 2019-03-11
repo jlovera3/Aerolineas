@@ -38,7 +38,10 @@ public class Client{
 
 	public addTicket (String flight, String seat){
 
-		
+		for(){
+			tickets(i)-1 = Ticket(flight, seat);
+		}
+
 
 	}
 
