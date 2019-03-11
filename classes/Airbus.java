@@ -6,10 +6,10 @@ public class Airbus extends Plane{
 	private final int PRECIO = 80000000;
 	private final int AUTONOMIAKM = 4000;
 	private final int CONSUMOLITROKM = 11;
-	public static final int NUMERODEFILAS = 20;
-	public static final int NUMERODECOLUMNAS = 4;
-	private final int NUMEROFILASVIP = 5; //De la 1 a la 5
-	private final int CAPACIDADVEHICULOS = 0;
+	public static final int A_NUMERODEFILAS = 20;
+	public static final int A_NUMERODECOLUMNAS = 4;
+	public static final int A_NUMEROFILASVIP = 5; //De la 1 a la 5
+	public static final int A_CAPACIDADVEHICULOS = 0;
 
   public String PlaneType="Airbus";
 
@@ -17,8 +17,8 @@ public class Airbus extends Plane{
     super();
   }
 
-  public Airbus(String m, String f){
-    super(m, f);
+  public Airbus(String m, String f, String PlaneType){
+    super(m, f, PlaneType);
 
   }
   @Override

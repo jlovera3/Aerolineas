@@ -1,5 +1,6 @@
 package classes;
-
+import java.lang.StringBuilder;
+import java.util.ArrayList;
 
 public class Flight{
 
@@ -16,7 +17,7 @@ public class Flight{
   public String siglasComp;
   public char[][] seats;
   public char[] col={'A','B','C','D','F','G'};
-  private List<String> freeSeats = new ArrayList<String>();
+  public ArrayList<String> freeSeats = new ArrayList<String>();
 
   public static int amountOfFlights=0;
 
@@ -29,16 +30,16 @@ public class Flight{
       this.destiny=aero2;
       this.plane=plane;
         if(plane instanceof Boing){
-          this.seats=new char [this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
+          this.seats=new char [Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
         }else{
-          this.seats=new char [this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
+          this.seats=new char [Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
         }
 
-      for(i=0;i<2;i++){
+      for(int i=0;i<2;i++){
         this.pilots[i]=pilots[i];
         this.pilots[i].addHours(duration/60);
       }
-      for(i=0;i<2;i++){
+      for(int i=0;i<2;i++){
         this.crew[i]=stewardess[i];
         this.crew[i].addHours(duration/60);
       }
@@ -61,12 +62,12 @@ public class Flight{
     this.plane=plane;
     //Una vez recibido el tipo de avión, se le asigna un tamaño al array seat
         if(plane instanceof Boing){
-          this.seats=new char[this.Boing.NUMERODEFILAS][this.Boing.NUMEROCOLUMNAS];
+          this.seats=new char[Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
         }else{
-          this.seats=new char[this.Airbus.NUMERODEFILAS][this.Airbus.NUMEROCOLUMNAS];
+          this.seats=new char[Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
           }
 
-    for(i=0;i>1;i++){
+    for(int i=0;i>1;i++){
       this.pilots[i]=pilots[i];
       this.pilots[i].addHours(duration/60);
     }
@@ -84,18 +85,18 @@ public class Flight{
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/
     public void iniciaSeats(){
-      if(plane.PlaneType=="Boing"){
-        for(i=0;i<this.Boing.NUMERODEFILAS;i++){
-            for(j=0;j<this.Boing.NUMEROCOLUMNAS;j++){
-                  seats[i][j]="o";
+      if(this.plane.PlaneType=="Boing"){
+        for(int i=0;i<Boing.B_NUMEROFILAS;i++){
+            for(int j=0;j<Boing.B_NUMEROCOLUMNAS;j++){
+                  seats[i][j]='o';
                 }
         }
     }
 
-    if(plane.PlaneType=="Airbus"){
-      for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
-          for(j=0;j<this.Airbus.NUMEROCOLUMNAS;j++){
-                seats[i][j]="o";
+    if(this.plane.PlaneType=="Airbus"){
+      for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
+          for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;j++){
+                seats[i][j]='o';
               }
       }
     }
@@ -110,7 +111,7 @@ public class Flight{
 */
 public boolean ocuppySeat(int numeroFila, int numeroColumna){
   boolean added=true;
-  seats[numeroFila][numeroColumna]="x";
+  seats[numeroFila][numeroColumna]='x';
   /* Hay que incrementar el precio de la entrada si es VIP
      pero desconozco si lo vamos a hacer desde aquí o desde
      otra clase
@@ -127,15 +128,15 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     */
     public ArrayList getFreeSeats(){
           int cont=0;
-          if(Plane.PlaneType="Boing"){
-            for(i=0;i<this.Boing.NUMERODEFILAS;i++){
-              for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
-                if(seat[i][j]=="o"){
-                  if(i<this.Boing.NUMEROFILASVIP){
-                  freeSeats(cont) = i+col[j]+" | VIP | "+this.basePrice*1.2;
+          if(this.plane.PlaneType=="Boing"){
+            for(int i=0;i<Boing.B_NUMEROFILAS;i++){
+              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
+                if(seats[i][j]=='o'){
+                  if(i<Boing.B_NUMEROFILASVIP){
+                  freeSeats.add( i+col[j]+" | VIP | "+this.basePrice*1.2);
                   cont++;
                 }else{
-                    freeSeats(cont) = i+col[j]+" | No VIP | "+this.basePrice;
+                    freeSeats.add(i+col[j]+" | No VIP | "+this.basePrice);
                     cont++;
                   }
                 }
@@ -143,15 +144,15 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
             }
           }
 
-          if(Plane.PlaneType="Airbus"){
-            for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
-              for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
-                if(seat[i][j]=="o"){
-                  if(i<this.Airbus.NUMEROFILASVIP){
-                  freeSeats(cont) = i+col[j]+" | VIP | "+this.basePrice*1.2;
+          if(this.plane.PlaneType=="Airbus"){
+            for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
+              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;i++){
+                if(seats[i][j]=='o'){
+                  if(i<Airbus.A_NUMEROFILASVIP){
+                  freeSeats.add(i+col[j]+" | VIP | "+this.basePrice*1.2);
                   cont++;
                 }else{
-                    freeSeats(cont) = i+col[j]+" | No VIP | "+this.basePrice;
+                    freeSeats.add(i+col[j]+" | No VIP | "+this.basePrice);
                     cont++;
                   }
 
@@ -164,34 +165,32 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     }
 
         public void printSeats(){
-          int cont=0;
-          if(Plane.PlaneType="Boing"){
+          if(this.plane.PlaneType=="Boing"){
             System.out.println("  A B C D E F"+"\n");
-            for(i=0;i<this.Boing.NUMERODEFILAS;i++){
-              System.out.println(i+1);
-              for(j=0;j<this.Boing.NUMEROCOLUMNAS;i++){
-                System.out.println(seat[i][j]);
+            for(int i=0;i<Boing.B_NUMEROFILAS;i++){
+              System.out.print(i+1);
+              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
+                System.out.print(seats[i][j]);
                 }
               System.out.println("\n");
               }
             }
-          if(Plane.PlaneType="Airbus"){
+          if(this.plane.PlaneType=="Airbus"){
             System.out.println("  A B C D E F");
-            for(i=0;i<this.Airbus.NUMERODEFILAS;i++){
-                System.out.println(i+1);
-              for(j=0;j<this.Airbus.NUMEROCOLUMNAS;i++){
-                System.out.printl(seat[i][j]);
+            for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
+                System.out.print(i+1);
+              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;i++){
+                System.out.print(seats[i][j]);
                 }
               }
             }
-      return cont;
     }
 
   public String generaSiglas(){
     StringBuilder micadena=new StringBuilder(siglasComp);
         micadena.append(hour);
         micadena.append(destiny);
-    return micadena;
+    return micadena.toString();
   }
 
   //precioBase se tiene que modificar porque aun no hemos creado ticket
@@ -199,7 +198,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   public String toString(){
   return "Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
   +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
-  this.precioBase+"\n"+"Duracion: "+this.duration;
+  this.basePrice+"\n"+"Duracion: "+this.duration;
   }
 
 }
