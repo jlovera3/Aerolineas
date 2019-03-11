@@ -259,16 +259,15 @@ public void dniThings(){
 						System.out.println("No es una opcion valida");
 						dniThings();
 						}
-			}
-
+					}
 				}
-
-			}
-		}while(opcion4!=0 || siguiente);
-		if (opcion4==0){
-			salirPrograma();
+			}while(opcion4!=0 || siguiente);
+				if (opcion4==0){
+					salirPrograma();
+		}
 	}
-}
+
+
 
 	public void consultaBillete() {
 		String pregunta;
@@ -289,4 +288,3 @@ public void salirPrograma(){
 			}
 		}
 	}
-}
