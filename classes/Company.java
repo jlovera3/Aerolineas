@@ -221,15 +221,15 @@ abstract public class Company implements IAirCompany{
   }
 
 //METODOS DE TICKET
-  /*boolean buyTicket(){
-
+  public boolean buyTicket(String dni, Flight f, String asiento){
+    
   }
   boolean removeTicket(){
 
   }
   Flight searchTicket(){
 
-  }*/
+  }
 
 //METODOS DE CLIENTE
   public boolean addClient(Client c){
