@@ -16,13 +16,16 @@ public class Main{
 public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
-	private int opcion, opcion2, opcion3, opcion4, opcion5;
-	private List<String> vuelosDisponibles = new ArrayList<String>();
-	private List<String> asientosDisponibles = new ArrayList<String>();
-	private String origen;
-	private String destino;
-	private String dniCliente;
-	public char[] col={'A','B','C','D','F','G'};
+	 int opcion, opcion2, opcion3, opcion4, opcion5;
+	 List<String> vuelosDisponibles = new ArrayList<String>();
+	 List<String> asientosDisponibles = new ArrayList<String>();
+	 List<String> clientes = new ArrayList<String>();
+	 String origen;
+	 String destino;
+	 String dniCliente;
+	 char[] col={'A','B','C','D','F','G'};
+	 Flight vueloSeleccionado;
+	 String asientoSeleccionado;
 
 
   //inicialización de nuestra flota, empleados y vuelos de la compañia
@@ -136,28 +139,28 @@ protected void mostrarMenu(){
 				consultaBillete();
 				break;
 						case 3:
-				eliminaBillete();
+	//		eliminaBillete();
 				break;
 						case 4:
-				listaVuelos();
+	//		listaVuelos();
 				break;
 						case 5:
-				listaEmpleados();
+	//		listaEmpleados();
 				break;
 						case 6:
-				listaClientes();
+	//		listaClientes();
 				break;
 						case 7:
-				listaFlota();
+	//		listaFlota();
 				break;
 						case 8:
-				calculaSalariosTotal();
+	//		calculaSalariosTotal();
 				break;
 						case 9:
-				calculaRentabilidad();
+		//		calculaRentabilidad();
 				break;
 						case 0:
-				salir();
+				salirPrograma();
 				break;
 				default:
 				System.out.println("Esa no es una opcion");
@@ -182,6 +185,7 @@ protected void mostrarMenu(){
 
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
+					vueloSeleccionado = vuelosDisponibles.get(i);
 				}else{
 					done = true;
 				}
@@ -189,7 +193,7 @@ protected void mostrarMenu(){
 
 				System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
 				opcion2 = teclado.nextInt();
-				asientosDisponibles = getFreeSeatsFromFlight(vuelosDisponibles[opcion2]-1); //Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
+				asientosDisponibles = Iberia.getFreeSeatsFromFlight(vuelosDisponibles[opcion2]-1); //Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
 				imprimeAsientos();
 			}while(origen!=0 || destino!=0 && !siguiente);
 		}
@@ -199,7 +203,7 @@ protected void mostrarMenu(){
 		do{
 		{ //Imprimimos los asientos disponibles
 						boolean done = false;
-					for(int i=0; i<asientosDisponibles.size()-1()&&!done; i++){
+					for(int i=0; i<asientosDisponibles.size()-1&&!done; i++){
 						if(asientosDisponibles.get(i)!=null && !done){
 							System.out.println((i+1)+" "+asientosDisponibles.get(i));
 						}else{
@@ -209,6 +213,7 @@ protected void mostrarMenu(){
 				}
 				System.out.println("Seleccione el asiento o vuelva atrás intruduciendo 0");
 				opcion3 = teclado.nextInt();
+				asientoSeleccionado = asientosDisponibles.get(opcion3-1);
 				dniThings();
 			}while(opcion3!=0 && !siguiente);
 		}
@@ -221,7 +226,11 @@ public void dniThings(){
 			dniCliente = teclado.nextLine();
 
 			if (Iberia.searchClient(dniCliente)){
-				Iberia.buyTicket(dniCliente, opcion3-1);
+				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, opcion3-1)){
+					Iberia.searchClient(dniCliente).addTicket(vueloSeleccionado, asientoSeleccionado);
+					System.out.println("Comprado. Su identificador es el");
+					siguiente = true;
+				}
 			}else{
 				System.out.println("Usted no esta registrado como cliente");
 				System.out.println("Quiere registrarse ahora? Introduzca 1 si lo desea, 0 si no");
@@ -236,19 +245,36 @@ public void dniThings(){
 						System.out.println("Introduzca su nacionalidad");
 						nacionalidadCliente = teclado.nextLine();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
-						Iberia.addClient(clienteNuevo);
-						siguiente = true;
+						if(Iberia.addClient(clienteNuevo)){
+							System.out.println("Ahora está registrado");
+							if(Iberia.buyTicket(dniCliente, opcion3-1)){
+								Client.addTicket(vueloSeleccionado, asientoSeleccionado);
+								siguiente = true;
+						}else{
+							System.out.println("Ha habido un problema. Contacte con soporte");
+						}
 					}else if(opcion4==0){
 						salirPograma();
 					}else{
 						System.out.println("No es una opcion valida");
-				}
+						dniThings();
+						}
 			}
 
+				}
+
+			}
 		}while(opcion4!=0 || siguiente);
 		if (opcion4==0){
 			salirPrograma();
-		}
+	}
+}
+
+	public void consultaBillete() {
+		String pregunta;
+		System.out.println("Introduce tu DNI");
+		pregunta = teclado.nextInt();
+
 	}
 
 public void salirPrograma(){
@@ -259,17 +285,8 @@ public void salirPrograma(){
 				mostrarMenu();
 			}else{
 				System.out.println("Gracias por usarnos!");
+				}
 			}
 		}
 	}
-
-
-
-
-		public void consultaBillete() {
-			String pregunta;
-			System.out.println("Introduce tu identificador");
-			pregunta = teclado.nextInt();
-
-		}
 }
