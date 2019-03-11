@@ -13,6 +13,7 @@ public class Client{
 	protected String apellidos;
 	protected String fechaNac;
 	protected String nacionalidad;
+  protected List<String> tickets = new ArrayList<String>();
 
 	public static int amountOfClients=0;
 
@@ -34,5 +35,11 @@ public class Client{
 		amountOfClients++;
 	}
 
+
+	public addTicket (String flight, String seat){
+
+		
+
+	}
 
 }
