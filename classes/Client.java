@@ -44,10 +44,7 @@ public class Client{
 			tickets(i) = Ticket(flight, seat);
 		}else{
 			contador++
+			}
 		}
 	}
-
-
-	}
-
 }
