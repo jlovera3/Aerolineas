@@ -36,15 +36,18 @@ public class Client{
 	}
 
 
-	public addTicket (String flight, String seat){
-		int contador=0;
-
-		for(){
-			if(tickets(i) == null){
-			tickets(i) = Ticket(flight, seat);
-		}else{
-			contador++
+		public addTicket (String flight, String seat){
+				int contador=0;
+				boolean done=false;
+				if(!done){
+				for(int i=0;i<tickets.size()-1;contador++){
+					if(tickets(i) == null){
+						tickets(i) = Ticket(flight, seat);
+					}else{
+					contador++
+					}
+				}
+				done=true;
 			}
 		}
-	}
 }

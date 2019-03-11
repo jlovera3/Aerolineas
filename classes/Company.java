@@ -42,7 +42,7 @@ abstract public class Company implements IAirCompany{
   public void hireEmployee(Employee emp){
     boolean hired=false;
     if(emp instanceof Tripulation){
-      for(int i=0; i<amountOfTripulation&&!hired; i++){
+      for(int i=0; i<Tripulation.amountOfTripulation&&!hired; i++){
         if(crew[i]==null){
           crew[i]=emp;
           hired=true;
@@ -53,7 +53,7 @@ abstract public class Company implements IAirCompany{
         System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
       }
     }else if(emp instanceof Pilot){
-      for(int i=0; i<amountOfPilots&&!hired; i++){
+      for(int i=0; i<Pilot.amountOfPilots&&!hired; i++){
         if(pilots[i]==null){
           pilots[i]=emp;
           hired=true;
@@ -68,13 +68,13 @@ abstract public class Company implements IAirCompany{
 
   public boolean fireEmployee(String name){
     boolean fired=false;
-    for(int i=0; i<amountOfTripulation&&!fired; i++){
+    for(int i=0; i<Tripulation.amountOfTripulation&&!fired; i++){
       if(crew[i].name==name){
         crew[i]=null;
         fired=true;
       }
     }
-    for(int i=0; i<amountOfPilots&&!fired; i++){
+    for(int i=0; i<Pilot.amountOfPilots&&!fired; i++){
       if(pilots[i].name==name){
         pilots[i]=null;
         fired=true;
@@ -84,10 +84,10 @@ abstract public class Company implements IAirCompany{
   }
 
   public void listEmployee(){
-    for(int i=0; i<amountOfPilots; i++){
+    for(int i=0; i<Pilot.amountOfPilots; i++){
       System.out.println(pilots[i].toString());
     }
-    for(int i=0; i<amountOfTripulation; i++){
+    for(int i=0; i<Tripulation.amountOfTripulation; i++){
       System.out.println(crew[i].toString());
     }
   }
@@ -95,7 +95,7 @@ abstract public class Company implements IAirCompany{
   public Employee searchEmployee(String named){
     boolean found=false;
     Employee sol=null;
-    for(int i=0; i<amountOfTripulation&&!found; i++){
+    for(int i=0; i<Tripulation.amountOfTripulation&&!found; i++){
       if(crew[i].name==named){
         sol=crew[i];
         found=true;
@@ -110,7 +110,7 @@ abstract public class Company implements IAirCompany{
   public int totalSalary(String name){
     boolean found=false;
     int money;
-    for(int i=0; i<amountOfTripulation&&!found; i++){
+    for(int i=0; i<Tripulation.amountOfTripulation&&!found; i++){
       if(crew[i].name==name){
         money=crew[i].totalSalary();
         found=true;
@@ -125,7 +125,7 @@ abstract public class Company implements IAirCompany{
   //METODOS DE AVION
   public void addPlane(Plane p){
     boolean added=false;
-    for(int i=0; i<amountOfPlanes&&!added; i++){
+    for(int i=0; i<Plane.amountOfPlanes&&!added; i++){
       if(planes[i]==null){
         planes[i]=p;
         added=true;
@@ -138,14 +138,14 @@ abstract public class Company implements IAirCompany{
   }
 
   public void listPlane(){
-    for(int i=0; i<amountOfPlanes; i++){
+    for(int i=0; i<Plane.amountOfPlanes; i++){
       System.out.println(planes[i].toString());
     }
   }
 
   public boolean removePlane(String matric){
     boolean removed=false;
-    for(int i=0; i<amountOfPlanes&&!removed; i++){
+    for(int i=0; i<Plane.amountOfPlanes&&!removed; i++){
       if(planes[i].matricula==matric){
         planes[i]=null;
         removed=true;
@@ -158,7 +158,7 @@ abstract public class Company implements IAirCompany{
 */
   public void addFlight(Flight f){
     boolean added=false;
-    for(int i=0; i<amountOfFlights&&!added; i++){
+    for(int i=0; i<Flight.amountOfFlights&&!added; i++){
       if(flights[i]==null){
         flights[i]=f;
         added=true;
@@ -173,7 +173,7 @@ abstract public class Company implements IAirCompany{
   public void listFlight(){
     //metodo que llama a toString de Flight y muestra por partalla
     //los atributos de cada vuelo de nuestro array.
-    for(int i=0; i<amountOfFlights; i++){
+    for(int i=0; i<Flight.amountOfFlights; i++){
       System.out.println(flights[i].toString());
     }
   }
@@ -186,8 +186,8 @@ abstract public class Company implements IAirCompany{
   public ArrayList searchFlight(String a, String b){
     boolean any=false;
     List<String> vuelosDisponibles = new ArrayList<String>();
-    for(int i=0; i<amountOfFlights;i++){//para vuelos directos
-      if(flights[i].origen.nombreAero==a && flights[i].destiny.nombreAero==b){
+    for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
+      if(flights[i].origin.nombreAero==a && flights[i].destiny.nombreAero==b){
         vuelosDisponibles.add(flights[i].toString());
         any=true;
       }
@@ -213,7 +213,7 @@ abstract public class Company implements IAirCompany{
 
   public boolean removeFlight(int num){
     boolean removed=false;
-    if(num<amountOfFlights&&num>-1){
+    if(num<Flight.amountOfFlights&&num>-1){
       flights[num]=null;
       removed=true;
     }
@@ -235,7 +235,7 @@ abstract public class Company implements IAirCompany{
   public boolean addClient(Client c){
     boolean added=false;
     if(c instanceof Client){
-      for(int i=0; i<amountOfClients; i++){
+      for(int i=0; i<Client.amountOfClients; i++){
         if(clients[i]==null){
           clients[i]=c;
           added=true;
@@ -246,14 +246,14 @@ abstract public class Company implements IAirCompany{
   }
 
   public void listClient(){
-    for(int i=0; i<amountOfClients; i++){
+    for(int i=0; i<Client.amountOfClients; i++){
       System.out.println(clients[i].toString());
     }
   }
 
   public Client searchClient(String dni){
       Client miCliente;
-      for(int i=0; i<amountOfClients; i++){
+      for(int i=0; i<Client.amountOfClients; i++){
         if(clients[i].DNI==dni){
           miCliente=clients[i];
         }
@@ -263,7 +263,7 @@ abstract public class Company implements IAirCompany{
   public boolean removeClient(Client c){
     boolean removed=false;
     if(c instanceof Client){
-      for(int i=0; i<amountOfClients; i++){
+      for(int i=0; i<Client.amountOfClients; i++){
         if(clients[i]==c){
           clients[i]=null;
           removed=true;
@@ -273,6 +273,6 @@ abstract public class Company implements IAirCompany{
     return removed;
   }
 
-  void getFreeSeatsFromFlight();
-  void getRentabilityOfFlight();
+  public void getFreeSeatsFromFlight(){}
+  public void getRentabilityOfFlight(){}
 }
