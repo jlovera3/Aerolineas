@@ -30,7 +30,6 @@ public static void Main(String[] args){
 	 ArrayList<String> clientes = new ArrayList<String>();
 	 String origen;
 	 String destino;
-	 String dniCliente;
 	 char[] col={'A','B','C','D','F','G'};
 	 Flight vueloSeleccionado;
 	 String asientoSeleccionado;
@@ -46,7 +45,7 @@ public static void Main(String[] args){
   Flight[] flights=new Flight[5];
 
 
-  planes[0]=new Airbus("IBA0001","08/03/2008");
+  planes[0]=new Airbus("IBA0001","08/03/2008", Airbus);
   planes[1]=new Airbus("IBA0002","27/02/2011");
   planes[2]=new Boing("IBB0001","05/12/2013");
 
@@ -229,6 +228,7 @@ protected void mostrarMenu(){
 		}
 
 public void dniThings(){
+		 String dniCliente;
 
 		do{
 			boolean siguiente = false;
@@ -259,32 +259,74 @@ public void dniThings(){
 							System.out.println("Ahora está registrado");
 							if(Iberia.buyTicket(dniCliente, opcion3-1)){
 								Client.addTicket(vueloSeleccionado, asientoSeleccionado);
-								siguiente = true;
+								System.out.println("Comprado. Su identificador es el");
 						}else{
-							System.out.println("Ha habido un problema. Contacte con soporte");
+							System.out.println("Ha habido un problema comprando el billete. Contacte con soporte");
 						}
-					}else if(opcion4==0){
+					}else{
+						System.out.println("Ha habido un problema registrándolo. Contacte con soporte");
+					}
+				}else if(opcion4==0){
 						salirPograma();
 					}else{
 						System.out.println("No es una opcion valida");
 						dniThings();
 						}
 					}
-				}
-			}while(opcion4!=0 || siguiente);
-				if (opcion4==0){
-					salirPrograma();
+				}while(opcion4!=0);
+			if (opcion4==0){
+			salirPrograma();
 		}
 	}
 
 
 
 	public void consultaBillete() {
-		String pregunta;
+	 	String dniCliente;
+		String identificador;
+
 		System.out.println("Introduce tu DNI");
-		pregunta = teclado.nextInt();
+		dniCliente = teclado.nextInt();
+		System.out.println("Introduce tu identificador");
+		identificador = teclado.nextIn();
+		Iberia.searchTicket(dniCliente, identificador).toString();
 
 	}
+
+	public void eliminaBillete(){
+		String dniCliente;
+		String identificador;
+
+		System.out.println("Introduce tu DNI");
+		dniCliente = teclado.nextInt();
+		System.out.println("Introduce tu identificador");
+		identificador = teclado.nextIn();
+		Iberia.deleteTicket(dniCliente, identificador).toString();
+
+	}
+
+	public void listaVuelos(){
+		Iberia.listFlight();
+	}
+
+	public void listaEmpleados(){
+		Iberia.listEmployee();
+	}
+
+	public void listaClientes(){
+		Iberia.listClient();
+	}
+
+	public void listaFlota(){
+		Iberia.listPlane();
+	}
+
+	public void calculaSalariosTotal(){
+		Iberia.totalSalary();
+
+	}
+
+
 
 public void salirPrograma(){
 		System.out.println("Volver al menu principal o salir? 1/Menu 0/Salir");
