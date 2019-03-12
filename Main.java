@@ -1,4 +1,7 @@
 import classes.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 
 /*
 TO DO:
@@ -17,9 +20,9 @@ public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
 	 int opcion, opcion2, opcion3, opcion4, opcion5;
-	 List<String> vuelosDisponibles = new ArrayList<String>();
-	 List<String> asientosDisponibles = new ArrayList<String>();
-	 List<String> clientes = new ArrayList<String>();
+	 ArrayList<String> vuelosDisponibles = new ArrayList<String>();
+	 ArrayList<String> asientosDisponibles = new ArrayList<String>();
+	 ArrayList<String> clientes = new ArrayList<String>();
 	 String origen;
 	 String destino;
 	 String dniCliente;

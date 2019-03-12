@@ -44,7 +44,7 @@ public class Client{
 					if(tickets(i) == null){
 						tickets(i) = Ticket(flight, seat);
 					}else{
-					contador++
+					contador++;
 					}
 				}
 				done=true;
