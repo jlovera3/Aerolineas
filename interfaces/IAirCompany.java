@@ -1,5 +1,5 @@
 package interfaces;
-
+import classes.*;
 public interface IAirCompany{
   boolean hireEmployee();
   boolean fireEmployee();

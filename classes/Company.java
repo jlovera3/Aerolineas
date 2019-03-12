@@ -1,4 +1,5 @@
 package classes;
+import java.util.ArrayList;
 import interfaces.IAirCompany;
 import classes.*;
 
@@ -16,11 +17,11 @@ abstract public class Company implements IAirCompany{
   public String CEOname;
   public String CEOsurname;
   public String creationDate;
-  public Pilot[] pilots=new Pilot[amountOfPilots];
-  public Tripulation[] crew=new Tripulation[amountOfTripulation];
-  public Plane[] planes=new Plane[amountOfPlanes];
-  public Flight[] flights=new Flight[amountOfFlights];
-  public Client[] clients=new Cliente[amountOfClients];
+  public Pilot[] pilots=new Pilot[Pilot.amountOfPilots];
+  public Tripulation[] crew=new Tripulation[Tripulation.amountOfTripulation];
+  public Plane[] planes=new Plane[Plane.amountOfPlanes];
+  public Flight[] flights=new Flight[Flight.amountOfFlights];
+  public Client[] clients=new Client[Client.amountOfClients];
   //Constructores de la clase company:
   public Company(){
     this.name=COMP_NAME_DEF;
@@ -39,7 +40,7 @@ abstract public class Company implements IAirCompany{
   }
 
   //METODOS DE EMPLEADOS
-  public void hireEmployee(Employee emp){
+  public void hireEmployee(Tripulation emp){
     boolean hired=false;
     if(emp instanceof Tripulation){
       for(int i=0; i<Tripulation.amountOfTripulation&&!hired; i++){
@@ -52,7 +53,12 @@ abstract public class Company implements IAirCompany{
       if(hired==false){
         System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
       }
-    }else if(emp instanceof Pilot){
+    }
+  }
+
+  public void hireEmployee(Pilot emp){
+    boolean hired=false;
+    if(emp instanceof Pilot){
       for(int i=0; i<Pilot.amountOfPilots&&!hired; i++){
         if(pilots[i]==null){
           pilots[i]=emp;
@@ -109,7 +115,7 @@ abstract public class Company implements IAirCompany{
 
   public int totalSalary(String name){
     boolean found=false;
-    int money;
+    int money=0;
     for(int i=0; i<Tripulation.amountOfTripulation&&!found; i++){
       if(crew[i].name==name){
         money=crew[i].totalSalary();
@@ -185,7 +191,7 @@ abstract public class Company implements IAirCompany{
   */
   public ArrayList<String> searchFlight(String a, String b){
     boolean any=false;
-    List<String> vuelosDisponibles = new ArrayList<String>();
+    ArrayList<String> vuelosDisponibles = new ArrayList<String>();
     for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
       if(flights[i].origin.nombreAero==a && flights[i].destiny.nombreAero==b){
         vuelosDisponibles.add(flights[i].toString());
@@ -226,11 +232,11 @@ abstract public class Company implements IAirCompany{
       Client c = searchClient(dni);
       c.addTicket(f, asiento);
       String[] splitted = asiento.split("\\s+");
-      int fila=(int)splitted[0];
-      char colum=(char)splitted[1];
-      int columna;
+      int fila=Integer.parseInt(splitted[0]);
+      char colum=splitted[1].charAt(0);
+      int columna=0;
       for(int i=0; i<6;i++){
-        if(col[i]==colum){
+        if(Flight.col[i]==colum){
           columna=i;
         }
       }
@@ -267,7 +273,7 @@ abstract public class Company implements IAirCompany{
   }
 
   public Client searchClient(String dni){
-      Client miCliente;
+      Client miCliente=null;
       for(int i=0; i<Client.amountOfClients; i++){
         if(clients[i].DNI==dni){
           miCliente=clients[i];

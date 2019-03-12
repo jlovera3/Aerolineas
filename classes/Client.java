@@ -1,4 +1,5 @@
 package classes;
+import java.util.ArrayList;
 
 public class Client{
 
@@ -13,9 +14,10 @@ public class Client{
 	protected String apellidos;
 	protected String fechaNac;
 	protected String nacionalidad;
-  protected List<String> tickets = new ArrayList<String>();
+  public ArrayList<String> tickets = new ArrayList<>();
 
 	public static int amountOfClients=0;
+
 
 	public Client(){
 		this.DNI = DNI_DEF;
@@ -36,18 +38,12 @@ public class Client{
 	}
 
 
-			public addTicket (Flight thisF, String seat){
-					int contador=0;
-					boolean done=false;
-					if(!done){
-					for(int i=0;i<tickets.size()-1;contador++){
-						if(tickets(i) == null){
-							tickets(i) = Ticket(thisF, seat);
-						}else{
-						contador++;
+			public void addTicket (Flight thisF, String seat){
+					for(int i=0;i<Ticket.amountOfTickets+1;i++){
+						if(tickets.get(i)==null){
+							Ticket miticket=new Ticket(thisF, seat);
+							tickets.add(miticket.toString());
 						}
 					}
-					done=true;
 				}
-			}
 }
