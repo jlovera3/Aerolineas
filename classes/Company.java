@@ -222,7 +222,8 @@ abstract public class Company implements IAirCompany{
 
 //METODOS DE TICKET
   public boolean buyTicket(String dni, Flight f, String asiento){
-    
+      boolean bought=false;
+      
   }
   boolean removeTicket(){
 

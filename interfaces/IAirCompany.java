@@ -26,6 +26,6 @@ public interface IAirCompany{
   Client searchClient();
   boolean removeClient();
 
-  getFreeSeatsFromFlight();
-  getRentabilityOfFlight();
+  void getFreeSeatsFromFlight();
+  void getRentabilityOfFlight();
 }
