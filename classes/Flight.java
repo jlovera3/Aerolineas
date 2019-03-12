@@ -16,7 +16,7 @@ public class Flight{
   public int duration;
   public String siglasComp;
   public char[][] seats;
-  public char[] col={'A','B','C','D','F','G'};
+  public static final char[] col={'A','B','C','D','F','G'};
   public ArrayList<String> freeSeats = new ArrayList<String>();
 
   public static int amountOfFlights=0;
@@ -110,8 +110,11 @@ public class Flight{
 * @return Devuelve el numero de asientos ocupados
 */
 public boolean ocuppySeat(int numeroFila, int numeroColumna){
-  boolean added=true;
-  seats[numeroFila][numeroColumna]='x';
+  boolean added=false;
+  if(seats[numeroFila-1][numeroColumna]=='o'){
+    seats[numeroFila-1][numeroColumna]='x';
+    added=true;
+  }
   /* Hay que incrementar el precio de la entrada si es VIP
      pero desconozco si lo vamos a hacer desde aquí o desde
      otra clase
@@ -126,17 +129,17 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     * @param numeroColumna: Entero que identifica el numero total de columnas
     * @return Devuelve un String con el identificador del asiento libre
     */
-    public ArrayList getFreeSeats(){
+    public ArrayList<String> getFreeSeats(){
           int cont=0;
           if(this.plane.PlaneType=="Boing"){
             for(int i=0;i<Boing.B_NUMEROFILAS;i++){
               for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
                 if(seats[i][j]=='o'){
                   if(i<Boing.B_NUMEROFILASVIP){
-                  freeSeats.add( i+" "+col[j]+" | VIP | "+this.basePrice*1.2);
+                  freeSeats.add(i+1+" "+col[j]+" "+" | VIP | "+this.basePrice*1.2);
                   cont++;
                 }else{
-                    freeSeats.add(i+" "+col[j]+" | No VIP | "+this.basePrice);
+                    freeSeats.add(i+1+" "+col[j]+" "+" | No VIP | "+this.basePrice);
                     cont++;
                   }
                 }
@@ -149,10 +152,10 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
               for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;i++){
                 if(seats[i][j]=='o'){
                   if(i<Airbus.A_NUMEROFILASVIP){
-                  freeSeats.add(i+" "+col[j]+" | VIP | "+this.basePrice*1.2);
+                  freeSeats.add(i+1+" "+col[j]+" "+" | VIP | "+this.basePrice*1.2);
                   cont++;
                 }else{
-                    freeSeats.add(i+" "+col[j]+" | No VIP | "+this.basePrice);
+                    freeSeats.add(i+1+" "+col[j]+" "+" | No VIP | "+this.basePrice);
                     cont++;
                   }
 

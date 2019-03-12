@@ -225,17 +225,25 @@ abstract public class Company implements IAirCompany{
       boolean bought=false;
       Client c = searchClient(dni);
       c.addTicket(f, asiento);
-          //f.ocuppySeat(asiento);
-          //necesito leer solo un numero hasta el espacio y despues del esacio un char
-
-
+      String[] splitted = asiento.split("\\s+");
+      int fila=(int)splitted[0];
+      char colum=(char)splitted[1];
+      int columna;
+      for(int i=0; i<6;i++){
+        if(col[i]==colum){
+          columna=i;
+        }
       }
+      bought=f.ocuppySeat(fila, columna);
+          //necesito leer solo un numero hasta el espacio y despues del esacio un char
+      return bought;
   }
-  boolean removeTicket(){
 
+  public  boolean removeTicket(){
+    return true;
   }
-  Flight searchTicket(){
-
+  public Flight searchTicket(){
+    return null;
   }
 
 //METODOS DE CLIENTE
