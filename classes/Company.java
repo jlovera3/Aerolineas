@@ -183,7 +183,7 @@ abstract public class Company implements IAirCompany{
   *Tambien tiene que mostrar los vuelos aunque sea con escalas
   *
   */
-  public ArrayList searchFlight(String a, String b){
+  public ArrayList<String> searchFlight(String a, String b){
     boolean any=false;
     List<String> vuelosDisponibles = new ArrayList<String>();
     for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
@@ -223,7 +223,13 @@ abstract public class Company implements IAirCompany{
 //METODOS DE TICKET
   public boolean buyTicket(String dni, Flight f, String asiento){
       boolean bought=false;
-      
+      Client c = searchClient(dni);
+      c.addTicket(f, asiento);
+          //f.ocuppySeat(asiento);
+          //necesito leer solo un numero hasta el espacio y despues del esacio un char
+
+
+      }
   }
   boolean removeTicket(){
 

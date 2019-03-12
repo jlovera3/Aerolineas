@@ -1,11 +1,11 @@
 package classes;
 
 public class Ticket{
-  public String flight;
+  public Flight f;
   public String seat;
 
   //Constantes
-  public static final String FLIGHT_DEF="Vuelo desconocido";
+  public static final Flight FLIGHT_DEF=null;
   public static final String SEAT_DEF="Asiento sin asignar";
 
   /**
@@ -13,7 +13,7 @@ public class Ticket{
   * por defecto
   */
   public Ticket(){
-    this.flight= FLIGHT_DEF;
+    this.f= FLIGHT_DEF;
     this.seat= SEAT_DEF;
   }
   /**
@@ -21,8 +21,8 @@ public class Ticket{
   *	@param fligth: String que identifica el vuelo indicado
   * @param seat: String que identifica el asiento deseado
   */
-  public Ticket(String flight, String seat){
-    this.flight= flight;
+  public Ticket(Flight f, String seat){
+    this.f= f;
     this.seat= seat;
   }
 
