@@ -19,7 +19,12 @@ public class Main{
 public static void Main(String[] args){
 	//Entrada teclado para menu
 	Scanner teclado=new Scanner(System.in);
-	 int opcion, opcion2, opcion3, opcion4, opcion5;
+	 int opcion;
+	 int opcion2;
+	 int opcion3;
+	 int opcion4;
+	 int opcion5;
+
 	 ArrayList<String> vuelosDisponibles = new ArrayList<String>();
 	 ArrayList<String> asientosDisponibles = new ArrayList<String>();
 	 ArrayList<String> clientes = new ArrayList<String>();
@@ -77,6 +82,8 @@ public static void Main(String[] args){
 
 }
 
+
+
 	protected void hireTripulation(){
 		boolean done=false;
 	  for(int i=0; i<amountOfTripulation&&!done; i++){
@@ -133,7 +140,7 @@ protected void mostrarMenu(){
 	System.out.print("8 Calcular	Salarios	total	 ");
 	System.out.print("9 Calcular	la	rentabilidad	de	un	vuelo ");
 	System.out.print("0 Salir ");
-	opcion=teclado.nextInt();
+	opcion = teclado.nextInt();
 	switch (teclado) {
 						case 1:
 				buscarVuelo();
