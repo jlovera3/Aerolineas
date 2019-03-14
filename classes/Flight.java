@@ -30,7 +30,7 @@ public class Flight{
       this.origin=aero1;
       this.destiny=aero2;
       this.plane=plane;
-        if(plane instanceof Boing){
+        if(plane.PlaneType=="Boing"){
           this.seats=new char [Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
         }else{
           this.seats=new char [Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
@@ -63,7 +63,7 @@ public class Flight{
     this.destiny=aero2;
     this.plane=plane;
     //Una vez recibido el tipo de avión, se le asigna un tamaño al array seat
-        if(plane instanceof Boing){
+        if(plane.PlaneType=="Boing"){
           this.seats=new char[Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
         }else{
           this.seats=new char[Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];

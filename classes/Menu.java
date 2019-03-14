@@ -38,7 +38,7 @@ public class Menu{
   public Plane planes[]=new Plane[3];
   public Pilot pilots[]=new Pilot[2];
   public Tripulation crew[]=new Tripulation[6];
-  public Airport aero[]=new Airport[6];
+  public Airport aero[]=new Airport[10];
   public Flight flights[]=new Flight[5];
 
 public Menu(){
@@ -76,51 +76,50 @@ public Menu(){
 			hirePilot();
 			addPlane();
 			addFlight();
+			addAero();
 
 		}catch(NullPointerException e){
-
+			System.out.println("Que cagada mas grande");
 		}
 }
-
+	public void addAero(){
+	  for(int i=0; i<Airport.amountOfAirports; i++){
+			if(aero[i]!=null){
+				Iberia.addAero(aero[i]);
+			}
+		}
+	}
 
 
 	public void hireTripulation(){
-		boolean done=false;
-	  for(int i=0; i<Tripulation.amountOfTripulation&&!done; i++){
+	  for(int i=0; i<Tripulation.amountOfTripulation; i++){
 			if(crew[i]!=null){
 				Iberia.hireEmployee(crew[i]);
-				done=true;
 			}
 		}
 	}
 
 	public void hirePilot(){
 		boolean done=false;
-	  for(int i=0; i<Pilot.amountOfPilots&&!done; i++){
+	  for(int i=0; i<Pilot.amountOfPilots; i++){
 			if(pilots[i]!=null){
 				Iberia.hireEmployee(pilots[i]);
-				done=true;
 			}
 		}
 	}
 
 	public void addPlane(){
-		boolean done=false;
-	  for(int i=0; i<Plane.amountOfPlanes&&!done; i++){
+	  for(int i=0; i<Plane.amountOfPlanes; i++){
 			if(planes[i]!=null){
 				Iberia.addPlane(planes[i]);
-				done=true;
 			}
 		}
 	}
 
 	public void addFlight(){
-
-		boolean done=false;
-	  for(int i=0; i<Flight.amountOfFlights&&!done; i++){
+	  for(int i=0; i<Flight.amountOfFlights; i++){
 			if(flights[i]!=null){
 				Iberia.addFlight(flights[i]);
-				done=true;
 			}
 		}
 	}
@@ -130,16 +129,27 @@ public Menu(){
 
 public void mostrarMenu(){
 	do{
+	System.out.println("---------------------------------------");
 	System.out.println("1 Buscar vuelo ");
-	System.out.println("2 Consultar	Billete ");
-	System.out.println("3 Eliminar	Billete ");
-	System.out.println("4 Listar	Vuelos ");
-	System.out.println("5 Listar	Empleados ");
-	System.out.println("6 Listar	Clientes ");
-	System.out.println("7	Listar	Flota ");
-	System.out.println("8 Calcular	Salarios	total	 ");
-	System.out.println("9 Calcular	la	rentabilidad	de	un	vuelo ");
+	System.out.println("---------------------------------------");
+	System.out.println("2 Consultar Billete ");
+	System.out.println("---------------------------------------");
+	System.out.println("3 Eliminar Billete ");
+	System.out.println("---------------------------------------");
+	System.out.println("4 Listar Vuelos ");
+	System.out.println("---------------------------------------");
+	System.out.println("5 Listar Empleados ");
+	System.out.println("---------------------------------------");
+	System.out.println("6 Listar Clientes ");
+	System.out.println("---------------------------------------");
+	System.out.println("7 Listar Flota");
+	System.out.println("---------------------------------------");
+	System.out.println("8 Calcular Salarios totales");
+	System.out.println("---------------------------------------");
+	System.out.println("9 Calcular la rentabilidad de un vuelo");
+	System.out.println("---------------------------------------");
 	System.out.println("0 Salir ");
+	System.out.println("---------------------------------------");
 	opcion = teclado.nextInt();
 	switch (opcion) {
 						case 1:

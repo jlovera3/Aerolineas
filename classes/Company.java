@@ -17,6 +17,7 @@ public class Company{
   public Plane planes[]=new Plane[Plane.amountOfPlanes];
   public Flight flights[]=new Flight[Flight.amountOfFlights];
   public Client clients[]=new Client[Client.amountOfClients];
+  public Airport aero[]=new Airport[Airport.amountOfAirports];
   //Constructores de la clase company:
   public Company(String name, String siglas, String ceoN,
    String ceoS, String date){
@@ -280,6 +281,15 @@ public class Company{
       }
     }
     return removed;
+  }
+  public void addAero(Airport a){
+    boolean added=false;
+    for(int i=0; i<Airport.amountOfAirports&&!added; i++){
+      if(aero[i]==null){
+        aero[i]=a;
+        added=true;
+      }
+    }
   }
 
   public ArrayList<String> getFreeSeatsFromFlight(Flight f){
