@@ -4,7 +4,7 @@ import interfaces.IAirCompany;
 import classes.*;
 
 
-abstract public class Company implements IAirCompany{
+public class Company implements IAirCompany{
   //Valores por defecto de las variables
   public static final String COMP_NAME_DEF="Nameless company";
   public static final String SIGLAS_DEF="AAA";
