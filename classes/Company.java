@@ -12,11 +12,11 @@ public class Company{
   public String CEOname;
   public String CEOsurname;
   public String creationDate;
-  public Pilot[] pilots=new Pilot[Pilot.amountOfPilots];
-  public Tripulation[] crew=new Tripulation[Tripulation.amountOfTripulation];
-  public Plane[] planes=new Plane[Plane.amountOfPlanes];
-  public Flight[] flights=new Flight[Flight.amountOfFlights];
-  public Client[] clients=new Client[Client.amountOfClients];
+  public Pilot pilots[]=new Pilot[Pilot.amountOfPilots];
+  public Tripulation crew[]=new Tripulation[Tripulation.amountOfTripulation];
+  public Plane planes[]=new Plane[Plane.amountOfPlanes];
+  public Flight flights[]=new Flight[Flight.amountOfFlights];
+  public Client clients[]=new Client[Client.amountOfClients];
   //Constructores de la clase company:
   public Company(String name, String siglas, String ceoN,
    String ceoS, String date){

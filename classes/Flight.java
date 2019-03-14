@@ -69,7 +69,7 @@ public class Flight{
           this.seats=new char[Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
           }
 
-    for(int i=0;i>1;i++){
+    for(int i=0;i<2;i++){
       this.pilots[i]=pilots[i];
       this.pilots[i].addHours(duration/60);
     }
@@ -207,7 +207,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
   this.basePrice+"\n"+"Duracion: "+this.duration;
   }
-  
+
   public boolean equals(int num){
     boolean igual=false;
     if(num==this.idVuelo){

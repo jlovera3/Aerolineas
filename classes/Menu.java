@@ -33,52 +33,53 @@ public class Menu{
 	public Flight vueloSeleccionado;
 	public String asientoSeleccionado;
 
-	public Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
+	public Company Iberia;
 
-  public Plane[] planes=new Plane[3];
-  public Pilot[] pilots=new Pilot[2];
-  public Tripulation[] crew=new Tripulation[6];
-  public Airport[] aero=new Airport[6];
-  public Flight[] flights=new Flight[5];
+  public Plane planes[]=new Plane[3];
+  public Pilot pilots[]=new Pilot[2];
+  public Tripulation crew[]=new Tripulation[6];
+  public Airport aero[]=new Airport[6];
+  public Flight flights[]=new Flight[5];
 
 public Menu(){
 	try{
-  planes[0]=new Airbus("IBA0001","08/03/2008");
-  planes[1]=new Airbus("IBA0002","27/02/2011");
-  planes[2]=new Boing("IBB0001","05/12/2013");
+		  planes[0]=new Airbus("IBA0001","08/03/2008");
+		  planes[1]=new Airbus("IBA0002","27/02/2011");
+		  planes[2]=new Boing("IBB0001","05/12/2013");
 
-  pilots[0]=new Pilot(30101010,"Juan","Martinez Santos","14/01/1985","Spain");
-  pilots[1]=new Pilot(30202020,"Jack","Reacher","24/11/1978","EEUU");
+		  pilots[0]=new Pilot(30101010,"Juan","Martinez Santos","14/01/1985","Spain");
+		  pilots[1]=new Pilot(30202020,"Jack","Reacher","24/11/1978","EEUU");
 
 
-  crew[0]=new Tripulation(30303030,"Jack","Nicholson","05/12/1967","England");
-  crew[1]=new Tripulation(30404040,"Francisco","Carrasquilla","15/10/1993","Spain");
-  crew[2]=new Tripulation(30505050,"Frodo","Bolson","25/12/1867","Hobbiton");
-  crew[3]=new Tripulation(30606060,"Mary","Poppins","05/02/1957","England");
-  crew[4]=new Tripulation(30707070,"Dolores","Rodriguez","09/04/1947","Spain");
-  crew[5]=new Tripulation(30808080,"Julia","Delgado","24/07/1966","Spain");
+		  crew[0]=new Tripulation(30303030,"Jack","Nicholson","05/12/1967","England");
+		  crew[1]=new Tripulation(30404040,"Francisco","Carrasquilla","15/10/1993","Spain");
+		  crew[2]=new Tripulation(30505050,"Frodo","Bolson","25/12/1867","Hobbiton");
+		  crew[3]=new Tripulation(30606060,"Mary","Poppins","05/02/1957","England");
+		  crew[4]=new Tripulation(30707070,"Dolores","Rodriguez","09/04/1947","Spain");
+		  crew[5]=new Tripulation(30808080,"Julia","Delgado","24/07/1966","Spain");
 
-  aero[0]=new Airport("Cordoba", "COR");
-  aero[1]=new Airport("Madrid", "MAD");
-  aero[2]=new Airport("Barcelona", "BCN");
-  aero[3]=new Airport("Valencia", "VAL");
-  aero[4]=new Airport("Bilbao", "BIL");
-  aero[5]=new Airport("New York", "NYC");
+		  aero[0]=new Airport("Cordoba", "COR");
+		  aero[1]=new Airport("Madrid", "MAD");
+		  aero[2]=new Airport("Barcelona", "BCN");
+		  aero[3]=new Airport("Valencia", "VAL");
+		  aero[4]=new Airport("Bilbao", "BIL");
+		  aero[5]=new Airport("New York", "NYC");
 
-  flights[0]=new Flight(aero[0], aero[1], planes[0], pilots, crew[0], crew[1], 80, 50, "0800");
-  flights[1]=new Flight(aero[1], aero[2], planes[0], pilots, crew[2], crew[3], 50, 40, "0930");
-  flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
-  flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
-  flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
+		  flights[0]=new Flight(aero[0], aero[1], planes[0], pilots, crew[0], crew[1], 80, 50, "0800");
+		  flights[1]=new Flight(aero[1], aero[2], planes[0], pilots, crew[2], crew[3], 50, 40, "0930");
+		  flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
+		  flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
+		  flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
-	hireTripulation();
-	hirePilot();
-	addPlane();
-	addFlight();
+			Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
+			hireTripulation();
+			hirePilot();
+			addPlane();
+			addFlight();
 
-}catch(NullPointerException e){
+		}catch(NullPointerException e){
 
-}
+		}
 }
 
 
@@ -202,9 +203,9 @@ public void mostrarMenu(){
 			boolean done = false;
 			do{
 			System.out.println("Introduzca un aeropuerto de origen o 0 para volver");
-			origen = teclado.nextLine();
+			origen = teclado.next();
 			System.out.println("Introduzca un aeropuerto de destino o 0 para volver");
-			destino = teclado.nextLine();
+			destino = teclado.next();
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
