@@ -6,11 +6,13 @@ import java.util.ArrayList;
 /*
 TO DO:
 
+
+- aprobar
+
 - Terminar menu
 - Terminar cliente nuevo linea 220~
 - Terminar "ir atras" lineas 200~
-
-
+- Fix bugs
 
 */
 
