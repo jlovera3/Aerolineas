@@ -285,5 +285,45 @@ public class Company{
   public ArrayList<String> getFreeSeatsFromFlight(Flight f){
     return f.getFreeSeats();
   }
-  public void getRentabilityOfFlight(){}
+  public void getRentabilityOfFlight(Flight f){
+    double cont=0;
+    if(f.plane.PlaneType=="Boing"){
+      System.out.println("La rentabilidad del vuelo "+f.toString()+" consta del: ");
+      System.out.println("Sueldo de los pilotos: ");
+      for(int i=0;i<Pilot.amountOfPilots;i++){
+        System.out.println(f.pilots[i].employeeNumber);
+        System.out.println(f.pilots[i].totalSalary());
+        cont+=f.pilots[i].totalSalary();
+      }
+      System.out.println("Sueldo de la tripulacion: ");
+      for(int i=0;i<Tripulation.amountOfTripulation;i++){
+        System.out.print(f.crew[i].employeeNumber);
+        System.out.println(f.crew[i].totalSalary());
+        cont+=f.crew[i].totalSalary();
+      }
+      System.out.println("Gasto de combustible del avion: ");
+      System.out.println((900*f.duration/60)*1.57);
+      cont+=(900*f.duration/60)*1.57;
+      System.out.println("Total de gastos: "+cont);
+
+    }else if(f.plane.PlaneType=="Airbus"){
+      System.out.println("La rentabilidad del vuelo "+f.toString()+" consta del: ");
+      System.out.println("Sueldo de los pilotos: ");
+      for(int i=0;i<Pilot.amountOfPilots;i++){
+        System.out.println(f.pilots[i].employeeNumber);
+        System.out.println(f.pilots[i].totalSalary());
+        cont+=f.pilots[i].totalSalary();
+      }
+      System.out.println("Sueldo de la tripulacion: ");
+      for(int i=0;i<Tripulation.amountOfTripulation;i++){
+        System.out.print(f.crew[i].employeeNumber);
+        System.out.println(f.crew[i].totalSalary());
+        cont+=f.crew[i].totalSalary();
+      }
+      System.out.println("Gasto de combustible del avion: ");
+      System.out.println((900*f.duration/60)*1.57);
+      cont+=(900*f.duration/60)*1.57;
+      System.out.println("Total de gastos: "+cont);
+    }
+  }
 }

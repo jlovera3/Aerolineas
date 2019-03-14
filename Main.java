@@ -17,6 +17,7 @@ TO DO:
 public class Main{
 	public Scanner teclado=new Scanner(System.in);
 	public int opcion;
+	public int opcion1;
 	public int opcion2;
 	public int opcion3;
 	public int opcion4;
@@ -41,7 +42,7 @@ public class Main{
   public Flight[] flights=new Flight[5];
 
 public static void Main(String[] args){
-
+	try{
   planes[0]=new Airbus("IBA0001","08/03/2008");
   planes[1]=new Airbus("IBA0002","27/02/2011");
   planes[2]=new Boing("IBB0001","05/12/2013");
@@ -71,16 +72,18 @@ public static void Main(String[] args){
   flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
 	hireTripulation();
-	hireEmployee();
+	hirePilot();
 	addPlane();
 	addFlight();
 	mostrarMenu();
-
+}catch(NullPointerException e){
+	
+}
 }
 
 
 
-	protected void hireTripulation(){
+	public void hireTripulation(){
 		boolean done=false;
 	  for(int i=0; i<Tripulation.amountOfTripulation&&!done; i++){
 			if(crew[i]!=null){
@@ -90,7 +93,7 @@ public static void Main(String[] args){
 		}
 	}
 
-	protected void hirePilot(){
+	public void hirePilot(){
 		boolean done=false;
 	  for(int i=0; i<Pilot.amountOfPilots&&!done; i++){
 			if(pilots[i]!=null){
@@ -100,7 +103,7 @@ public static void Main(String[] args){
 		}
 	}
 
-	protected void addPlane(){
+	public void addPlane(){
 		boolean done=false;
 	  for(int i=0; i<Plane.amountOfPlanes&&!done; i++){
 			if(planes[i]!=null){
@@ -110,7 +113,7 @@ public static void Main(String[] args){
 		}
 	}
 
-	protected void addFlight(){
+	public void addFlight(){
 
 		boolean done=false;
 	  for(int i=0; i<Flight.amountOfFlights&&!done; i++){
@@ -124,7 +127,7 @@ public static void Main(String[] args){
 
   //Aqui va el menu:
 
-protected void mostrarMenu(){
+public void mostrarMenu(){
 	do{
 	System.out.print("1 Buscar vuelo ");
 	System.out.print("2 Consultar	Billete ");
@@ -139,32 +142,50 @@ protected void mostrarMenu(){
 	opcion = teclado.nextInt();
 	switch (opcion) {
 						case 1:
-				buscarVuelo();
-				break;
+								buscarVuelo();
+								break;
 						case 2:
-				consultaBillete();
-				break;
+								consultaBillete();
+								break;
 						case 3:
 	//		eliminaBillete();
-				break;
+								break;
 						case 4:
-						Iberia.listFlight();
-				break;
+								Iberia.listFlight();
+								break;
 						case 5:
-						Iberia.listEmployee();
-				break;
+								Iberia.listEmployee();
+								break;
 						case 6:
-						Iberia.listClient();
-				break;
+								Iberia.listClient();
+								break;
 						case 7:
-						Iberia.listPlane();
-				break;
+								Iberia.listPlane();
+								break;
 						case 8:
-	//		calculaSalariosTotal();
-				break;
+								System.out.println("Mostrando el salario de los pilotos: ");
+								for(int i=0;i<Pilot.amountOfPilots;i++){
+									System.out.println(pilots[i].toString());
+									System.out.println(pilots[i].totalSalary());
+								}
+								System.out.println("Mostrando el salario de la tripulacion: ");
+								for(int i=0;i<Tripulation.amountOfTripulation;i++){
+									System.out.println(crew[i].toString());
+									System.out.println(crew[i].totalSalary());
+								}
+								break;
 						case 9:
-		//		calculaRentabilidad();
-				break;
+								Iberia.listFlight();
+								System.out.println("Selecciona un Vuelo escribiendo su ID para ver su rentabilidad, o 0 para volver");
+								opcion1=teclado.nextInt();
+								if(opcion1!=0){
+									for(int i=0; i<Flight.amountOfFlights; i++){
+										if(flights[i].equals(opcion2)){
+											Iberia.getRentabilityOfFlight(flights[i]);
+										}
+									}
+								}
+								break;
 						case 0:
 				salirPrograma();
 				break;
@@ -177,7 +198,7 @@ protected void mostrarMenu(){
 
 
 
-		public void buscarVuelo (){
+		public void buscarVuelo(){
 			boolean done = false;
 			do{
 			System.out.println("Introduzca un aeropuerto de origen o 0 para volver");
@@ -214,7 +235,7 @@ protected void mostrarMenu(){
 			}while(done!=true);
 		}
 
-	public void imprimeAsientos(){												//los guardo en una lista
+	public void imprimeAsientos(){
 			boolean siguiente = false;
 			int opcion3;
 		do{
@@ -241,8 +262,8 @@ public void dniThings(){
 	String apellidosCliente;
 	String fechaCliente;
 	String nacionalidadCliente;
-	int opcion3;
-	int opcion4;
+	int opcion3=0;
+	int opcion4=0;
 	boolean comprado=false;
 	boolean siguiente = false;
 	boolean registrado=false;
