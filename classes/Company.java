@@ -36,11 +36,7 @@ public class Company{
         if(crew[i]==null){
           crew[i]=emp;
           hired=true;
-          System.out.println("The employee named "+emp.name+" "+emp.surname+" has been hired");
         }
-      }
-      if(hired==false){
-        System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
       }
     }
   }
@@ -52,11 +48,7 @@ public class Company{
         if(pilots[i]==null){
           pilots[i]=emp;
           hired=true;
-          System.out.println("The employee named "+emp.name+" "+emp.surname+" has been hired");
         }
-      }
-      if(hired==false){
-        System.out.println("The employee named "+emp.name+" "+emp.surname+" could not be hired");
       }
     }
   }
@@ -124,11 +116,7 @@ public class Company{
       if(planes[i]==null){
         planes[i]=p;
         added=true;
-        System.out.println("The plane has been added");
       }
-    }
-    if(added==false){
-      System.out.println("The plane could not be added");
     }
   }
 
@@ -158,18 +146,16 @@ public class Company{
         flights[i]=f;
         added=true;
         flights[i].iniciaSeats();
-        System.out.println("The flight has been added");
       }
-    }
-    if(added==false){
-      System.out.println("The flight could not be added");
     }
   }
   public void listFlight(){
     //metodo que llama a toString de Flight y muestra por partalla
     //los atributos de cada vuelo de nuestro array.
-    for(int i=0; i<Flight.amountOfFlights; i++){
-      System.out.println(flights[i].toString());
+    for(int i=0; i<6; i++){
+      if(flights[i]!=null){
+        System.out.println(flights[i].toString());
+      }
     }
   }
 
@@ -200,9 +186,7 @@ public class Company{
         }
       }
     }*/
-    if(any==false){
-      System.out.println("No se han encontrado vuelos");
-    }
+
     return vuelosDisponibles;
   }
 
