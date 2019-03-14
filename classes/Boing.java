@@ -11,15 +11,14 @@ public class Boing extends Plane{
 	public static final int B_NUMEROFILASVIP = 10; //De la 1 a la 5
 	public static final int B_CAPACIDADVEHICULOS = 4;
 
-  public static final String BPlaneType="Boing";
 
 
   public Boing(){
     super();
   }
 
-  public Boing(String m, String f){
-    super(m, f, BPlaneType);
+  public Boing(String m, String f,String type){
+    super(m, f, type);
 
   }
   @Override

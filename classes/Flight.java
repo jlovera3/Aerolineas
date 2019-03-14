@@ -32,17 +32,21 @@ public class Flight{
       this.plane=plane;
         if(plane.PlaneType=="Boing"){
           this.seats=new char [Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
+          for(int i=0;i<6;i++){
+            this.crew[i]=stewardess[i];
+            this.crew[i].addHours(duration/60);
+          }
         }else{
           this.seats=new char [Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
+          for(int i=0;i<2;i++){
+            this.crew[i]=stewardess[i];
+            this.crew[i].addHours(duration/60);
+          }
         }
 
       for(int i=0;i<2;i++){
         this.pilots[i]=pilots[i];
         this.pilots[i].addHours(duration/60);
-      }
-      for(int i=0;i<2;i++){
-        this.crew[i]=stewardess[i];
-        this.crew[i].addHours(duration/60);
       }
       this.basePrice=basePrice;
       this.duration=duration;
@@ -53,38 +57,6 @@ public class Flight{
 
     }
 
-
-    //Constructor de 2 crew
-
-  public Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
-   Tripulation steward1, Tripulation steward2, int basePrice, int duration,
-   String hour){
-    this.origin=aero1;
-    this.destiny=aero2;
-    this.plane=plane;
-    //Una vez recibido el tipo de avión, se le asigna un tamaño al array seat
-        if(plane.PlaneType=="Boing"){
-          this.seats=new char[Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
-        }else{
-          this.seats=new char[Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
-          }
-
-    for(int i=0;i<2;i++){
-      this.pilots[i]=pilots[i];
-      this.pilots[i].addHours(duration/60);
-    }
-    this.crew[0]=steward1;
-    this.crew[1]=steward2;
-    this.crew[0].addHours(duration/60);
-    this.crew[1].addHours(duration/60);
-
-    this.basePrice=basePrice;
-    this.duration=duration;
-    this.generaSiglas();
-    this.iniciaSeats();
-    amountOfFlights++;
-    this.idVuelo=amountOfFlights;
-  }
 
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/

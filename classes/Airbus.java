@@ -11,14 +11,13 @@ public class Airbus extends Plane{
 	public static final int A_NUMEROFILASVIP = 5; //De la 1 a la 5
 	public static final int A_CAPACIDADVEHICULOS = 0;
 
-  public static final String APlaneType="Airbus";
 
   public Airbus(){
     super();
   }
 
-  public Airbus(String m, String f){
-    super(m, f, APlaneType);
+  public Airbus(String m, String f, String type){
+    super(m, f, type);
 
   }
   @Override

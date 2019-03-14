@@ -35,17 +35,18 @@ public class Menu{
 
 	public Company Iberia;
 
+	public Client clients[]=new Client[20];
   public Plane planes[]=new Plane[3];
   public Pilot pilots[]=new Pilot[2];
   public Tripulation crew[]=new Tripulation[6];
   public Airport aero[]=new Airport[10];
-  public Flight flights[]=new Flight[5];
+  public Flight flights[]=new Flight[6];
 
 public Menu(){
 	try{
-		  planes[0]=new Airbus("IBA0001","08/03/2008");
-		  planes[1]=new Airbus("IBA0002","27/02/2011");
-		  planes[2]=new Boing("IBB0001","05/12/2013");
+		  planes[0]=new Airbus("IBA0001","08/03/2008","Airbus");
+		  planes[1]=new Airbus("IBA0002","27/02/2011","Airbus");
+		  planes[2]=new Boing("IBB0001","05/12/2013","Boing");
 
 		  pilots[0]=new Pilot(30101010,"Juan","Martinez Santos","14/01/1985","Spain");
 		  pilots[1]=new Pilot(30202020,"Jack","Reacher","24/11/1978","EEUU");
@@ -65,17 +66,19 @@ public Menu(){
 		  aero[4]=new Airport("Bilbao", "BIL");
 		  aero[5]=new Airport("New York", "NYC");
 
-		  flights[0]=new Flight(aero[0], aero[1], planes[0], pilots, crew[0], crew[1], 80, 50, "0800");
-		  flights[1]=new Flight(aero[1], aero[2], planes[0], pilots, crew[2], crew[3], 50, 40, "0930");
-		  flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew[4], crew[5], 60, 45, "1100");
-		  flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew[0], crew[1], 60, 45, "1230");
+		  flights[0]=new Flight(aero[0], aero[1], planes[0], pilots, crew, 80, 50, "0800");
+		  flights[1]=new Flight(aero[1], aero[2], planes[0], pilots, crew, 50, 40, "0930");
+		  flights[2]=new Flight(aero[1], aero[3], planes[1], pilots, crew, 60, 45, "1100");
+		  flights[3]=new Flight(aero[3], aero[4], planes[1], pilots, crew, 60, 45, "1230");
 		  flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
+
+			clients[0]=new Client("1","Jaime","Lovera","14/01/1996","Espania");
 
 			Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 			hireTripulation();
 			hirePilot();
 			addPlane();
-			addFlight();
+			addFlight(flights);
 			addAero();
 
 		}catch(NullPointerException e){
@@ -116,7 +119,7 @@ public Menu(){
 		}
 	}
 
-	public void addFlight(){
+	public void addFlight(Flight[] flights){
 	  for(int i=0; i<Flight.amountOfFlights; i++){
 			if(flights[i]!=null){
 				Iberia.addFlight(flights[i]);
@@ -162,16 +165,27 @@ public void mostrarMenu(){
 	//		eliminaBillete();
 								break;
 						case 4:
-								Iberia.listFlight();
+								for(int i=0; i<Flight.amountOfFlights; i++){
+									if(flights[i]!=null){
+										System.out.println(flights[i].toString());
+									}
+								}
 								break;
 						case 5:
-								Iberia.listEmployee();
+								for(int i=0; i<Pilot.amountOfPilots; i++){
+									System.out.println(pilots[i].toString());
+								}
+								for(int i=0; i<Tripulation.amountOfTripulation; i++){
+									System.out.println(crew[i].toString());
+								}
 								break;
 						case 6:
 								Iberia.listClient();
 								break;
 						case 7:
-								Iberia.listPlane();
+								for(int i=0; i<Plane.amountOfPlanes; i++){
+									System.out.println(planes[i].toString());
+								}
 								break;
 						case 8:
 								System.out.println("Mostrando el salario de los pilotos: ");
