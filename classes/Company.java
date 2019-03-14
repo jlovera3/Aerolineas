@@ -5,12 +5,7 @@ import classes.*;
 
 
 public class Company implements IAirCompany{
-  //Valores por defecto de las variables
-  public static final String COMP_NAME_DEF="Nameless company";
-  public static final String SIGLAS_DEF="AAA";
-  public static final String CEON_DEF="None";
-  public static final String CEOS_DEF="";
-  public static final String CREAT_DATE_DEF="01/01/2000";
+  private static Company myCompany;
   //Variables de la clase
   public String name;
   public String siglasComp;
@@ -23,14 +18,25 @@ public class Company implements IAirCompany{
   public Flight[] flights=new Flight[Flight.amountOfFlights];
   public Client[] clients=new Client[Client.amountOfClients];
   //Constructores de la clase company:
-  public Company(){
-    this.name=COMP_NAME_DEF;
-    this.siglasComp=SIGLAS_DEF;
-    this.CEOname=CEON_DEF;
-    this.CEOsurname=CEOS_DEF;
-    this.creationDate=CREAT_DATE_DEF;
+  public  static Company setCompany(String name, String siglas, String ceoN,
+   String ceoS, String date) {
+     if (myCompany==null) {
+        myCompany=new Company(name, siglas, ceoN, ceoS, date);
+      }
+    return myCompany;
   }
-  public Company(String name, String siglas, String ceoN,
+  public Company(){
+    this.name="";
+    this.siglasComp="";
+    this.CEOname="";
+    this.CEOsurname="";
+    this.creationDate="";
+  }
+  public static Company getCompany() {
+    return myCompany;
+  }
+
+  private Company(String name, String siglas, String ceoN,
    String ceoS, String date){
     this.name=name;
     this.siglasComp=siglas;

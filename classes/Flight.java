@@ -23,9 +23,9 @@ public class Flight{
 
     //Constructor de 6 crew
 
-    Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
+    public Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
      Tripulation[] stewardess, int basePrice, int duration,
-     String siglasComp, String hour){
+      String hour){
       this.origin=aero1;
       this.destiny=aero2;
       this.plane=plane;
@@ -54,9 +54,9 @@ public class Flight{
 
     //Constructor de 2 crew
 
-  Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
+  public Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
    Tripulation steward1, Tripulation steward2, int basePrice, int duration,
-   String siglasComp, String hour){
+   String hour){
     this.origin=aero1;
     this.destiny=aero2;
     this.plane=plane;
@@ -82,6 +82,7 @@ public class Flight{
     this.iniciaSeats();
     amountOfFlights++;
   }
+
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/
     public void iniciaSeats(){

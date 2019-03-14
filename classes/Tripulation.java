@@ -13,7 +13,7 @@ public class Tripulation extends Employee{
     this.amountOfTripulation++;
   }
   public Tripulation(int dni, String name, String apellido,
-  String date, String nation, int sala){
+  String date, String nation){
     super(dni, name, apellido, date, nation);
     this.amountOfTripulation++;
   }
