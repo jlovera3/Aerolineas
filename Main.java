@@ -15,36 +15,32 @@ TO DO:
 
 
 public class Main{
+	public Scanner teclado=new Scanner(System.in);
+	public int opcion;
+	public int opcion2;
+	public int opcion3;
+	public int opcion4;
+	public int opcion5;
+
+	public ArrayList<String> vuelosDisponibles = new ArrayList<String>();
+	public ArrayList<String> asientosDisponibles = new ArrayList<String>();
+	public ArrayList<String> clientes = new ArrayList<String>();
+	public String origen;
+	public String destino;
+	public String dniCliente;
+	public char[] col={'A','B','C','D','F','G'};
+	public Flight vueloSeleccionado;
+	public String asientoSeleccionado;
+
+	public Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
+
+  public Plane[] planes=new Plane[3];
+  public Pilot[] pilots=new Pilot[6];
+  public Tripulation[] crew=new Tripulation[10];
+  public Airport[] aero=new Airport[6];
+  public Flight[] flights=new Flight[5];
+
 public static void Main(String[] args){
-	//Entrada teclado para menu
-	 Scanner teclado=new Scanner(System.in);
-	 int opcion;
-	 int opcion2;
-	 int opcion3;
-	 int opcion4;
-	 int opcion5;
-
-	 ArrayList<String> vuelosDisponibles = new ArrayList<String>();
-	 ArrayList<String> asientosDisponibles = new ArrayList<String>();
-	 ArrayList<String> clientes = new ArrayList<String>();
-	 String origen;
-	 String destino;
-	 String dniCliente;
-	 char[] col={'A','B','C','D','F','G'};
-	 Flight vueloSeleccionado;
-	 String asientoSeleccionado;
-
-
-  //inicialización de nuestra flota, empleados y vuelos de la compañia
-  Company Iberia=new Company();
-	Iberia.setCompany("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
-
-  Plane[] planes=new Plane[3];
-  Pilot[] pilots=new Pilot[6];
-  Tripulation[] crew=new Tripulation[10];
-  Airport[] aero=new Airport[6];
-  Flight[] flights=new Flight[5];
-
 
   planes[0]=new Airbus("IBA0001","08/03/2008");
   planes[1]=new Airbus("IBA0002","27/02/2011");
@@ -86,7 +82,7 @@ public static void Main(String[] args){
 
 	protected void hireTripulation(){
 		boolean done=false;
-	  for(int i=0; i<amountOfTripulation&&!done; i++){
+	  for(int i=0; i<Tripulation.amountOfTripulation&&!done; i++){
 			if(crew[i]!=null){
 				Iberia.hireEmployee(crew[i]);
 				done=true;
@@ -96,7 +92,7 @@ public static void Main(String[] args){
 
 	protected void hirePilot(){
 		boolean done=false;
-	  for(int i=0; i<amountOfPilots&&!done; i++){
+	  for(int i=0; i<Pilot.amountOfPilots&&!done; i++){
 			if(pilots[i]!=null){
 				Iberia.hireEmployee(pilots[i]);
 				done=true;
@@ -106,7 +102,7 @@ public static void Main(String[] args){
 
 	protected void addPlane(){
 		boolean done=false;
-	  for(int i=0; i<amountOfPlanes&&!done; i++){
+	  for(int i=0; i<Plane.amountOfPlanes&&!done; i++){
 			if(planes[i]!=null){
 				Iberia.addPlane(planes[i]);
 				done=true;
@@ -117,7 +113,7 @@ public static void Main(String[] args){
 	protected void addFlight(){
 
 		boolean done=false;
-	  for(int i=0; i<amountOfFlights&&!done; i++){
+	  for(int i=0; i<Flight.amountOfFlights&&!done; i++){
 			if(flights[i]!=null){
 				Iberia.addFlight(flights[i]);
 				done=true;
@@ -141,7 +137,7 @@ protected void mostrarMenu(){
 	System.out.print("9 Calcular	la	rentabilidad	de	un	vuelo ");
 	System.out.print("0 Salir ");
 	opcion = teclado.nextInt();
-	switch (teclado) {
+	switch (opcion) {
 						case 1:
 				buscarVuelo();
 				break;
@@ -182,30 +178,40 @@ protected void mostrarMenu(){
 
 
 		public void buscarVuelo (){
+			boolean done = false;
 			do{
-				boolean siguiente = false;
 			System.out.println("Introduzca un aeropuerto de origen o 0 para volver");
-			origen = teclado.nextInt();
+			origen = teclado.nextLine();
 			System.out.println("Introduzca un aeropuerto de destino o 0 para volver");
-			destino = teclado.nextInt();
-			siguiente=true;
+			destino = teclado.nextLine();
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
 
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
-					vueloSeleccionado = vuelosDisponibles.get(i);
+					//vueloSeleccionado = vuelosDisponibles.get(i);
 				}else{
 					done = true;
 				}
 			}
 
-				System.out.println("Seleccione un vuelo o vuelva atrás intruduciendo 0");
+				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atrás intruduciendo 0");
 				opcion2 = teclado.nextInt();
-				asientosDisponibles = Iberia.getFreeSeatsFromFlight(vuelosDisponibles[opcion2]-1); //Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
+				if(opcion2!=0){
+					for(int i=0; i<Flight.amountOfFlights; i++){
+						if(flights[i].equals(opcion2)){
+							System.out.println("Selecionado vuelo "+flights[i].toString());
+							System.out.println("Los asientos del vuelo son: ");
+							flights[i].printSeats();
+							asientosDisponibles = Iberia.getFreeSeatsFromFlight(flights[i]);
+						}
+					}
+				}
+			//Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
 				imprimeAsientos();
-			}while(origen!=0 || destino!=0 && !siguiente);
+				done=true;
+			}while(done!=true);
 		}
 
 	public void imprimeAsientos(){												//los guardo en una lista
@@ -235,22 +241,20 @@ public void dniThings(){
 	String apellidosCliente;
 	String fechaCliente;
 	String nacionalidadCliente;
-	Scanner teclado=new Scanner(System.in);
 	int opcion3;
 	int opcion4;
 	boolean comprado=false;
 	boolean siguiente = false;
-	Flight vueloSeleccionado;
-	String asientoSeleccionado;
-	Company Iberia=new Company.getCompany();
+	boolean registrado=false;
+
 		do{
 
 			System.out.println("Introduzca su DNI");
 			dniCliente = teclado.nextLine();
-
-			if (Iberia.searchClient(dniCliente)){
-				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, opcion3-1)){
-					Iberia.searchClient(dniCliente).addTicket(vueloSeleccionado, asientoSeleccionado);
+			Client c=Iberia.searchClient(dniCliente);
+			if (c!=null){
+				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)){
+					c.addTicket(vueloSeleccionado, asientoSeleccionado);
 					System.out.println("Comprado. Su identificador es el");
 					siguiente = true;
 				}
@@ -268,9 +272,11 @@ public void dniThings(){
 						System.out.println("Introduzca su nacionalidad");
 						nacionalidadCliente = teclado.nextLine();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
-						if(Iberia.addClient(clienteNuevo)){
-							System.out.println("Ahora está registrado");
-							if(Iberia.buyTicket(dniCliente, opcion3-1)){
+						registrado=Iberia.addClient(clienteNuevo);
+						if(registrado==true){
+							System.out.println("Ahora está registrado, procedemos a comprar su billete para el vuelo "+this.vueloSeleccionado.toString()+" en el asiento "+this.asientoSeleccionado);
+							comprado=Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado);
+							if(comprado==true){
 								clienteNuevo.addTicket(vueloSeleccionado, asientoSeleccionado);
 								siguiente = true;
 						}else{

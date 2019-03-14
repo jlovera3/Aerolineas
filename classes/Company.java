@@ -4,8 +4,8 @@ import interfaces.IAirCompany;
 import classes.*;
 
 
-public class Company implements IAirCompany{
-  private static Company myCompany;
+public class Company{
+
   //Variables de la clase
   public String name;
   public String siglasComp;
@@ -18,25 +18,7 @@ public class Company implements IAirCompany{
   public Flight[] flights=new Flight[Flight.amountOfFlights];
   public Client[] clients=new Client[Client.amountOfClients];
   //Constructores de la clase company:
-  public  static Company setCompany(String name, String siglas, String ceoN,
-   String ceoS, String date) {
-     if (myCompany==null) {
-        myCompany=new Company(name, siglas, ceoN, ceoS, date);
-      }
-    return myCompany;
-  }
-  public Company(){
-    this.name="";
-    this.siglasComp="";
-    this.CEOname="";
-    this.CEOsurname="";
-    this.creationDate="";
-  }
-  public static Company getCompany() {
-    return myCompany;
-  }
-
-  private Company(String name, String siglas, String ceoN,
+  public Company(String name, String siglas, String ceoN,
    String ceoS, String date){
     this.name=name;
     this.siglasComp=siglas;
@@ -300,6 +282,8 @@ public class Company implements IAirCompany{
     return removed;
   }
 
-  public void getFreeSeatsFromFlight(){}
+  public ArrayList<String> getFreeSeatsFromFlight(Flight f){
+    return f.getFreeSeats();
+  }
   public void getRentabilityOfFlight(){}
 }

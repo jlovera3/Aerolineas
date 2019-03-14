@@ -20,6 +20,7 @@ public class Flight{
   public ArrayList<String> freeSeats = new ArrayList<String>();
 
   public static int amountOfFlights=0;
+  public int idVuelo;
 
     //Constructor de 6 crew
 
@@ -48,6 +49,7 @@ public class Flight{
       this.generaSiglas();
       this.iniciaSeats();
       amountOfFlights++;
+      this.idVuelo=amountOfFlights;
 
     }
 
@@ -81,6 +83,7 @@ public class Flight{
     this.generaSiglas();
     this.iniciaSeats();
     amountOfFlights++;
+    this.idVuelo=amountOfFlights;
   }
 
   /** Inicia todas las plazas, situando una "o" en todos los asientos
@@ -200,9 +203,17 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   //precioBase se tiene que modificar porque aun no hemos creado ticket
   @Override
   public String toString(){
-  return "Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
+  return "Id: "+this.idVuelo+" Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
   +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
   this.basePrice+"\n"+"Duracion: "+this.duration;
+  }
+  
+  public boolean equals(int num){
+    boolean igual=false;
+    if(num==this.idVuelo){
+      igual=true;
+    }
+    return igual;
   }
 
 }
