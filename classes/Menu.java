@@ -33,11 +33,11 @@ public class Menu{
 	public Flight vueloSeleccionado;
 	public String asientoSeleccionado;
 
-	public static Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
+	public Company Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 
   public Plane[] planes=new Plane[3];
-  public Pilot[] pilots=new Pilot[6];
-  public Tripulation[] crew=new Tripulation[10];
+  public Pilot[] pilots=new Pilot[2];
+  public Tripulation[] crew=new Tripulation[6];
   public Airport[] aero=new Airport[6];
   public Flight[] flights=new Flight[5];
 
@@ -129,16 +129,16 @@ public Menu(){
 
 public void mostrarMenu(){
 	do{
-	System.out.print("1 Buscar vuelo ");
-	System.out.print("2 Consultar	Billete ");
-	System.out.print("3 Eliminar	Billete ");
-	System.out.print("4 Listar	Vuelos ");
-	System.out.print("5 Listar	Empleados ");
-	System.out.print("6 Listar	Clientes ");
-	System.out.print("7	Listar	Flota ");
-	System.out.print("8 Calcular	Salarios	total	 ");
-	System.out.print("9 Calcular	la	rentabilidad	de	un	vuelo ");
-	System.out.print("0 Salir ");
+	System.out.println("1 Buscar vuelo ");
+	System.out.println("2 Consultar	Billete ");
+	System.out.println("3 Eliminar	Billete ");
+	System.out.println("4 Listar	Vuelos ");
+	System.out.println("5 Listar	Empleados ");
+	System.out.println("6 Listar	Clientes ");
+	System.out.println("7	Listar	Flota ");
+	System.out.println("8 Calcular	Salarios	total	 ");
+	System.out.println("9 Calcular	la	rentabilidad	de	un	vuelo ");
+	System.out.println("0 Salir ");
 	opcion = teclado.nextInt();
 	switch (opcion) {
 						case 1:
