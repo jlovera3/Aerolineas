@@ -148,16 +148,16 @@ protected void mostrarMenu(){
 	//		eliminaBillete();
 				break;
 						case 4:
-	//		listaVuelos();
+						Iberia.listFlight();
 				break;
 						case 5:
-	//		listaEmpleados();
+						Iberia.listEmployee();
 				break;
 						case 6:
-	//		listaClientes();
+						Iberia.listClient();
 				break;
 						case 7:
-	//		listaFlota();
+						Iberia.listPlane();
 				break;
 						case 8:
 	//		calculaSalariosTotal();
