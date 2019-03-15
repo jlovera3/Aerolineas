@@ -246,7 +246,6 @@ public void mostrarMenu(){
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 
 			for(int i=0; i<vuelosDisponibles.size(); i++){
-				System.out.println("Displaying"+i);
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
 					//vueloSeleccionado = vuelosDisponibles.get(i);
