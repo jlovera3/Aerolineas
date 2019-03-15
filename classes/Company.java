@@ -122,6 +122,7 @@ public class Company{
 
   public void listPlane(){
     for(int i=0; i<Plane.amountOfPlanes; i++){
+      System.out.println("--------------------");
       System.out.println(planes[i].toString());
     }
   }
