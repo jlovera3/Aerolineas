@@ -172,9 +172,9 @@ public class Company{
         System.out.println("Creando ArrayList");
     for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
           System.out.println("Entrando for "+i);
-      if(flights[i].origin.toString()==a){
+      if(flights[i].origin.nombreAero==a){
         System.out.println("Entrando primer if"+i);
-        if(flights[i].destiny.toString()==b){
+        if(flights[i].destiny.nombreAero==b){
             System.out.println("Entrando segundo if "+i);
         vuelosDisponibles.add(flights[i].toString());
         any=true;
@@ -280,6 +280,7 @@ public class Company{
     }
     return removed;
   }
+
   public void addAero(Airport a){
     boolean added=false;
     for(int i=0; i<Airport.amountOfAirports&&!added; i++){
@@ -289,6 +290,7 @@ public class Company{
       }
     }
   }
+
   public void printSalary(){
     System.out.println("Mostrando el salario de los pilotos: ");
    System.out.println("---------------------------------------");

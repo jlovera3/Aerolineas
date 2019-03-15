@@ -55,7 +55,7 @@ public class Flight{
       this.iniciaSeats();
       amountOfFlights++;
       this.idVuelo=amountOfFlights;
-
+      System.out.println("Vuelo iniciado"+this.amountOfFlights);
     }
 
     public static int generateRandomInt(int upperRange){
