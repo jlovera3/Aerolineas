@@ -80,6 +80,7 @@ public Menu(){
 			addPlane();
 			addFlight(flights);
 			addAero();
+			addClients();
 
 		}catch(NullPointerException e){
 			System.out.println("Que cagada mas grande");
@@ -93,6 +94,13 @@ public Menu(){
 		}
 	}
 
+	public void addClients(){
+		for(int i=0; i<Client.amountOfClients; i++){
+			if(clients[i]!=null){
+				Iberia.addClient(clients[i]);
+			}
+		}
+	}
 
 	public void hireTripulation(){
 	  for(int i=0; i<Tripulation.amountOfTripulation; i++){
@@ -153,11 +161,12 @@ public void mostrarMenu(){
 	System.out.println("---------------------------------------");
 	System.out.println("0 Salir ");
 	System.out.println("---------------------------------------");
-	System.out.println(Flight.amountOfFlights);
-	System.out.println(Pilot.amountOfPilots);
-	System.out.println(Client.amountOfClients);
-	System.out.println(Airport.amountOfAirports);
-	System.out.println(Ticket.amountOfTickets);
+/*	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
+	System.out.println("Hay instanciados "+Pilot.amountOfPilots+" pilotos");
+	System.out.println("Hay instanciados "+Client.amountOfClients+" clientes");
+	System.out.println("Hay instanciados "+Airport.amountOfAirports+" aeropuertos");
+	System.out.println("Hay instanciados "+Ticket.amountOfTickets+" tickets");
+	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");*/
 
 
 
@@ -187,16 +196,7 @@ public void mostrarMenu(){
 								Iberia.listFlight();
 								break;
 						case 8:
-								System.out.println("Mostrando el salario de los pilotos: ");
-								for(int i=0;i<Pilot.amountOfPilots;i++){
-									System.out.println(pilots[i].toString());
-									System.out.println(pilots[i].totalSalary());
-								}
-								System.out.println("Mostrando el salario de la tripulacion: ");
-								for(int i=0;i<Tripulation.amountOfTripulation;i++){
-									System.out.println(crew[i].toString());
-									System.out.println(crew[i].totalSalary());
-								}
+								Iberia.printSalary();
 								break;
 						case 9:
 								Iberia.listFlight();

@@ -275,6 +275,22 @@ public class Company{
       }
     }
   }
+  public void printSalary(){
+    System.out.println("Mostrando el salario de los pilotos: ");
+   System.out.println("---------------------------------------");
+    for(int i=0;i<Pilot.amountOfPilots;i++){
+      System.out.println(pilots[i].toString());
+      System.out.println(pilots[i].totalSalary());
+    	System.out.println("---------------------------------------");
+    }
+    System.out.println("Mostrando el salario de la tripulacion: ");
+    System.out.println("---------------------------------------");
+    for(int i=0;i<Tripulation.amountOfTripulation;i++){
+      System.out.println(crew[i].toString());
+      System.out.println(crew[i].totalSalary());
+    	System.out.println("---------------------------------------");
+    }
+  }
 
   public ArrayList<String> getFreeSeatsFromFlight(Flight f){
     return f.getFreeSeats();
