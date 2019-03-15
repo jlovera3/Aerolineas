@@ -130,7 +130,7 @@ public Menu(){
 
   //Aqui va el menu:
 
-public void mostrarMenu(){
+public void mostrarMenu(Company Iberia){
 	do{
 	System.out.println("---------------------------------------");
 	System.out.println("1 Buscar vuelo ");
@@ -165,11 +165,7 @@ public void mostrarMenu(){
 	//		eliminaBillete();
 								break;
 						case 4:
-								for(int i=0; i<Flight.amountOfFlights; i++){
-									if(flights[i]!=null){
-										System.out.println(flights[i].toString());
-									}
-								}
+								Iberia.listFlight();
 								break;
 						case 5:
 								for(int i=0; i<Pilot.amountOfPilots; i++){

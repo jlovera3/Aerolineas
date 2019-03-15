@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Flight{
 
-  public String siglas;
   public String hour;
   public Pilot[] pilots=new Pilot[2];
   public Tripulation[] crew=new Tripulation[6];
@@ -14,7 +13,6 @@ public class Flight{
   public Plane plane;
   public int basePrice;
   public int duration;
-  public String siglasComp;
   public char[][] seats;
   public static final char[] col={'A','B','C','D','F','G'};
   public ArrayList<String> freeSeats = new ArrayList<String>();
@@ -50,7 +48,6 @@ public class Flight{
       }
       this.basePrice=basePrice;
       this.duration=duration;
-      this.generaSiglas();
       this.iniciaSeats();
       amountOfFlights++;
       this.idVuelo=amountOfFlights;
@@ -164,19 +161,19 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
               }
             }
     }
-
+/*
   public String generaSiglas(){
-    StringBuilder micadena=new StringBuilder(siglasComp);
+    StringBuilder micadena=new StringBuilder();
         micadena.append(hour);
         micadena.append(destiny);
     return micadena.toString();
   }
-
+*/
   //precioBase se tiene que modificar porque aun no hemos creado ticket
   @Override
   public String toString(){
-  return "Id: "+this.idVuelo+" Identificador: "+this.generaSiglas()+"\n"+"Origen: "+this.origin+"\n"
-  +"Destino: "+this.destiny+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
+  return "Id: "+this.idVuelo+"\n"+"Origen: "+this.origin.nombreAero+"\n"
+  +"Destino: "+this.destiny.nombreAero+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
   this.basePrice+"\n"+"Duracion: "+this.duration;
   }
 

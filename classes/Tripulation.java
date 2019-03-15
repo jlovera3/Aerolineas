@@ -4,7 +4,7 @@ public class Tripulation extends Employee{
 
   public int salary=40000;
   public float hoursWorked;
-  public String work="steward";
+  public String work="tripulante";
 
   public static int amountOfTripulation=0;
 

@@ -4,7 +4,7 @@ public class Pilot extends Employee {
 
   public int salary=100000;
   public float hoursWorked;
-  public String work="pilot";
+  public String work="piloto";
 
   public static int amountOfPilots=0;
 
