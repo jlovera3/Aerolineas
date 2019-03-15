@@ -153,6 +153,16 @@ public void mostrarMenu(){
 	System.out.println("---------------------------------------");
 	System.out.println("0 Salir ");
 	System.out.println("---------------------------------------");
+	System.out.println(Flight.amountOfFlights);
+	System.out.println(Pilot.amountOfPilots);
+	System.out.println(Client.amountOfClients);
+	System.out.println(Airport.amountOfAirports);
+	System.out.println(Ticket.amountOfTickets);
+
+
+
+
+
 	opcion = teclado.nextInt();
 	switch (opcion) {
 						case 1:
@@ -222,7 +232,7 @@ public void mostrarMenu(){
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
-
+				System.out.println("Displaying"+i);
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
 					//vueloSeleccionado = vuelosDisponibles.get(i);
