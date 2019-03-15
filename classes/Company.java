@@ -166,16 +166,11 @@ public class Company{
   *
   */
   public ArrayList<String> searchFlight(String a, String b){
-    System.out.println("Entrando");
     boolean any=false;
     ArrayList<String> vuelosDisponibles = new ArrayList<String>();
-        System.out.println("Creando ArrayList");
     for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
-          System.out.println("Entrando for "+i);
-      if(flights[i].origin.nombreAero==a){
-        System.out.println("Entrando primer if"+i);
-        if(flights[i].destiny.nombreAero==b){
-            System.out.println("Entrando segundo if "+i);
+      if(flights[i].origin.nombreAero.equals(a)){
+        if(flights[i].destiny.nombreAero.equals(b)){
         vuelosDisponibles.add(flights[i].toString());
         any=true;
       }
