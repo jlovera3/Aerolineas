@@ -1,6 +1,8 @@
 package classes;
 import java.lang.StringBuilder;
 import java.util.ArrayList;
+import  java.lang.Math;
+import  java.util.Random;
 
 public class Flight{
 
@@ -31,13 +33,15 @@ public class Flight{
         if(plane.PlaneType=="Boing"){
           this.seats=new char [Boing.B_NUMEROFILAS][Boing.B_NUMEROCOLUMNAS];
           for(int i=0;i<6;i++){
-            this.crew[i]=stewardess[i];
+            int num=generateRandomInt(Tripulation.amountOfTripulation);
+            this.crew[i]=stewardess[num];
             this.crew[i].addHours(duration/60);
           }
         }else{
           this.seats=new char [Airbus.A_NUMERODEFILAS][Airbus.A_NUMERODECOLUMNAS];
           for(int i=0;i<2;i++){
-            this.crew[i]=stewardess[i];
+            int num=generateRandomInt(Tripulation.amountOfTripulation);
+            this.crew[i]=stewardess[num];
             this.crew[i].addHours(duration/60);
           }
         }
@@ -54,7 +58,10 @@ public class Flight{
 
     }
 
-
+    public static int generateRandomInt(int upperRange){
+        Random random = new Random();
+        return random.nextInt(upperRange);
+    }
   /** Inicia todas las plazas, situando una "o" en todos los asientos
 	*/
     public void iniciaSeats(){

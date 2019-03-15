@@ -193,7 +193,7 @@ public void mostrarMenu(){
 								Iberia.listClient();
 								break;
 						case 7:
-								Iberia.listFlight();
+								Iberia.listPlane();
 								break;
 						case 8:
 								Iberia.printSalary();
