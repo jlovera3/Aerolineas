@@ -179,7 +179,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   //precioBase se tiene que modificar porque aun no hemos creado ticket
   @Override
   public String toString(){
-  return "Id: "+this.idVuelo+"\n"+"Origen: "+this.origin.nombreAero+"\n"
+  return "--------------------------"+"\n"+"Id: "+this.idVuelo+"\n"+"Origen: "+this.origin.nombreAero+"\n"
   +"Destino: "+this.destiny.nombreAero+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
   this.basePrice+"\n"+"Duracion: "+this.duration;
   }
