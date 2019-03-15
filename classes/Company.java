@@ -152,7 +152,7 @@ public class Company{
   public void listFlight(){
     //metodo que llama a toString de Flight y muestra por partalla
     //los atributos de cada vuelo de nuestro array.
-    for(int i=0; i<6; i++){
+    for(int i=0; i<Flight.amountOfFlights; i++){
       if(flights[i]!=null){
         System.out.println(flights[i].toString());
       }

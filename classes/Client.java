@@ -25,7 +25,7 @@ public class Client{
 		this.apellidos = APELLIDOS_DEF;
 		this.fechaNac = FECHA_NAC;
 		this.nacionalidad = NACION_DEF;
-		amountOfClients++;
+		this.amountOfClients++;
 	}
 
 	public Client(String dni, String n, String a, String f, String nac){
@@ -34,7 +34,7 @@ public class Client{
 		this.apellidos = a;
 		this.fechaNac = f;
 		this.nacionalidad = nac;
-		amountOfClients++;
+		this.amountOfClients++;
 	}
 
 
@@ -46,4 +46,10 @@ public class Client{
 						}
 					}
 				}
+
+		@Override
+		public String toString(){
+			return "Dni: "+this.DNI+" nombre: "+this.nombre+this.apellidos;
+		}
+
 }

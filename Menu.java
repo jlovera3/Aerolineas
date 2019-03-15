@@ -130,7 +130,7 @@ public Menu(){
 
   //Aqui va el menu:
 
-public void mostrarMenu(Company Iberia){
+public void mostrarMenu(){
 	do{
 	System.out.println("---------------------------------------");
 	System.out.println("1 Buscar vuelo ");
@@ -168,20 +168,13 @@ public void mostrarMenu(Company Iberia){
 								Iberia.listFlight();
 								break;
 						case 5:
-								for(int i=0; i<Pilot.amountOfPilots; i++){
-									System.out.println(pilots[i].toString());
-								}
-								for(int i=0; i<Tripulation.amountOfTripulation; i++){
-									System.out.println(crew[i].toString());
-								}
+								Iberia.listEmployee();
 								break;
 						case 6:
 								Iberia.listClient();
 								break;
 						case 7:
-								for(int i=0; i<Plane.amountOfPlanes; i++){
-									System.out.println(planes[i].toString());
-								}
+								Iberia.listFlight();
 								break;
 						case 8:
 								System.out.println("Mostrando el salario de los pilotos: ");
