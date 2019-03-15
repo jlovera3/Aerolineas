@@ -165,14 +165,21 @@ public class Company{
   *
   */
   public ArrayList<String> searchFlight(String a, String b){
+    System.out.println("Entrando");
     boolean any=false;
     ArrayList<String> vuelosDisponibles = new ArrayList<String>();
+        System.out.println("Creando ArrayList");
     for(int i=0; i<Flight.amountOfFlights;i++){//para vuelos directos
-      if(flights[i].origin.nombreAero==a && flights[i].destiny.nombreAero==b){
+          System.out.println("Entrando for "+i);
+      if(flights[i].origin.toString()==a){
+        System.out.println("Entrando primer if"+i);
+        if(flights[i].destiny.toString()==b){
+            System.out.println("Entrando segundo if "+i);
         vuelosDisponibles.add(flights[i].toString());
         any=true;
       }
     }
+  }
     /*System.out.println("Vuelos con escala: ");
     for(int i=0;i<amountOfFlights;i++){//para vuelos con escala
       for(int j=0;j<amountOfFlights;j++){
@@ -242,6 +249,12 @@ public class Company{
   public void listClient(){
     for(int i=0; i<Client.amountOfClients; i++){
       System.out.println(clients[i].toString());
+    }
+  }
+
+  public void listAero(){
+    for(int i=0; i<Airport.amountOfAirports; i++){
+      System.out.println(aero[i].toString());
     }
   }
 

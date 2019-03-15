@@ -14,12 +14,16 @@ public class Airport{
   public Airport(){
     this.nombreAero = NOMBRE_DEF;
 		this.siglas = SIGLAS_DEF;
-		amountOfAirports++;
+		this.amountOfAirports++;
   }
 
   public Airport(String n, String s){
     this.nombreAero = n;
 		this.siglas = s;
-		amountOfAirports++;
+		this.amountOfAirports++;
+  }
+
+	public String toString(){
+    return "Aeropuerto: "+this.nombreAero+", con las siglas: "+this.siglas;
   }
 }

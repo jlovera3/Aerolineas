@@ -139,7 +139,11 @@ public Menu(){
   //Aqui va el menu:
 
 public void mostrarMenu(){
+
 	do{
+	System.out.println("\n");
+	System.out.println("Aerolineas Cualquiermierda");
+	System.out.println("\n");
 	System.out.println("---------------------------------------");
 	System.out.println("1 Buscar vuelo ");
 	System.out.println("---------------------------------------");
@@ -161,12 +165,12 @@ public void mostrarMenu(){
 	System.out.println("---------------------------------------");
 	System.out.println("0 Salir ");
 	System.out.println("---------------------------------------");
-/*	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
+	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
 	System.out.println("Hay instanciados "+Pilot.amountOfPilots+" pilotos");
 	System.out.println("Hay instanciados "+Client.amountOfClients+" clientes");
 	System.out.println("Hay instanciados "+Airport.amountOfAirports+" aeropuertos");
 	System.out.println("Hay instanciados "+Ticket.amountOfTickets+" tickets");
-	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");*/
+	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");
 
 
 
@@ -174,29 +178,37 @@ public void mostrarMenu(){
 
 	opcion = teclado.nextInt();
 	switch (opcion) {
+
 						case 1:
 								buscarVuelo();
+								new Scanner(System.in).nextLine();
 								break;
 						case 2:
 								consultaBillete();
+								new Scanner(System.in).nextLine();
 								break;
 						case 3:
 	//		eliminaBillete();
 								break;
 						case 4:
 								Iberia.listFlight();
+								new Scanner(System.in).nextLine();
 								break;
 						case 5:
 								Iberia.listEmployee();
+								new Scanner(System.in).nextLine();
 								break;
 						case 6:
 								Iberia.listClient();
+								new Scanner(System.in).nextLine();
 								break;
 						case 7:
-								Iberia.listPlane();
+								Iberia.listAero();
+								new Scanner(System.in).nextLine();
 								break;
 						case 8:
 								Iberia.printSalary();
+								new Scanner(System.in).nextLine();
 								break;
 						case 9:
 								Iberia.listFlight();
@@ -209,6 +221,7 @@ public void mostrarMenu(){
 										}
 									}
 								}
+								new Scanner(System.in).nextLine();
 								break;
 						case 0:
 				salirPrograma();
@@ -231,7 +244,7 @@ public void mostrarMenu(){
 			destino = teclado.next();
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
-			for(int i=0; i<vuelosDisponibles.size()-1&&!done; i++){
+			for(int i=0; i<vuelosDisponibles.size()-1; i++){
 				System.out.println("Displaying"+i);
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
@@ -241,7 +254,7 @@ public void mostrarMenu(){
 				}
 			}
 
-				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atrás intruduciendo 0");
+				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atras intruduciendo 0");
 				opcion2 = teclado.nextInt();
 				if(opcion2!=0){
 					for(int i=0; i<Flight.amountOfFlights; i++){
