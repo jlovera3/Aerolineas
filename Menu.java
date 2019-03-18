@@ -84,7 +84,7 @@ public Menu(){
 			addPlane();
 			addFlight(flights);
 			addAero();
-			addClients(clients);
+			addClients();
 
 		}catch(NullPointerException e){
 			System.out.println("Que cagada mas grande");
@@ -98,7 +98,7 @@ public Menu(){
 		}
 	}
 
-	public void addClients(Client[] clients){
+	public void addClients(){
 		for(int i=0; i<Client.amountOfClients; i++){
 			if(clients[i]!=null){
 				Iberia.addClient(clients[i]);
@@ -333,7 +333,7 @@ public void dniThings(){
 						nacionalidadCliente = teclado.next();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
 						clients[Client.amountOfClients]=clienteNuevo;
-						addClients(clients);
+						addClients();
 						registrado=true;
 						if(registrado==true){
 							System.out.println("Ahora está registrado, procedemos a comprar su billete");
