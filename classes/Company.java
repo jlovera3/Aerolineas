@@ -267,10 +267,10 @@ public class Company{
   public Client searchClient(String dni){
       Client miCliente=null;
       boolean found=false;
-      for(int i=0; i<clients.length&&!found; i++){
-        System.out.println("Ahora");
+      for(int i=0; i<Client.amountOfClients&&!found; i++){
+        System.out.println("Ahora "+i);
         if(clients[i].DNI==dni){
-
+          System.out.println("Encontrado");
           miCliente=clients[i];
           System.out.println(clients[i].toString());
           found=true;
