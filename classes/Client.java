@@ -9,11 +9,11 @@ public class Client{
 	private final String FECHA_NAC="";
 	private final String NACION_DEF="";
 
-	protected String DNI;
-	protected String nombre;
-	protected String apellidos;
-	protected String fechaNac;
-	protected String nacionalidad;
+	public String DNI;
+	public String nombre;
+	public String apellidos;
+	public String fechaNac;
+	public String nacionalidad;
   public ArrayList<String> tickets = new ArrayList<>();
 
 	public static int amountOfClients=0;
@@ -25,7 +25,7 @@ public class Client{
 		this.apellidos = APELLIDOS_DEF;
 		this.fechaNac = FECHA_NAC;
 		this.nacionalidad = NACION_DEF;
-		this.amountOfClients++;
+		amountOfClients++;
 	}
 
 	public Client(String dni, String n, String a, String f, String nac){
@@ -34,7 +34,7 @@ public class Client{
 		this.apellidos = a;
 		this.fechaNac = f;
 		this.nacionalidad = nac;
-		this.amountOfClients++;
+		amountOfClients++;
 	}
 
 

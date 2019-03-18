@@ -57,7 +57,6 @@ public class Flight{
       this.iniciaSeats();
       amountOfFlights++;
       this.idVuelo=amountOfFlights;
-      System.out.println("Vuelo iniciado"+this.amountOfFlights);
     }
 
     public static int generateRandomInt(int upperRange){
@@ -185,9 +184,9 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   this.basePrice+"\n"+"Duracion: "+this.duration+"\n";
   }
 
-  public boolean equals(int num){
+  public boolean equals(Flight f){
     boolean igual=false;
-    if(num==this.idVuelo){
+    if(f.idVuelo==this.idVuelo){
       igual=true;
     }
     return igual;

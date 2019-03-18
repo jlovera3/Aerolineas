@@ -73,6 +73,10 @@ public Menu(){
 		  flights[4]=new Flight(aero[1], aero[5], planes[2], pilots, crew, 600, 620, "1900");
 
 			clients[0]=new Client("1","Jaime","Lovera","14/01/1996","Espania");
+			clients[1]=new Client("2","David","Monserrat","01/01/1996","Espania");
+			clients[2]=new Client("3","Rafa","Feo","14/01/1996","Espania");
+			clients[3]=new Client("4","Juanito","blabla","01/01/1996","Espania");
+
 
 			Iberia=new Company("Iberia", "IBE", "Carlos", "Serrano", "14/02/2019");
 			hireTripulation();
@@ -80,7 +84,7 @@ public Menu(){
 			addPlane();
 			addFlight(flights);
 			addAero();
-			addClients();
+			addClients(clients);
 
 		}catch(NullPointerException e){
 			System.out.println("Que cagada mas grande");
@@ -94,7 +98,7 @@ public Menu(){
 		}
 	}
 
-	public void addClients(){
+	public void addClients(Client[] clients){
 		for(int i=0; i<Client.amountOfClients; i++){
 			if(clients[i]!=null){
 				Iberia.addClient(clients[i]);
@@ -254,6 +258,7 @@ public void mostrarMenu(){
 
 				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atras intruduciendo 0");
 				opcion2 = teclado.nextInt();
+				vueloSeleccionado=flights[opcion2-1];
 				if(opcion2!=0){
 					for(int i=0; i<Flight.amountOfFlights; i++){
 						if(flights[i].equals(flights[opcion2-1])){
@@ -273,15 +278,12 @@ public void mostrarMenu(){
 
 	public void imprimeAsientos(){
 			boolean siguiente = false;
-			int opcion3;
 		do{
 				{ //Imprimimos los asientos disponibles
 						boolean done = false;
-					for(int i=0; i<asientosDisponibles.size()-1&&!done; i++){
-						if(asientosDisponibles.get(i)!=null && !done){
+					for(int i=0; i<asientosDisponibles.size()&&!done; i++){
+						if(asientosDisponibles.get(i)!=null){
 							System.out.println((i+1)+" "+asientosDisponibles.get(i));
-						}else{
-							done = true;
 						}
 					}
 				}
@@ -298,8 +300,6 @@ public void dniThings(){
 	String apellidosCliente;
 	String fechaCliente;
 	String nacionalidadCliente;
-	int opcion3=0;
-	int opcion4=0;
 	boolean comprado=false;
 	boolean siguiente = false;
 	boolean registrado=false;
@@ -308,7 +308,8 @@ public void dniThings(){
 
 			System.out.println("Introduzca su DNI");
 			dniCliente = teclado.next();
-			Client c=Iberia.searchClient(dniCliente);
+			Client c=null;
+			c=Iberia.searchClient(dniCliente);
 			if (c!=null){
 				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)){
 					c.addTicket(vueloSeleccionado, asientoSeleccionado);
@@ -320,6 +321,8 @@ public void dniThings(){
 				System.out.println("Quiere registrarse ahora? Introduzca 1 si lo desea, 0 si no");
 				opcion4 = teclado.nextInt();
 					if (opcion4==1){
+						System.out.println("Introduzca su dni");
+						dniCliente = teclado.next();
 						System.out.println("Introduzca su nombre");
 						nombreCliente = teclado.next();
 						System.out.println("Introduzca sus apellidos");
@@ -330,7 +333,7 @@ public void dniThings(){
 						nacionalidadCliente = teclado.next();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
 						clients[Client.amountOfClients]=clienteNuevo;
-						addClients();
+						addClients(clients);
 						registrado=true;
 						if(registrado==true){
 							System.out.println("Ahora está registrado, procedemos a comprar su billete");

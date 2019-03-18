@@ -16,7 +16,7 @@ public class Company{
   public Tripulation crew[]=new Tripulation[Tripulation.amountOfTripulation];
   public Plane planes[]=new Plane[Plane.amountOfPlanes];
   public Flight flights[]=new Flight[Flight.amountOfFlights];
-  public Client clients[]=new Client[Client.amountOfClients+10];
+  public Client clients[]=new Client[Client.amountOfClients];
   public Airport aero[]=new Airport[Airport.amountOfAirports];
   //Constructores de la clase company:
   public Company(String name, String siglas, String ceoN,
@@ -205,7 +205,8 @@ public class Company{
 //METODOS DE TICKET
   public boolean buyTicket(String dni, Flight f, String asiento){
       boolean bought=false;
-      Client c = searchClient(dni);
+      Client c;
+      c=searchClient(dni);
       c.addTicket(f, asiento);
       String[] splitted = asiento.split("\\s+");
       int fila=Integer.parseInt(splitted[0]);
@@ -232,7 +233,7 @@ public class Company{
   public boolean addClient(Client c){
     boolean added=false;
     if(c instanceof Client){
-      for(int i=0; i<Client.amountOfClients+1; i++){
+      for(int i=0; i<Client.amountOfClients; i++){
         if(clients[i]==null){
           clients[i]=c;
           added=true;
