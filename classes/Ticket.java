@@ -20,8 +20,6 @@ public class Ticket{
   }
   /**
   *	Constructor que recibe el vuelo y asiento.
-  *	@param fligth: String que identifica el vuelo indicado
-  * @param seat: String que identifica el asiento deseado
   */
   public Ticket(Flight f, String seat){
     this.f= f;

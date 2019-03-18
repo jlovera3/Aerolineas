@@ -107,8 +107,6 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
     /**
     *	Este método se encarga de situar una "o" en los asientos que estan libres
     * y de imprimir por pantalla al asiento libre.
-    *	@param numeroFila: Entero que identifica el numero total de filas
-    * @param numeroColumna: Entero que identifica el numero total de columnas
     * @return Devuelve un String con el identificador del asiento libre
     */
     public ArrayList<String> getFreeSeats(){
