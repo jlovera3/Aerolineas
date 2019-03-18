@@ -29,6 +29,6 @@ public class Ticket{
 
   @Override
   public String toString(){
-    return "Ha elegido el vuelo: "+this.f+"\n Dispone del asiento: "+this.seat;
+    return "Ha elegido el vuelo: "+this.f.toString()+"\n"+" Dispone del asiento: "+this.seat;
   }
 }

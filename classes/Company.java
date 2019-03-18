@@ -232,7 +232,7 @@ public class Company{
   public boolean addClient(Client c){
     boolean added=false;
     if(c instanceof Client){
-      for(int i=0; i<Client.amountOfClients; i++){
+      for(int i=0; i<Client.amountOfClients+1; i++){
         if(clients[i]==null){
           clients[i]=c;
           added=true;
@@ -309,16 +309,17 @@ public class Company{
   public void getRentabilityOfFlight(Flight f){
     double cont=0;
     if(f.plane.PlaneType=="Boing"){
+      System.out.println("--------------------------------------");
       System.out.println("La rentabilidad del vuelo "+f.toString()+" consta del: ");
       System.out.println("Sueldo de los pilotos: ");
       for(int i=0;i<Pilot.amountOfPilots;i++){
-        System.out.println(f.pilots[i].employeeNumber);
+        System.out.print(f.pilots[i].employeeNumber+" ");
         System.out.println(f.pilots[i].totalSalary());
         cont+=f.pilots[i].totalSalary();
       }
       System.out.println("Sueldo de la tripulacion: ");
       for(int i=0;i<Tripulation.amountOfTripulation;i++){
-        System.out.print(f.crew[i].employeeNumber);
+        System.out.print(f.crew[i].employeeNumber+"  ");
         System.out.println(f.crew[i].totalSalary());
         cont+=f.crew[i].totalSalary();
       }
@@ -331,13 +332,13 @@ public class Company{
       System.out.println("La rentabilidad del vuelo "+f.toString()+" consta del: ");
       System.out.println("Sueldo de los pilotos: ");
       for(int i=0;i<Pilot.amountOfPilots;i++){
-        System.out.println(f.pilots[i].employeeNumber);
+        System.out.print(f.pilots[i].employeeNumber+" ");
         System.out.println(f.pilots[i].totalSalary());
         cont+=f.pilots[i].totalSalary();
       }
       System.out.println("Sueldo de la tripulacion: ");
-      for(int i=0;i<Tripulation.amountOfTripulation;i++){
-        System.out.print(f.crew[i].employeeNumber);
+      for(int i=0;i<2;i++){
+        System.out.print(f.crew[i].employeeNumber+" ");
         System.out.println(f.crew[i].totalSalary());
         cont+=f.crew[i].totalSalary();
       }

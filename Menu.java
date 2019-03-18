@@ -142,8 +142,6 @@ public void mostrarMenu(){
 
 	do{
 	System.out.println("\n");
-	System.out.println("Aerolineas Cualquiermierda");
-	System.out.println("\n");
 	System.out.println("---------------------------------------");
 	System.out.println("1 Buscar vuelo ");
 	System.out.println("---------------------------------------");
@@ -216,7 +214,7 @@ public void mostrarMenu(){
 								opcion1=teclado.nextInt();
 								if(opcion1!=0){
 									for(int i=0; i<Flight.amountOfFlights; i++){
-										if(flights[i].equals(opcion2)){
+										if(flights[i].equals(opcion1)){
 											Iberia.getRentabilityOfFlight(flights[i]);
 										}
 									}
@@ -267,6 +265,7 @@ public void mostrarMenu(){
 					}
 				}
 			//Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
+				teclado.next();
 				imprimeAsientos();
 				done=true;
 			}while(done!=true);
@@ -308,7 +307,7 @@ public void dniThings(){
 		do{
 
 			System.out.println("Introduzca su DNI");
-			dniCliente = teclado.nextLine();
+			dniCliente = teclado.next();
 			Client c=Iberia.searchClient(dniCliente);
 			if (c!=null){
 				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)){
@@ -322,17 +321,19 @@ public void dniThings(){
 				opcion4 = teclado.nextInt();
 					if (opcion4==1){
 						System.out.println("Introduzca su nombre");
-						nombreCliente = teclado.nextLine();
+						nombreCliente = teclado.next();
 						System.out.println("Introduzca sus apellidos");
-						apellidosCliente = teclado.nextLine();
+						apellidosCliente = teclado.next();
 						System.out.println("Introduzca su fecha de nacimiento");
-						fechaCliente = teclado.nextLine();
+						fechaCliente = teclado.next();
 						System.out.println("Introduzca su nacionalidad");
-						nacionalidadCliente = teclado.nextLine();
+						nacionalidadCliente = teclado.next();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
-						registrado=Iberia.addClient(clienteNuevo);
+						clients[Client.amountOfClients]=clienteNuevo;
+						addClients();
+						registrado=true;
 						if(registrado==true){
-							System.out.println("Ahora está registrado, procedemos a comprar su billete para el vuelo "+this.vueloSeleccionado.toString()+" en el asiento "+this.asientoSeleccionado);
+							System.out.println("Ahora está registrado, procedemos a comprar su billete");
 							comprado=Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado);
 							if(comprado==true){
 								clienteNuevo.addTicket(vueloSeleccionado, asientoSeleccionado);

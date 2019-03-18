@@ -151,22 +151,21 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
           if(this.plane.PlaneType=="Boing"){
             System.out.println("  A B C D E F"+"\n");
             for(int i=0;i<Boing.B_NUMEROFILAS-1;i++){
-              System.out.println("Imprimiendo 1 Boing - "+i);
-              for(int j=0;j<Boing.B_NUMEROCOLUMNAS-1;i++){
-                System.out.println("Imprimiendo 2 Boing - "+j);
-                System.out.print(seats[i][j]);
+              System.out.print(i+1+" ");
+              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
+                System.out.print(seats[i][j]+" ");
                 }
-              System.out.println("\n");
+              System.out.println();
               }
             }
           if(this.plane.PlaneType=="Airbus"){
-            System.out.println("  A B C D E F");
+            System.out.println("  A B C D");
             for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
-              System.out.println("Imprimiendo 1 Airbus - "+i);
+              System.out.print(i+1+" ");
               for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;j++){
-                System.out.println("Imprimiendo 2 Airbus - "+j);
-                System.out.println(seats[i][j]);
+                System.out.print(seats[i][j]+" ");
                 }
+              System.out.println();
               }
             }
     }
@@ -182,8 +181,8 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
   @Override
   public String toString(){
   return "\n"+"--------------------------"+"\n"+"Id: "+this.idVuelo+"\n"+"Origen: "+this.origin.nombreAero+"\n"
-  +"Destino: "+this.destiny.nombreAero+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio"+
-  this.basePrice+"\n"+"Duracion: "+this.duration;
+  +"Destino: "+this.destiny.nombreAero+"\n"+"Avion: "+this.plane.matricula+"\n"+"Precio: "+
+  this.basePrice+"\n"+"Duracion: "+this.duration+"\n";
   }
 
   public boolean equals(int num){
