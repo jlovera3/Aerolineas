@@ -222,9 +222,25 @@ public class Company{
       return bought;
   }
 
-  public  boolean removeTicket(){
-    return true;
+  public boolean removeTicket(String dni, Flight f, String asiento){
+      boolean removed=false;
+      Client c;
+      c=searchClient(dni);
+      c.addTicket(f, asiento);
+      String[] splitted = asiento.split("\\s+");
+      int fila=Integer.parseInt(splitted[0]);
+      char colum=splitted[1].charAt(0);
+      int columna=0;
+      for(int i=0; i<6;i++){
+        if(Flight.col[i]==colum){
+          columna=i;
+        }
+      }
+      bought=f.ocuppySeat(fila, columna);
+          //necesito leer solo un numero hasta el espacio y despues del esacio un char
+      return removed;
   }
+
   public Flight searchTicket(){
     return null;
   }

@@ -145,28 +145,32 @@ public Menu(){
 public void mostrarMenu(){
 
 	do{
-	System.out.println("\n");
-	System.out.println("---------------------------------------");
-	System.out.println("1 Buscar vuelo ");
-	System.out.println("---------------------------------------");
-	System.out.println("2 Consultar Billete ");
-	System.out.println("---------------------------------------");
-	System.out.println("3 Eliminar Billete ");
-	System.out.println("---------------------------------------");
-	System.out.println("4 Listar Vuelos ");
-	System.out.println("---------------------------------------");
-	System.out.println("5 Listar Empleados ");
-	System.out.println("---------------------------------------");
-	System.out.println("6 Listar Clientes ");
-	System.out.println("---------------------------------------");
-	System.out.println("7 Listar Flota");
-	System.out.println("---------------------------------------");
-	System.out.println("8 Calcular Salarios totales");
-	System.out.println("---------------------------------------");
-	System.out.println("9 Calcular la rentabilidad de un vuelo");
-	System.out.println("---------------------------------------");
-	System.out.println("0 Salir ");
-	System.out.println("---------------------------------------");
+		System.out.println("");
+		System.out.println("##########################################");
+		System.out.println("########    Aerolineas Ryancry    ########");
+		System.out.println("##########################################");
+		System.out.println("");
+		System.out.println("---------------------------------------");
+		System.out.println("1 Buscar vuelo ");
+		System.out.println("---------------------------------------");
+		System.out.println("2 Consultar Billete ");
+		System.out.println("---------------------------------------");
+		System.out.println("3 Eliminar Billete ");
+		System.out.println("---------------------------------------");
+		System.out.println("4 Listar Vuelos ");
+		System.out.println("---------------------------------------");
+		System.out.println("5 Listar Empleados ");
+		System.out.println("---------------------------------------");
+		System.out.println("6 Listar Clientes ");
+		System.out.println("---------------------------------------");
+		System.out.println("7 Listar Flota");
+		System.out.println("---------------------------------------");
+		System.out.println("8 Calcular Salarios totales");
+		System.out.println("---------------------------------------");
+		System.out.println("9 Calcular la rentabilidad de un vuelo");
+		System.out.println("---------------------------------------");
+		System.out.println("0 Salir ");
+		System.out.println("---------------------------------------");
 /*	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
 	System.out.println("Hay instanciados "+Pilot.amountOfPilots+" pilotos");
 	System.out.println("Hay instanciados "+Client.amountOfClients+" clientes");
@@ -190,7 +194,8 @@ public void mostrarMenu(){
 								new Scanner(System.in).nextLine();
 								break;
 						case 3:
-	//		eliminaBillete();
+								eliminaBillete();
+								new Scanner(System.in).nextLine();
 								break;
 						case 4:
 								Iberia.listFlight();
@@ -242,8 +247,10 @@ public void mostrarMenu(){
 			do{
 			System.out.println("Introduzca un aeropuerto de origen o 0 para volver");
 			origen = teclado.next();
+			if(!origen.equals("0")){
 			System.out.println("Introduzca un aeropuerto de destino o 0 para volver");
 			destino = teclado.next();
+			if(!destino.equals("0")){
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 
@@ -255,19 +262,24 @@ public void mostrarMenu(){
 					//vueloSeleccionado = vuelosDisponibles.get(i);
 					}
 				}
+				seleccionaVuelo();
 			}else{
 				System.out.println("No hay vuelos disponibles para ese origen y destino");
 			}
-		}while(!done);
-
-			seleccionaVuelo();
+		}else{
+			mostrarMenu();
+		}
+	}else{
+		mostrarMenu();
 	}
+	}while(!done);
+}
 
 public void seleccionaVuelo(){
-				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atras intruduciendo 0");
+				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva al menu intruduciendo 0");
 				opcion2 = teclado.nextInt();
-				vueloSeleccionado=flights[opcion2-1];
 				if(opcion2!=0){
+				vueloSeleccionado=flights[opcion2-1];
 					for(int i=0; i<Flight.amountOfFlights; i++){
 						if(flights[i].equals(flights[opcion2-1])){
 							System.out.println("Seleccionado el vuelo "+flights[i].toString());
@@ -276,6 +288,11 @@ public void seleccionaVuelo(){
 							asientosDisponibles = Iberia.getFreeSeatsFromFlight(flights[i]);
 						}
 					}
+				}else if(opcion2==0){
+					mostrarMenu();
+				}else{
+					System.out.println("No es una opcion valida");
+					seleccionaVuelo();
 				}
 			//Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
 				teclado.next();
@@ -296,8 +313,14 @@ public void seleccionaVuelo(){
 				}
 				System.out.println("Seleccione el asiento o vuelva atras intruduciendo 0");
 				opcion3 = teclado.nextInt();
+				if(opcion3!=0){
 				asientoSeleccionado = asientosDisponibles.get(opcion3-1);
 				dniThings();
+			}else if(opcion3==0){
+				seleccionaVuelo();
+			}else{
+				System.out.println("No es una opcion valida");
+			}
 			}while(opcion3!=0 && !siguiente);
 		}
 
@@ -319,7 +342,6 @@ public void dniThings(){
 			c=Iberia.searchClient(dniCliente);
 			if (c!=null){
 				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)==true){
-					c.addTicket(vueloSeleccionado, asientoSeleccionado);
 					System.out.println("Comprado.");
 					siguiente = true;
 				}
@@ -368,7 +390,6 @@ public void dniThings(){
 
 
 	public void consultaBillete() {
-		String pregunta;
 		Client c=null;
 		Scanner teclado=new Scanner(System.in);
 		System.out.println("Introduzca su DNI");
@@ -376,6 +397,25 @@ public void dniThings(){
 		c=Iberia.searchClient(dniCliente);
 		if (c!=null){
 				c.listTickets();
+			}else{
+				System.out.println("No hay ningún ticket registrado con ese DNI");
+			}
+	}
+
+	public void eliminaBillete() {
+		Client c=null;
+		Scanner teclado=new Scanner(System.in);
+		System.out.println("Introduzca su DNI");
+		dniCliente = teclado.next();
+		System.out.println("Introduzca su identificador");
+		identificador = teclado.next();
+		c=Iberia.searchClient(dniCliente);
+		if (c!=null){
+			if(c.removeTicket(identificador)){
+				System.out.println("Eliminado con exito");
+			}
+		}else{
+				System.out.println("No hay ningún usuario registrado con ese DNI");
 			}
 	}
 
@@ -383,12 +423,14 @@ public void salirPrograma(){
 		Scanner teclado=new Scanner(System.in);
 		System.out.println("Volver al menu principal o salir? 1/Menu 0/Salir");
 		int opcion5 = teclado.nextInt();
-		if (opcion5==1 || opcion5==0){
-			if (opcion5==1){
+		if (opcion5==1){
 				mostrarMenu();
 			}else{
 				System.out.println("Gracias por usarnos!");
+				if (opcion5==1){
 				}
 			}
 		}
+
+
 	}

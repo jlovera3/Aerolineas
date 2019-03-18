@@ -39,10 +39,20 @@ public class Client{
 
 
 			public void addTicket (Flight thisF, String seat){
-					boolean done=true;
+				Ticket miticket=new Ticket(thisF, seat);
+				tickets.add(miticket.toString());
+			}
+
+			public void removeTicket (String ticket){
+
+				for(int i=0; i<tickets.size();i++){
+					if(tickets.toString().equals(ticket))
 					Ticket miticket=new Ticket(thisF, seat);
-					tickets.add(miticket.toString());
-				}
+					tickets.(miticket.toString());
+			}
+			}
+
+
 		public void listTickets(){
 			for(int i=0; i<tickets.size();i++){
 				System.out.println(tickets.get(i));
