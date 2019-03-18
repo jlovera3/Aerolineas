@@ -259,7 +259,7 @@ public void mostrarMenu(){
 				if(opcion2!=0){
 					for(int i=0; i<Flight.amountOfFlights; i++){
 						if(flights[i].equals(flights[opcion2-1])){
-							System.out.println("Seleccionado vuelo "+flights[i].toString());
+							System.out.println("Seleccionado el vuelo "+flights[i].toString());
 							System.out.println("Los asientos del vuelo son: ");
 							flights[i].printSeats();
 							asientosDisponibles = Iberia.getFreeSeatsFromFlight(flights[i]);
@@ -286,7 +286,7 @@ public void mostrarMenu(){
 						}
 					}
 				}
-				System.out.println("Seleccione el asiento o vuelva atrás intruduciendo 0");
+				System.out.println("Seleccione el asiento o vuelva atras intruduciendo 0");
 				opcion3 = teclado.nextInt();
 				asientoSeleccionado = asientosDisponibles.get(opcion3-1);
 				dniThings();

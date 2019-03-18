@@ -16,7 +16,7 @@ public class Company{
   public Tripulation crew[]=new Tripulation[Tripulation.amountOfTripulation];
   public Plane planes[]=new Plane[Plane.amountOfPlanes];
   public Flight flights[]=new Flight[Flight.amountOfFlights];
-  public Client clients[]=new Client[Client.amountOfClients];
+  public Client clients[]=new Client[Client.amountOfClients+10];
   public Airport aero[]=new Airport[Airport.amountOfAirports];
   //Constructores de la clase company:
   public Company(String name, String siglas, String ceoN,

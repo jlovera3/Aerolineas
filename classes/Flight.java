@@ -18,13 +18,15 @@ public class Flight{
   public char[][] seats;
   public static final char[] col={'A','B','C','D','F','G'};
   public ArrayList<String> freeSeats = new ArrayList<String>();
+  public int length;
+  public int length1;
 
   public static int amountOfFlights=0;
   public int idVuelo;
 
     //Constructor de 6 crew
 
-    public Flight(Airport aero1, Airport aero2,Plane plane, Pilot[] pilots,
+    public Flight(Airport aero1, Airport aero2, Plane plane, Pilot[] pilots,
      Tripulation[] stewardess, int basePrice, int duration,
       String hour){
       this.origin=aero1;
@@ -129,7 +131,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
 
           if(this.plane.PlaneType=="Airbus"){
             for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
-              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;i++){
+              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;j++){
                 if(seats[i][j]=='o'){
                   if(i<Airbus.A_NUMEROFILASVIP){
                   freeSeats.add(i+1+" "+col[j]+" "+" | VIP | "+this.basePrice*1.2);
@@ -150,9 +152,10 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
         public void printSeats(){
           if(this.plane.PlaneType=="Boing"){
             System.out.println("  A B C D E F"+"\n");
-            for(int i=0;i<Boing.B_NUMEROFILAS;i++){
-              System.out.print(i+1);
-              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
+            for(int i=0;i<Boing.B_NUMEROFILAS-1;i++){
+              System.out.println("Imprimiendo 1 Boing - "+i);
+              for(int j=0;j<Boing.B_NUMEROCOLUMNAS-1;i++){
+                System.out.println("Imprimiendo 2 Boing - "+j);
                 System.out.print(seats[i][j]);
                 }
               System.out.println("\n");
@@ -161,9 +164,10 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
           if(this.plane.PlaneType=="Airbus"){
             System.out.println("  A B C D E F");
             for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
-                System.out.print(i+1);
-              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;i++){
-                System.out.print(seats[i][j]);
+              System.out.println("Imprimiendo 1 Airbus - "+i);
+              for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;j++){
+                System.out.println("Imprimiendo 2 Airbus - "+j);
+                System.out.println(seats[i][j]);
                 }
               }
             }
