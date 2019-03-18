@@ -43,19 +43,20 @@ public class Client{
 				tickets.add(miticket.toString());
 			}
 
-			public void removeTicket (String ticket){
-
-				for(int i=0; i<tickets.size();i++){
-					if(tickets.toString().equals(ticket))
-					Ticket miticket=new Ticket(thisF, seat);
-					tickets.(miticket.toString());
-			}
+			public boolean removeTicket (int position){
+				boolean removed=false;
+				if(tickets.get(position)!=null){
+					tickets.remove(position);
+					removed=true;
+				}
+				return removed;
 			}
 
 
 		public void listTickets(){
 			for(int i=0; i<tickets.size();i++){
-				System.out.println(tickets.get(i));
+				System.out.println("--------------------------------");
+				System.out.println("Identificador: "+i+" ; "+tickets.get(i));
 			}
 		}
 

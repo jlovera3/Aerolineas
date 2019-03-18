@@ -404,14 +404,15 @@ public void dniThings(){
 
 	public void eliminaBillete() {
 		Client c=null;
+		int identificador=0;
 		Scanner teclado=new Scanner(System.in);
 		System.out.println("Introduzca su DNI");
 		dniCliente = teclado.next();
-		System.out.println("Introduzca su identificador");
-		identificador = teclado.next();
+		System.out.println("Introduzca el identificador de su pasaje");
+		identificador = teclado.nextInt();
 		c=Iberia.searchClient(dniCliente);
 		if (c!=null){
-			if(c.removeTicket(identificador)){
+			if(c.removeTicket(identificador)==true){
 				System.out.println("Eliminado con exito");
 			}
 		}else{

@@ -224,7 +224,7 @@ public class Company{
 
   public boolean removeTicket(String dni, Flight f, String asiento){
       boolean removed=false;
-      Client c;
+    /*  Client c;
       c=searchClient(dni);
       c.addTicket(f, asiento);
       String[] splitted = asiento.split("\\s+");
@@ -237,7 +237,7 @@ public class Company{
         }
       }
       bought=f.ocuppySeat(fila, columna);
-          //necesito leer solo un numero hasta el espacio y despues del esacio un char
+      */    //necesito leer solo un numero hasta el espacio y despues del esacio un char
       return removed;
   }
 
