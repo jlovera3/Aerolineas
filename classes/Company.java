@@ -207,23 +207,14 @@ public class Company{
       boolean bought=false;
       Client c;
       c=searchClient(dni);
-      System.out.println("Aqui peta 1");
       c.addTicket(f, asiento);
-      System.out.println("Aqui peta 2");
       String[] splitted = asiento.split("\\s+");
-      System.out.println("Aqui peta 3");
       int fila=Integer.parseInt(splitted[0]);
-      System.out.println("Aqui peta 4");
       char colum=splitted[1].charAt(0);
-      System.out.println("Aqui peta 5");
       int columna=0;
-      System.out.println("Aqui peta 6");
       for(int i=0; i<6;i++){
-        System.out.println("Aqui peta 7" +i);
         if(Flight.col[i]==colum){
-          System.out.println("Aqui peta 8" +i);
           columna=i;
-          System.out.println("Aqui peta 9" +i);
         }
       }
       bought=f.ocuppySeat(fila, columna);
@@ -267,12 +258,9 @@ public class Company{
   public Client searchClient(String dni){
       Client miCliente=null;
       boolean found=false;
-      for(int i=0; i<Client.amountOfClients&&!found; i++){
-        System.out.println("Ahora "+i);
-        if(clients[i].DNI==dni){
-          System.out.println("Encontrado");
+      for(int i=0; i<Client.amountOfClients&&found==false; i++){
+        if(clients[i].DNI.equals(dni)){
           miCliente=clients[i];
-          System.out.println(clients[i].toString());
           found=true;
         }
       }

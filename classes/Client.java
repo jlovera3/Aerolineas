@@ -39,14 +39,15 @@ public class Client{
 
 
 			public void addTicket (Flight thisF, String seat){
-				System.out.println("Cliente peta entrando");
-					for(int i=0;i<Ticket.amountOfTickets;i++){
-						System.out.println("Cliente peta" +i);
-							Ticket miticket=new Ticket(thisF, seat);
-							tickets.add(miticket.toString());
-						}
-					}
-
+					boolean done=true;
+					Ticket miticket=new Ticket(thisF, seat);
+					tickets.add(miticket.toString());
+				}
+		public void listTickets(){
+			for(int i=0; i<tickets.size();i++){
+				System.out.println(tickets.get(i));
+			}
+		}
 
 		@Override
 		public String toString(){

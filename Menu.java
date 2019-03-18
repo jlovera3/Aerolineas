@@ -249,14 +249,14 @@ public void mostrarMenu(){
 
 			if(vuelosDisponibles.size()!=0){
 				done=true;
-			for(int i=0; i<vuelosDisponibles.size(); i++){
-				if(vuelosDisponibles.get(i)!=null){
-					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
+				for(int i=0; i<vuelosDisponibles.size(); i++){
+					if(vuelosDisponibles.get(i)!=null){
+						System.out.println((i+1)+" "+vuelosDisponibles.get(i));
 					//vueloSeleccionado = vuelosDisponibles.get(i);
+					}
 				}
-			}
-		}else{
-			System.out.println("No hay vuelos disponibles para ese origen y destino");
+			}else{
+				System.out.println("No hay vuelos disponibles para ese origen y destino");
 			}
 		}while(!done);
 
@@ -318,9 +318,9 @@ public void dniThings(){
 			dniCliente = teclado.next();
 			c=Iberia.searchClient(dniCliente);
 			if (c!=null){
-				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)){
+				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)==true){
 					c.addTicket(vueloSeleccionado, asientoSeleccionado);
-					System.out.println("Comprado. Su identificador es el");
+					System.out.println("Comprado.");
 					siguiente = true;
 				}
 			}else{
@@ -369,10 +369,14 @@ public void dniThings(){
 
 	public void consultaBillete() {
 		String pregunta;
+		Client c=null;
 		Scanner teclado=new Scanner(System.in);
-		System.out.println("Introduce tu DNI");
-		pregunta = teclado.nextLine();
-
+		System.out.println("Introduzca su DNI");
+		dniCliente = teclado.next();
+		c=Iberia.searchClient(dniCliente);
+		if (c!=null){
+				c.listTickets();
+			}
 	}
 
 public void salirPrograma(){
