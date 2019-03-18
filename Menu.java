@@ -303,12 +303,12 @@ public void dniThings(){
 	boolean comprado=false;
 	boolean siguiente = false;
 	boolean registrado=false;
+	Client c;
 
 		do{
 
 			System.out.println("Introduzca su DNI");
 			dniCliente = teclado.next();
-			Client c=null;
 			c=Iberia.searchClient(dniCliente);
 			if (c!=null){
 				if(Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado)){

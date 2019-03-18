@@ -233,7 +233,7 @@ public class Company{
   public boolean addClient(Client c){
     boolean added=false;
     if(c instanceof Client){
-      for(int i=0; i<Client.amountOfClients; i++){
+      for(int i=0; i<Client.amountOfClients&&!added; i++){
         if(clients[i]==null){
           clients[i]=c;
           added=true;
@@ -257,13 +257,16 @@ public class Company{
 
   public Client searchClient(String dni){
       Client miCliente=null;
-      for(int i=0; i<Client.amountOfClients; i++){
+      boolean found=false;
+      for(int i=0; i<Client.amountOfClients&&!found; i++){
         if(clients[i].DNI==dni){
           miCliente=clients[i];
+          found=true;
         }
       }
       return miCliente;
   }
+
   public boolean removeClient(Client c){
     boolean removed=false;
     if(c instanceof Client){
