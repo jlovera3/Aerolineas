@@ -18,8 +18,7 @@ public class Flight{
   public char[][] seats;
   public static final char[] col={'A','B','C','D','F','G'};
   public ArrayList<String> freeSeats = new ArrayList<String>();
-  public int length;
-  public int length1;
+
 
   public static int amountOfFlights=0;
   public int idVuelo;
@@ -112,7 +111,7 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
           int cont=0;
           if(this.plane.PlaneType=="Boing"){
             for(int i=0;i<Boing.B_NUMEROFILAS;i++){
-              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
+              for(int j=0;j<Boing.B_NUMEROCOLUMNAS;j++){
                 if(seats[i][j]=='o'){
                   if(i<Boing.B_NUMEROFILASVIP){
                   freeSeats.add(i+1+" "+col[j]+" "+" | VIP | "+this.basePrice*1.2);
@@ -148,21 +147,29 @@ public boolean ocuppySeat(int numeroFila, int numeroColumna){
 
         public void printSeats(){
           if(this.plane.PlaneType=="Boing"){
-            System.out.println("  A B C D E F"+"\n");
+            System.out.println("-   A | B | C | D | E | F |"+"\n");
             for(int i=0;i<Boing.B_NUMEROFILAS-1;i++){
-              System.out.print(i+1+" ");
+              System.out.print(i+1+" | ");
               for(int j=0;j<Boing.B_NUMEROCOLUMNAS;i++){
-                System.out.print(seats[i][j]+" ");
+                System.out.print(seats[i][j]+" | ");
                 }
               System.out.println();
               }
             }
           if(this.plane.PlaneType=="Airbus"){
-            System.out.println("  A B C D");
+            /*
+            System.out.println("   ____________");
+            System.out.println("  /            \ ");
+            System.out.println(" /              \ ");
+            System.out.println("/                \ ");
+            System.out.println("|                 | ");
+            System.out.println("|                 | ");
+            */
+            System.out.println("-   A | B | C | D |");
             for(int i=0;i<Airbus.A_NUMERODEFILAS;i++){
-              System.out.print(i+1+" ");
+              System.out.print(i+1+" | ");
               for(int j=0;j<Airbus.A_NUMERODECOLUMNAS;j++){
-                System.out.print(seats[i][j]+" ");
+                System.out.print(seats[i][j]+" | ");
                 }
               System.out.println();
               }

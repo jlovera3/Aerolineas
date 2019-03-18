@@ -247,15 +247,23 @@ public void mostrarMenu(){
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
 
+			if(vuelosDisponibles.size()!=0){
+				done=true;
 			for(int i=0; i<vuelosDisponibles.size(); i++){
 				if(vuelosDisponibles.get(i)!=null){
 					System.out.println((i+1)+" "+vuelosDisponibles.get(i));
 					//vueloSeleccionado = vuelosDisponibles.get(i);
-				}else{
-					done = true;
 				}
 			}
+		}else{
+			System.out.println("No hay vuelos disponibles para ese origen y destino");
+			}
+		}while(!done);
 
+			seleccionaVuelo();
+	}
+
+public void seleccionaVuelo(){
 				System.out.println("Seleccione un vuelo escribiendo su ID o vuelva atras intruduciendo 0");
 				opcion2 = teclado.nextInt();
 				vueloSeleccionado=flights[opcion2-1];
@@ -272,9 +280,8 @@ public void mostrarMenu(){
 			//Llamo a getFreeSeats con el Vuelo del que quiero los asientos y
 				teclado.next();
 				imprimeAsientos();
-				done=true;
-			}while(done!=true);
-		}
+			}
+
 
 	public void imprimeAsientos(){
 			boolean siguiente = false;
