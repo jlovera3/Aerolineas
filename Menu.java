@@ -163,12 +163,12 @@ public void mostrarMenu(){
 	System.out.println("---------------------------------------");
 	System.out.println("0 Salir ");
 	System.out.println("---------------------------------------");
-	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
+/*	System.out.println("Hay instanciados "+Flight.amountOfFlights+" vuelos");
 	System.out.println("Hay instanciados "+Pilot.amountOfPilots+" pilotos");
 	System.out.println("Hay instanciados "+Client.amountOfClients+" clientes");
 	System.out.println("Hay instanciados "+Airport.amountOfAirports+" aeropuertos");
 	System.out.println("Hay instanciados "+Ticket.amountOfTickets+" tickets");
-	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");
+	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");*/
 
 
 
