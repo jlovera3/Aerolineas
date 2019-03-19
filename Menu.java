@@ -144,6 +144,7 @@ public Menu(){
 
 public void mostrarMenu(){
 
+try{
 	do{
 		System.out.println("");
 		System.out.println("##########################################");
@@ -178,11 +179,8 @@ public void mostrarMenu(){
 	System.out.println("Hay instanciados "+Ticket.amountOfTickets+" tickets");
 	System.out.println("Hay instanciados "+Employee.amountOfEmployees+" empleados");*/
 
-
-
-
-
 	opcion = teclado.nextInt();
+
 	switch (opcion) {
 
 						case 1:
@@ -238,6 +236,11 @@ public void mostrarMenu(){
 
 			}
 		}while(opcion!=0);
+	}catch(Exception e){
+		System.out.println("Error");
+		teclado.nextLine();
+		mostrarMenu();
+	}
 	}
 
 
