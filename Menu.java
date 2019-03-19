@@ -186,6 +186,7 @@ public void mostrarMenu(){
 	switch (opcion) {
 
 						case 1:
+								asientosDisponibles.clear();
 								buscarVuelo();
 								new Scanner(System.in).nextLine();
 								break;
