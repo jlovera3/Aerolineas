@@ -43,14 +43,17 @@ public class Client{
 				tickets.add(miticket.toString());
 			}
 
-			public boolean removeTicket (int position){
+			public boolean removeTicket (String identificador){
 				boolean removed=false;
-				if(tickets.get(position)!=null){
-					tickets.remove(position);
-					removed=true;
+
+				for(int i=0; i<tickets.size();i++){
+					if(tickets.get(i).equals(identificador)){
+						tickets.remove(i);
+						removed=true;
 				}
-				return removed;
 			}
+			return removed;
+		}
 
 
 		public void listTickets(){

@@ -222,7 +222,7 @@ try{
 								opcion1=teclado.nextInt();
 								if(opcion1!=0){
 									for(int i=0; i<Flight.amountOfFlights; i++){
-										if(flights[i].equals(opcion1)){
+										if(flights[i].equals(opcion1-1)){
 											Iberia.getRentabilityOfFlight(flights[i]);
 										}
 									}
@@ -407,25 +407,27 @@ public void dniThings(){
 		if (c!=null){
 				c.listTickets();
 			}else{
-				System.out.println("No hay ningún ticket registrado con ese DNI");
+				System.out.println("No hay ningun ticket registrado con ese DNI");
 			}
 	}
 
 	public void eliminaBillete() {
 		Client c=null;
-		int identificador=0;
+		String identificador;
 		Scanner teclado=new Scanner(System.in);
 		System.out.println("Introduzca su DNI");
 		dniCliente = teclado.next();
-		System.out.println("Introduzca el identificador de su pasaje");
-		identificador = teclado.nextInt();
 		c=Iberia.searchClient(dniCliente);
 		if (c!=null){
+		System.out.println("Introduzca el identificador de su pasaje");
+		identificador = teclado.next();
 			if(c.removeTicket(identificador)==true){
 				System.out.println("Eliminado con exito");
+			}else{
+				System.out.println("No se ha podido eliminar porque no existe");
 			}
 		}else{
-				System.out.println("No hay ningún usuario registrado con ese DNI");
+				System.out.println("No hay ningun usuario registrado con ese DNI");
 			}
 	}
 
