@@ -238,7 +238,7 @@ try{
 			}
 		}while(opcion!=0);
 	}catch(Exception e){
-		System.out.println("Error");
+		System.out.println("Error "+e);
 		teclado.nextLine();
 		mostrarMenu();
 	}
@@ -366,17 +366,22 @@ public void dniThings(){
 						nacionalidadCliente = teclado.next();
 						Client clienteNuevo = new Client(dniCliente, nombreCliente, apellidosCliente, fechaCliente, nacionalidadCliente);
 						clients[Client.amountOfClients]=clienteNuevo;
-						addClients();
-						registrado=true;
+						System.out.println(clienteNuevo.toString());
+						registrado=Iberia.addClient(clienteNuevo);
 						if(registrado==true){
-							System.out.println("Ahora está registrado, procedemos a comprar su billete");
+							System.out.println("Ahora esta registrado, procedemos a comprar su billete");
 							comprado=Iberia.buyTicket(dniCliente, vueloSeleccionado, asientoSeleccionado);
 							if(comprado==true){
+								System.out.println("Ticket emparejado a su DNI");
 								clienteNuevo.addTicket(vueloSeleccionado, asientoSeleccionado);
 								siguiente = true;
 						}else{
-							System.out.println("Ha habido un problema. Contacte con soporte");
+							System.out.println("Ha habido un problema emparejando el billete. Contacte con soporte.");
 						}
+					}else{
+						System.out.println("Ha habido un problema registrandolo. Contacte con soporte.");
+
+				}
 					}else if(opcion4==0){
 						salirPrograma();
 					}else{
@@ -384,12 +389,12 @@ public void dniThings(){
 						dniThings();
 						}
 					}
-				}
-			}while(opcion4!=0 && !siguiente);
-				if (opcion4==0){
-					salirPrograma();
+				}while(opcion4!=0 && !siguiente);
+					if (opcion4==0){
+						salirPrograma();
+			}
 		}
-	}
+
 
 
 

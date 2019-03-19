@@ -62,7 +62,7 @@ public class Client{
 
 		@Override
 		public String toString(){
-			return "Dni: "+this.DNI+" nombre: "+this.nombre+this.apellidos;
+			return "---------------"+"\n"+"Dni: "+this.DNI+" Apellidos: "+this.apellidos+"\n"+"Nombre: "+this.nombre+" Nacionalidad: "+this.nacionalidad+" Fecha nacimiento: "+this.fechaNac;
 		}
 
 }
