@@ -249,11 +249,12 @@ try{
 		public void buscarVuelo(){
 			boolean done = false;
 			do{
+				teclado.nextLine();
 			System.out.println("Introduzca un aeropuerto de origen o 0 para volver");
-			origen = teclado.next();
+			origen = teclado.nextLine();
 			if(!origen.equals("0")){
 			System.out.println("Introduzca un aeropuerto de destino o 0 para volver");
-			destino = teclado.next();
+			destino = teclado.nextLine();
 			if(!destino.equals("0")){
 
 			vuelosDisponibles = Iberia.searchFlight(origen, destino);
